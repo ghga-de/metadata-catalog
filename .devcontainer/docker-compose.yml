@@ -1,7 +1,7 @@
 version: "3"
 
 services:
-  # data portal ui
+  # metadata_catalogue
 
   metadata_catalogue:
     image: ghga/metadata-catalogue:main

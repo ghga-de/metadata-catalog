@@ -1,8 +1,13 @@
 # List of all mandatory files and directories that
+
 # have to exist in this repo.
+
 # This list is similar to the `./static_files`,
+
 # however, the entries here are just checked for
+
 # existence, their content is not evaluated and
+
 # may differ from that of the template repository.
 
 .devcontainer/dev_install
@@ -12,9 +17,8 @@
 .devcontainer/Dockerfile
 
 .github/workflows/dev_cd.yaml
-.github/workflows/unit_and_int_tests.yaml
+.github/workflows/check_mandatory_and_static_files.yaml
 
 Dockerfile
 example-config.yaml
 README.md
-
