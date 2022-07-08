@@ -1,0 +1,4 @@
+host: localhost
+port: 8080
+svc_search_url: "http://localhost:8001"
+svc_repository_url: "http://localhost:8002"

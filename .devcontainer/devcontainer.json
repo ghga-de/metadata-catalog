@@ -1,0 +1,48 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.178.0/containers/typescript-node
+{
+  "name": "Data Portal UI",
+
+  "dockerComposeFile": [
+    // the main compose file containing all data portal services,
+    // this file is obtained from an external repository
+    // (https://github.com/ghga-de/dataportal-dev-service-compose),
+    // to update please run `./update_main_compose_yml.sh`:
+    "docker-compose.yml",
+
+    // a compose file that overwrite the ui service for development:
+    "docker-compose.override.yml"
+  ],
+
+  // The 'service' property is the name of the service for the container that VS Code should
+  // use. Update this value and .devcontainer/docker-compose.yml to the real service name.
+  "service": "metadata_catalogue",
+
+  // The optional 'workspaceFolder' property is the path VS Code should open by default when
+  // connected. This is typically a file mount in .devcontainer/docker-compose.yml
+  "workspaceFolder": "/workspace",
+
+  // Set *default* container specific settings.json values on container create.
+  "settings": {},
+
+  // Add the IDs of extensions you want installed when the container is created.
+  "extensions": [
+    "dbaeumer.vscode-eslint",
+    "paulshen.paul-typescript-toolkit",
+    "EditorConfig.EditorConfig",
+    "esbenp.prettier-vscode"
+  ],
+
+  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  // "forwardPorts": [],
+
+  // Use 'postCreateCommand' to run commands after the container is created.
+  // "postCreateCommand": "yarn install",
+
+  // Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+  "remoteUser": "node",
+
+  "features": {
+    "python": "3.10"
+  }
+}

@@ -1,0 +1,17 @@
+version: "3.2"
+services:
+  metadata_catalogue:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+
+    command: /bin/sh -c "while sleep 1000; do :; done"
+
+    ports:
+      - target: 8080
+        published: 8080
+        protocol: tcp
+        mode: host
+
+    volumes:
+      - ..:/workspace:cached

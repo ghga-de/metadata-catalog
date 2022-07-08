@@ -1,0 +1,10 @@
+#!/bin/bash
+# start web app using the development server
+
+# By changing into the `.devcontainer` dir,
+# the `.devcontainer/.data-portal-ui.config` file will be automatically
+# used as configuration source:
+cd /workspace/.devcontainer
+
+# start development server
+../configure_build_serve/run.py --dev

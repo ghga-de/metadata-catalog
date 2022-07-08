@@ -1,0 +1,21 @@
+$utilities: map-merge(
+  $utilities,
+  (
+    "shadow":
+      map-merge(
+        map-get($utilities, "shadow"),
+        (
+          values:
+            map-merge(
+              map-get(map-get($utilities, "shadow"), "values"),
+              (
+                "dark": 0 0.5rem 1rem rgba($black, 0.5),
+                "sm-dark": 0 0.125rem 0.25rem rgba($black, 0.5),
+                "md-dark": 0 0.185rem 0.325rem rgba($black, 0.5),
+                "lg-dark": 0 1rem 3rem rgba($black, .5)
+              )
+            ),
+        )
+      ),
+  )
+);

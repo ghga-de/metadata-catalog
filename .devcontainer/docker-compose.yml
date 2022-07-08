@@ -1,0 +1,110 @@
+version: "3"
+
+services:
+  # data portal ui
+
+  metadata_catalogue:
+    image: ghga/metadata-catalogue:main
+    environment:
+      METADATA_CATALOGUE_HOST: 0.0.0.0
+      METADATA_CATALOGUE_PORT: 8080
+    ports:
+      - 8000:8080
+    depends_on:
+      - metadata_search_svc
+      - metadata_rep
+
+  # metadata search
+
+  metadata_search_svc:
+    image: ghga/metadata-search-service:main
+    environment:
+      METADATA_SEARCH_SERVICE_HOST: 0.0.0.0
+      METADATA_SEARCH_SERVICE_PORT: 8080
+      METADATA_SEARCH_SERVICE_CORS_ALLOWED_ORIGINS: '["*"]'
+      METADATA_SEARCH_SERVICE_CORS_ALLOW_CREDENTIALS: "true"
+      METADATA_SEARCH_SERVICE_CORS_ALLOWED_METHODS: '["*"]'
+      METADATA_SEARCH_SERVICE_CORS_ALLOWED_HEADERS: '["*"]'
+      METADATA_SEARCH_SERVICE_LOG_LEVEL: debug
+      METADATA_SEARCH_SERVICE_DB_URL: mongodb://metadata_db:27017
+      METADATA_SEARCH_SERVICE_DB_NAME: metadata
+    entrypoint: ["bash", "-c"]
+    command: |
+      '''
+      # install additional deps as they are needed for the population script;
+      cd /service
+      pip install ".[all]"
+
+      # run the service:
+      metadata-search-service
+      '''
+    ports:
+      - 8001:8080
+    depends_on:
+      - metadata_db
+
+  #metadata repo
+
+  metadata_rep:
+    image: ghga/metadata-repository-service:main
+    environment:
+      METADATA_REPOSITORY_SERVICE_HOST: 0.0.0.0
+      METADATA_REPOSITORY_SERVICE_PORT: 8080
+      METADATA_REPOSITORY_SERVICE_CORS_ALLOWED_ORIGINS: '["*"]'
+      METADATA_REPOSITORY_SERVICE_CORS_ALLOW_CREDENTIALS: "true"
+      METADATA_REPOSITORY_SERVICE_CORS_ALLOWED_METHODS: '["*"]'
+      METADATA_REPOSITORY_SERVICE_CORS_ALLOWED_HEADERS: '["*"]'
+      METADATA_REPOSITORY_SERVICE_LOG_LEVEL: debug
+      METADATA_REPOSITORY_SERVICE_DB_URL: mongodb://metadata_db:27017
+      METADATA_REPOSITORY_SERVICE_DB_NAME: metadata
+
+    entrypoint: ["bash", "-c"]
+    command: |
+      '''
+      set -x
+      if [ "$${METADATA_REPOSITORY_SERVICE_DATA_LOAD_URL}" != "" ]; then
+        # Obtain the data to be imported
+        curl -Lo /tmp/data.zip "$${METADATA_REPOSITORY_SERVICE_DATA_LOAD_URL}"
+        mkdir /tmp/data /tmp/example_dir
+        cd /tmp/data
+        unzip /tmp/data.zip
+        find /tmp/data
+        pip install typer
+
+        # Clear the database
+        /service/scripts/delete_all_metadata_records.py \
+          --db-url "$${METADATA_REPOSITORY_SERVICE_DB_URL}" \
+          --db-name "$${METADATA_REPOSITORY_SERVICE_DB_NAME}"
+
+        # Convert the data to GHGA format
+        python scripts/transform_ega_to_ghga.py \
+          --output /tmp/example_dir \
+          blobfish-transform.yml
+
+        # Populate the database
+        /service/scripts/populate_metadata_store.py --example-dir /tmp/example_dir \
+          --db-url "$${METADATA_REPOSITORY_SERVICE_DB_URL}" \
+          --db-name "$${METADATA_REPOSITORY_SERVICE_DB_NAME}"
+      fi
+
+      # Run the service
+      metadata-repository-service
+      '''
+    ports:
+      - 8002:8080
+    depends_on:
+      - metadata_db
+    env_file:
+          - .env.local
+          
+  # mongo db
+
+  metadata_db:
+    image: mongo:5.0.4
+    volumes:
+      - metadata_db_fs:/data/db
+    ports:
+      - 27000:27017
+
+volumes:
+  metadata_db_fs: {}
