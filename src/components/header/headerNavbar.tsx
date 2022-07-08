@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../../assets/data-portal.png";
+import logo from "../../assets/metadata-catalogue.png";
 import { Navbar, Container, Nav, Button } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 

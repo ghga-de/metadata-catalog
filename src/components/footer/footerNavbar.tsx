@@ -6,7 +6,7 @@ import {
   faFileLines,
 } from "@fortawesome/free-solid-svg-icons";
 import { faQuestionCircle } from "@fortawesome/free-regular-svg-icons";
-import logo from "../../assets/data-portal.png";
+import logo from "../../assets/metadata-catalogue.png";
 import { Link } from "react-router-dom";
 
 const FooterNavbar = () => {

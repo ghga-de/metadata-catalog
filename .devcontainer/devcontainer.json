@@ -1,7 +1,7 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.178.0/containers/typescript-node
 {
-  "name": "Data Portal UI",
+  "name": "Metadata Catalogue",
 
   "dockerComposeFile": [
     // the main compose file containing all data portal services,

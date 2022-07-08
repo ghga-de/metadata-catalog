@@ -27,7 +27,7 @@ services:
       METADATA_SEARCH_SERVICE_CORS_ALLOWED_HEADERS: '["*"]'
       METADATA_SEARCH_SERVICE_LOG_LEVEL: debug
       METADATA_SEARCH_SERVICE_DB_URL: mongodb://metadata_db:27017
-      METADATA_SEARCH_SERVICE_DB_NAME: metadata
+      METADATA_SEARCH_SERVICE_DB_NAME: metadata-catalogue
     entrypoint: ["bash", "-c"]
     command: |
       '''
@@ -56,7 +56,7 @@ services:
       METADATA_REPOSITORY_SERVICE_CORS_ALLOWED_HEADERS: '["*"]'
       METADATA_REPOSITORY_SERVICE_LOG_LEVEL: debug
       METADATA_REPOSITORY_SERVICE_DB_URL: mongodb://metadata_db:27017
-      METADATA_REPOSITORY_SERVICE_DB_NAME: metadata
+      METADATA_REPOSITORY_SERVICE_DB_NAME: metadata-catalogue
 
     entrypoint: ["bash", "-c"]
     command: |
@@ -64,22 +64,17 @@ services:
       set -x
       if [ "$${METADATA_REPOSITORY_SERVICE_DATA_LOAD_URL}" != "" ]; then
         # Obtain the data to be imported
-        curl -Lo /tmp/data.zip "$${METADATA_REPOSITORY_SERVICE_DATA_LOAD_URL}"
-        mkdir /tmp/data /tmp/example_dir
-        cd /tmp/data
-        unzip /tmp/data.zip
-        find /tmp/data
+        curl -Lo /tmp/metadata-catalogue.zip "$${METADATA_REPOSITORY_SERVICE_DATA_LOAD_URL}"
+        mkdir /tmp/metadata-catalogue /tmp/example_dir
+        cd /tmp/metadata-catalogue
+        unzip /tmp/metadata-catalogue.zip
+        find /tmp/metadata-catalogue
         pip install typer
 
         # Clear the database
         /service/scripts/delete_all_metadata_records.py \
           --db-url "$${METADATA_REPOSITORY_SERVICE_DB_URL}" \
           --db-name "$${METADATA_REPOSITORY_SERVICE_DB_NAME}"
-
-        # Convert the data to GHGA format
-        python scripts/transform_ega_to_ghga.py \
-          --output /tmp/example_dir \
-          blobfish-transform.yml
 
         # Populate the database
         /service/scripts/populate_metadata_store.py --example-dir /tmp/example_dir \
@@ -94,9 +89,7 @@ services:
       - 8002:8080
     depends_on:
       - metadata_db
-    env_file:
-          - .env.local
-          
+
   # mongo db
 
   metadata_db:
