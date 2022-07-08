@@ -28,7 +28,7 @@ ROOT_DIR = Path(__file__).parent.parent.resolve()
 IGNORE_PARAMS_FOR_REACT_APP = ["host", "port"]
 
 
-@config_from_yaml(prefix="metadata_catelogue")
+@config_from_yaml(prefix="metadata_catalogue")
 class Config(BaseSettings):
     """Config parameters and their defaults."""
     host: str = "localhost"
