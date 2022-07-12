@@ -12,7 +12,7 @@ interface dataSetStudiesProps {
 const DatasetStudies = (props: dataSetStudiesProps) => {
   return (
     <DatasetDetailsLayout
-      icon={<FontAwesomeIcon icon={faBook}/>}
+      icon={<FontAwesomeIcon icon={faBook} />}
       content={
         props.studiesList !== null ? (
           <div>
@@ -29,15 +29,17 @@ const DatasetStudies = (props: dataSetStudiesProps) => {
                     <br />
                     {study.has_publication !== null
                       ? study.has_publication.map((publication) => {
-                          return (
-                            <span>
-                              Publication:&nbsp;
-                              {publication.xref.map((xref) => {
+                        return (
+                          <span>
+                            Publication:&nbsp;
+                            {publication.xref !== null ?
+                              publication.xref.map((xref) => {
                                 return xref;
-                              })}
-                            </span>
-                          );
-                        })
+                              })
+                              : <div />}
+                          </span>
+                        );
+                      })
                       : "Publications: None"}
                   </p>
                 </Row>
