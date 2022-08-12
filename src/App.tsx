@@ -6,6 +6,7 @@ import "./App.scss";
 import { Routes, BrowserRouter, Route } from "react-router-dom";
 import Home from "./components/home/home";
 import AboutUs from "./components/aboutUs/aboutUs";
+import SingleDatasetView from "./components/browse/singleDatasetView/singleDatasetView";
 
 function App() {
   return (
@@ -26,6 +27,9 @@ function App() {
           <Route path="?q=:search&f=:filter&p=:page" element={<Browse />} />
         </Route>
         <Route path="*" element={<PageNotFound />} />
+        <Route path="/browse/:id">
+          <Route index element={<SingleDatasetView />} />
+        </Route>
       </Routes>
       <Footer />
     </BrowserRouter>

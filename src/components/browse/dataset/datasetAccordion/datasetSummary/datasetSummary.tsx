@@ -1,8 +1,6 @@
 import { Row, Button, Spinner, Col } from "react-bootstrap";
 import {
-  dataAccessCommitteeModel,
-  dataAccessPolicyModel,
-  datasetEmbeddedModel,
+  datasetSummaryModel,
   hitModel,
 } from "../../../../../models/dataset";
 import DatasetExperiments from "./datasetExperiments";
@@ -16,48 +14,21 @@ import { faKey } from "@fortawesome/free-solid-svg-icons";
 
 interface dataSetDetailsProps {
   hit: hitModel;
-  details: datasetEmbeddedModel | null | undefined;
+  summary: datasetSummaryModel | null | undefined;
 }
 
-const DatasetDetails = (props: dataSetDetailsProps) => {
+const DatasetSummary = (props: dataSetDetailsProps) => {
   const [show, setShow] = React.useState(false);
   const [copyEmail, setCopyEmail] = React.useState<string>("helpdesk@ghga.de");
   const handleClose = () => setShow(false);
 
   var dacFormLink: string | null = null;
-  if (props.details && props.details.has_data_access_policy.data_request_form) {
+  /*if (props.details && props.details.has_data_access_policy.data_request_form) {
     dacFormLink = props.details.has_data_access_policy.data_request_form;
-  }
-
-  const getEmailId = () => {
-    let mailId: string = "helpdesk@ghga.de";
-    if (props.details !== null && props.details !== undefined) {
-      const dataAccessPolicy: dataAccessPolicyModel =
-        props.details.has_data_access_policy;
-      const dataAccessCommittee: dataAccessCommitteeModel =
-        dataAccessPolicy.has_data_access_committee;
-      const main_contact = dataAccessCommittee.main_contact;
-      for (var item of dataAccessCommittee.has_member) {
-        if (main_contact === null) {
-          mailId =
-            item.email === null || item.email === undefined
-              ? mailId
-              : item.email;
-        }
-        if (
-          item.id === main_contact &&
-          item.email !== null &&
-          item.email !== undefined
-        ) {
-          mailId = item.email;
-        }
-      }
-    }
-    return mailId;
-  };
+  }*/
 
   const handleOpen = () => {
-    setCopyEmail(getEmailId());
+    setCopyEmail(props.summary !== null && props.summary ? props.summary.dac_email : "helpdesk@ghga.de");
     setShow(true);
   };
 
@@ -66,7 +37,7 @@ const DatasetDetails = (props: dataSetDetailsProps) => {
       <Row>
         <Row className="pe-0">
           <div className="pe-0 d-block">
-            {props.details !== null && props.details !== undefined ? (
+            {props.summary !== null && props.summary !== undefined ? (
               <Button
                 className="fs-8 float-end mb-3 ms-4 text-white shadow-md-dark"
                 variant="secondary"
@@ -101,7 +72,9 @@ const DatasetDetails = (props: dataSetDetailsProps) => {
             <p>
               <span className="fw-bold">Dataset ID:&nbsp;</span>
               <span style={{ userSelect: "all" }}>
-                {props.hit.content.accession}
+                <a href={"/browse/" + props.hit.content.accession}>
+                  {props.hit.content.accession}
+                </a>
               </span>
               <br />
               <span className="fw-bold">Full title:&nbsp;</span>
@@ -122,18 +95,16 @@ const DatasetDetails = (props: dataSetDetailsProps) => {
           />
         </Row>
       </Row>
-      {props.details !== null && props.details !== undefined ? (
+      {props.summary !== null && props.summary !== undefined ? (
         <div>
           <Row className="mb-3 mt-2 pt-3">
-            <DatasetStudies studiesList={props.details.has_study} />
-            <DatasetFiles filesList={props.details.has_file} />
+            <DatasetStudies study={props.summary.study_summary} />
+            <DatasetFiles files={props.summary.file_summary} />
           </Row>
           <Row className="pb-4 pt-2 ">
-            <DatasetSamples samplesList={props.details.has_sample} />
+            <DatasetSamples samples={props.summary.sample_summary} />
             <DatasetExperiments
-              experimentsList={props.details.has_experiment}
-              hit={props.hit}
-            />
+              experiments={props.summary.experiment_summary} />
           </Row>
         </div>
       ) : (
@@ -146,4 +117,4 @@ const DatasetDetails = (props: dataSetDetailsProps) => {
   );
 };
 
-export default DatasetDetails;
+export default DatasetSummary;

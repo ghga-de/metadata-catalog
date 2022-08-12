@@ -28,7 +28,7 @@ const InstitutionsCarousel = () => {
           centeredSlides
           loopAdditionalSlides={5}
           modules={[Navigation, Autoplay, Pagination]}
-          className="my-2 pb-4"
+          className="my-2 pb-5"
         >
           {listInstitutionImages
             .map((value: any) => ({ value, sort: Math.random() }))

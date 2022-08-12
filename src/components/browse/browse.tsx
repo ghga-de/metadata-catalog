@@ -1,13 +1,13 @@
 import React from "react";
 import { Col, Row, Container } from "react-bootstrap";
 import { useSearchParams } from "react-router-dom";
-import DatasetList from "./datasetList/datasetList";
-import Sidebar from "./sidebar/sidebar";
 import { searchResponseModel, hitModel } from "../../models/dataset";
 import { facetFilterModel, facetModel } from "../../models/facets";
 import { querySearchService } from "../../api/browse";
 import { getFilterParams } from "../../utils/utils";
-import DatasetListHeader from "./datasetList/datasetListHeader";
+import Sidebar from "./sidebar/sidebar";
+import DatasetList from "./dataset/datasetList";
+import DatasetHeader from "./dataset/datasetHeader";
 
 const Browse = () => {
   let [searchParams, setSearchParams] = useSearchParams();
@@ -74,7 +74,7 @@ const Browse = () => {
   return (
     <Container className="mt-4">
       <Row>
-        <DatasetListHeader
+        <DatasetHeader
           dsCount={dsCount}
           searchParams={searchParams}
           facets={facetList}

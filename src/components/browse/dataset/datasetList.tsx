@@ -1,6 +1,6 @@
 import React, { Dispatch, SetStateAction } from "react";
-import DatasetPagination from "./datasetPagination";
-import DatasetHeader from "./datasetHeader/datasetHeader";
+import DatasetPagination from "./datasetPagination/datasetPagination";
+import DatasetAccordion from "./datasetAccordion/datasetAccordion";
 import { hitModel, searchResponseModel } from "../../../models/dataset";
 import { facetFilterModel, facetModel } from "../../../models/facets";
 import { Col, Form, Row } from "react-bootstrap";
@@ -49,7 +49,7 @@ const DatasetList = (props: dataSetProps) => {
     );
   };
 
-  const HeaderHeader = () => {
+  const Columns = () => {
     return (
       <Row className="fs-7 mt-3 mb-3 ms-0 me-3 py-1 ps-2 bg-primary text-white">
         <Col lg={3} md={3} sm={3} xl={3} xs={3} xxl={3}>
@@ -85,8 +85,8 @@ const DatasetList = (props: dataSetProps) => {
       ) : (
         <>
           <div className="w-100">
-            <HeaderHeader />
-            <DatasetHeader dsList={props.dsList} />
+            <Columns />
+            <DatasetAccordion dsList={props.dsList} />
           </div>
           <Row className="mb-2 mt-5 w-100 pe-0 me-0">
             <Col>

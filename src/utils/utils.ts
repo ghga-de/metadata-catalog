@@ -1,7 +1,7 @@
 import { facetFilterModel } from "../models/facets";
 import { querySearchService } from "../api/browse";
 import { Dispatch, SetStateAction } from "react";
-import { searchResponseModel } from "../models/dataset";
+import { dataAccessCommitteeModel, dataAccessPolicyModel, datasetEmbeddedModel, searchResponseModel } from "../models/dataset";
 
 export const getFilterString = (filterDict: facetFilterModel[]) => {
   let filterString = "";
@@ -109,4 +109,31 @@ export const handleFilterAndSearch = (
 
 export const importAllFilesFromFolder = (r : any) => {
   return r.keys().map(r);
+}
+
+export const getDACEmailId = (details :  datasetEmbeddedModel | null | undefined) => {
+  let mailId: string = "helpdesk@ghga.de";
+  if (details !== null && details !== undefined) {
+    const dataAccessPolicy: dataAccessPolicyModel =
+      details.has_data_access_policy;
+    const dataAccessCommittee: dataAccessCommitteeModel =
+      dataAccessPolicy.has_data_access_committee;
+    const main_contact = dataAccessCommittee.main_contact;
+    for (var item of dataAccessCommittee.has_member) {
+      if (main_contact === null) {
+        mailId =
+          item.email === null || item.email === undefined
+            ? mailId
+            : item.email;
+      }
+      if (
+        item.id === main_contact &&
+        item.email !== null &&
+        item.email !== undefined
+      ) {
+        mailId = item.email;
+      }
+    }
+  }
+  return mailId;
 }

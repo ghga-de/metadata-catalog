@@ -1,4 +1,4 @@
-import { searchResponseModel, datasetEmbeddedModel } from "../models/dataset";
+import { searchResponseModel, datasetEmbeddedModel, datasetSummaryModel } from "../models/dataset";
 import { facetFilterModel } from "../models/facets";
 
 type getDatasetsSearchRespType = (
@@ -51,15 +51,43 @@ export const querySearchService: getDatasetsSearchRespType = (
 
 type getDatasetDetailsType = (
   datasetId: string,
+  embedded: boolean,
   callbackFunc: (dataset: datasetEmbeddedModel) => void
 ) => void;
 
 export const getDatasetDetails: getDatasetDetailsType = (
   datasetId,
+  embedded = false,
   callbackFunc
 ) => {
   fetch(
-    `${process.env.REACT_APP_SVC_REPOSITORY_URL}/datasets/${datasetId}?embedded=true`,
+    `${process.env.REACT_APP_SVC_REPOSITORY_URL}/datasets/${datasetId}?embedded=${embedded}`,
+    {
+      method: "get",
+    }
+  )
+    .then((response) => response.json())
+    .then(
+      (data) => {
+        callbackFunc(data);
+      },
+      (error) => {
+        alert("An error occured while fetching the data.");
+      }
+    );
+};
+
+type getDatasetSummaryType = (
+  datasetId: string,
+  callbackFunc: (dataset: datasetSummaryModel) => void
+) => void;
+
+export const getDatasetSummary: getDatasetSummaryType = (
+  datasetId,
+  callbackFunc
+) => {
+  fetch(
+    `${process.env.REACT_APP_SVC_REPOSITORY_URL}/dataset_summary/${datasetId}`,
     {
       method: "get",
     }
