@@ -28,7 +28,7 @@ services:
       METADATA_SEARCH_SERVICE_LOG_LEVEL: debug
       METADATA_SEARCH_SERVICE_DB_URL: mongodb://metadata_db:27017
       METADATA_SEARCH_SERVICE_DB_NAME: metadata-catalogue
-    entrypoint: ["bash", "-c"]
+    entrypoint: ["sh", "-c"]
     command: |
       '''
       # install additional deps as they are needed for the population script;
@@ -58,7 +58,7 @@ services:
       METADATA_REPOSITORY_SERVICE_DB_URL: mongodb://metadata_db:27017
       METADATA_REPOSITORY_SERVICE_DB_NAME: metadata-catalogue
 
-    entrypoint: ["bash", "-c"]
+    entrypoint: ["sh", "-c"]
     command: |
       '''
       set -x

@@ -77,7 +77,7 @@ const DataRequestModal = (props: DataRequestModalProps) => {
   };
 
   const renderTooltip = (message: string) => (
-    <Tooltip id={message}  key={props.accession + "_modal_message"}>{message}</Tooltip>
+    <Tooltip id={message} key={props.accession + "_modal_message"}>{message}</Tooltip>
   );
 
   return (
@@ -323,7 +323,7 @@ const DataRequestModal = (props: DataRequestModalProps) => {
           </Col>
         </Row>
       </Modal.Body>
-      
+
       <Modal.Footer className="border-0">
         <Col className="px-4">
           <Button
