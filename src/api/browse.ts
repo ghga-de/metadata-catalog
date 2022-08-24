@@ -17,11 +17,11 @@ const postHeaders = {
 };
 
 export const querySearchService: getDatasetsSearchRespType = (
-  callbackFunc,
-  filterQuery,
+  callbackFunc: (hits: searchResponseModel) => void,
+  filterQuery: facetFilterModel[],
   searchKeyword = "*",
-  skip,
-  limit,
+  skip: number,
+  limit: number,
   documentType = "Dataset"
 ) => {
   fetch(
