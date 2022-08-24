@@ -65,7 +65,7 @@ services:
       if [ "$${METADATA_REPOSITORY_SERVICE_DATA_LOAD_URL}" != "" ]; then
         # Obtain the data to be imported
         curl -Lo /tmp/metadata-catalogue.zip "$${METADATA_REPOSITORY_SERVICE_DATA_LOAD_URL}"
-        mkdir /tmp/metadata-catalogue /tmp/example_dir
+        mkdir /tmp/metadata-catalogue /tmp/metadata-catalogue
         cd /tmp/metadata-catalogue
         unzip /tmp/metadata-catalogue.zip
         find /tmp/metadata-catalogue
@@ -77,7 +77,7 @@ services:
           --db-name "$${METADATA_REPOSITORY_SERVICE_DB_NAME}"
 
         # Populate the database
-        /service/scripts/populate_metadata_store.py --example-dir /tmp/example_dir \
+        /service/scripts/populate_metadata_store.py --example-dir /tmp/metadata-catalogue \
           --db-url "$${METADATA_REPOSITORY_SERVICE_DB_URL}" \
           --db-name "$${METADATA_REPOSITORY_SERVICE_DB_NAME}"
       fi
