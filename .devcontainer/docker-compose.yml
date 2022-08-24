@@ -89,6 +89,8 @@ services:
       - 8002:8080
     depends_on:
       - metadata_db
+    env_file:
+      - local.env
 
   # mongo db
 
