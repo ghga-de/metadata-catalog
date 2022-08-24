@@ -2,8 +2,6 @@ import React from "react";
 import logo from "../../assets/metadata-catalogue.png";
 import { Navbar, Container, Nav, Button } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser } from "@fortawesome/free-solid-svg-icons";
 
 const HeaderNavbar = () => {
   const activePageStyle =
@@ -94,13 +92,6 @@ const HeaderNavbar = () => {
                 Metadata Model
               </Button>
             </Nav.Link>
-          </Nav>
-          <Nav>
-            <NavLink to="/login">
-              <Button variant="secondary" className="text-white">
-                Login <FontAwesomeIcon icon={faUser} className="ms-1" />
-              </Button>
-            </NavLink>
           </Nav>
         </Navbar.Collapse>
       </Container>
