@@ -1,13 +1,12 @@
-import { Row, Col, Carousel, Button, Spinner } from "react-bootstrap";
-import { TwitterTimelineEmbed } from "react-twitter-embed";
+import { Row, Col, Carousel, Button } from "react-bootstrap";
 import projects from "./communities&standards.json";
 import bundeslaender from "../../../assets/homepage/Bundeslaender.svg";
 
 const HomeMidSection = () => {
   return (
-    <Row className="w-100 m-0 mb-3">
+    <Row className="mx-2 mb-3">
       <Col
-        className="col-8 bg-primary rounded text-white"
+        className="bg-primary rounded text-white"
         style={{
           backgroundImage: `url(${bundeslaender})`,
           backgroundRepeat: "no-repeat",
@@ -102,27 +101,6 @@ const HomeMidSection = () => {
               </Carousel.Item>
             ))}
         </Carousel>
-      </Col>
-      <Col className="rounded">
-        <TwitterTimelineEmbed
-          sourceType="profile"
-          screenName="GHGA_DE"
-          noFooter
-          options={{ height: 425 }}
-          placeholder={
-            <>
-              <Spinner animation="border" size="sm" variant="info" />
-              &nbsp;Loading{" "}
-              <a href="https://twitter.com/GHGA_DE">
-                GHGA Twitter timeline
-              </a>{" "}
-              ...
-              <br />
-              You may need to disable blocking of third-party cookies for this
-              element to display correctly.
-            </>
-          }
-        />
       </Col>
     </Row>
   );
