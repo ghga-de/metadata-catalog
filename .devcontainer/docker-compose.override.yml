@@ -1,6 +1,6 @@
 version: "3.2"
 services:
-  metadata_catalogue:
+  metadata_catalog:
     build:
       context: .
       dockerfile: ./Dockerfile

@@ -1,7 +1,7 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.178.0/containers/typescript-node
 {
-  "name": "Metadata Catalogue",
+  "name": "Metadata Catalog",
 
   "dockerComposeFile": [
     // the main compose file containing all data portal services,
@@ -16,7 +16,7 @@
 
   // The 'service' property is the name of the service for the container that VS Code should
   // use. Update this value and .devcontainer/docker-compose.yml to the real service name.
-  "service": "metadata_catalogue",
+  "service": "metadata_catalog",
 
   // The optional 'workspaceFolder' property is the path VS Code should open by default when
   // connected. This is typically a file mount in .devcontainer/docker-compose.yml

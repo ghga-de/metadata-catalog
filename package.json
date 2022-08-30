@@ -1,5 +1,5 @@
 {
-  "name": "metadata-catalogue",
+  "name": "metadata-catalog",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
