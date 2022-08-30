@@ -62,7 +62,7 @@ const DataRequestModal = (props: DataRequestModalProps) => {
 
   const body: string =
     `Dear DAC team,\n\n` +
-    `I am interested in accesing the dataset ${props.accession} which is listed in the GHGA Metadata Catalog. ` +
+    `I am interested in accesing the dataset ${props.accession} which is listed in the GHGA Metadata Catalogue. ` +
     `Further details of the nature of my project relating to the request are specified in the form attached to this email. ` +
     `Please could you reply to me as soon as you are able to discuss my proposed project.\n` +
     `Thank you.\n\n` +

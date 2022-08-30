@@ -27,10 +27,10 @@ const SingleDatasetView = () => {
   >(null);
 
   useEffect(() => {
-    const getHits = (accessionId: string | null | undefined) => {
+    const getHits = (accessionId: string | null | undefined, key: string) => {
       if (accessionId && accessionId !== null && !queried) {
         setQueried(true);
-        querySearchService(setSearchResults, [{key: "accession", value: accessionId}], "*", 0, 1, "Dataset")
+        querySearchService(setSearchResults, [{key: key, value: accessionId}], "*", 0, 1, "Dataset")
       }
     };
     const getDetails = (datasetId: string | undefined) => {
@@ -48,8 +48,12 @@ const SingleDatasetView = () => {
         paramId = undefined;
       }
     }
-    getHits(accessionId);
-    processHits(searchResults);
+    getHits(accessionId, "ega_accession");
+    if (searchResults?.count === 0)
+    {
+      getHits(accessionId, 'accession');
+    }
+    processHits(searchResults)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchResults, paramId])
 

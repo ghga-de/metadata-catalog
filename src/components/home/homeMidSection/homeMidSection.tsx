@@ -1,6 +1,8 @@
 import { Row, Col, Carousel, Button } from "react-bootstrap";
 import projects from "./communities&standards.json";
 import bundeslaender from "../../../assets/homepage/Bundeslaender.svg";
+import 'react-perfect-scrollbar/dist/css/styles.css';
+import PerfectScrollbar from 'react-perfect-scrollbar'
 
 const HomeMidSection = () => {
   return (
@@ -33,30 +35,9 @@ const HomeMidSection = () => {
                         className="overflow-auto"
                         style={{ height: "200px" }}
                       >
-                        <p>
-                          {x.description.split("\n").map((z,idz) => (
-                            <span
-                              key={
-                                "homepage_span_" +
-                                x.name +
-                                "_description_" +
-                                idz
-                              }
-                            >
-                              {z}
-                              <br />
-                            </span>
-                          ))}
-                        </p>
-                      </Col>
-                    ) : (
-                      <>
-                        <Col
-                          className="col-7 overflow-auto"
-                          style={{ height: "200px" }}
-                        >
+                        <PerfectScrollbar>
                           <p>
-                            {x.description.split("\n").map((z,idz) => (
+                            {x.description.split("\n").map((z, idz) => (
                               <span
                                 key={
                                   "homepage_span_" +
@@ -70,6 +51,31 @@ const HomeMidSection = () => {
                               </span>
                             ))}
                           </p>
+                        </PerfectScrollbar>
+                      </Col>
+                    ) : (
+                      <>
+                        <Col
+                          className="col-7 overflow-auto"
+                          style={{ height: "200px" }}
+                        >
+                          <PerfectScrollbar>
+                            <p>
+                              {x.description.split("\n").map((z, idz) => (
+                                <span
+                                  key={
+                                    "homepage_span_" +
+                                    x.name +
+                                    "_description_" +
+                                    idz
+                                  }
+                                >
+                                  {z}
+                                  <br />
+                                </span>
+                              ))}
+                            </p>
+                          </PerfectScrollbar>
                         </Col>
                         <Col>
                           <img src={x.img_location} alt={x.img_alt} />

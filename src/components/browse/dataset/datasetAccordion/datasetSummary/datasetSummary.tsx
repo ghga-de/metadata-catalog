@@ -72,8 +72,8 @@ const DatasetSummary = (props: dataSetDetailsProps) => {
             <p>
               <span className="fw-bold">Dataset ID:&nbsp;</span>
               <span style={{ userSelect: "all" }}>
-                <a href={"/browse/" + props.hit.content.accession}>
-                  {props.hit.content.accession}
+                <a href={props.hit.content.ega_accession !== null ? "browse/" + props.hit.content.ega_accession : "browse/" + props.hit.content.accession}>
+                  {props.hit.content.ega_accession !== null ? props.hit.content.ega_accession : props.hit.content.accession}
                 </a>
               </span>
               <br />
@@ -87,7 +87,7 @@ const DatasetSummary = (props: dataSetDetailsProps) => {
             </p>
           </div>
           <DataRequestModal
-            accession={props.hit.content.accession}
+            accession={props.hit.content.ega_accession !== null ? props.hit.content.ega_accession : props.hit.content.accession}
             copyEmail={copyEmail}
             show={show}
             handleClose={handleClose}

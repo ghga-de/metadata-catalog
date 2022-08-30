@@ -52,8 +52,7 @@ const FooterNavbar = () => {
             <p>Submit data to GHGA</p>
           </Button>
           <Button
-            href="https://www.ghga.de/data/metadata-model"
-            target="_blank"
+            href="/metadata-model"
             className="text-white text-decoration-none col border-1 border-end px-3 mx-0 flex-shrink-0"
           >
             <FontAwesomeIcon
@@ -61,7 +60,7 @@ const FooterNavbar = () => {
               size="4x"
               className="text-white mt-3 mb-3"
             />
-            <p>About GHGA Metadata Model</p>
+            <p>About the GHGA Metadata Model</p>
           </Button>
           <Button
             href="/about-us"
