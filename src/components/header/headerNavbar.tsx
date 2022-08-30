@@ -8,6 +8,7 @@ const HeaderNavbar = () => {
     "btn btn-secondary p-0 h-100 m-0 mx-2 px-2 pt-1 text-white";
   const inactivePageStyle =
     "btn btn-primary p-0 h-100 m-0 mx-2 px-2 pt-1 text-white";
+
   return (
     <Navbar
       collapseOnSelect
@@ -80,18 +81,14 @@ const HeaderNavbar = () => {
                 Upload
               </Button>
             </Nav.Link>
-            <Nav.Link
-              href="https://www.ghga.de/data/metadata-model"
-              target="_blank"
-              className="mx-2 p-0"
+            <NavLink
+              to="/metadata-model"
+              className={({ isActive }) =>
+                isActive ? activePageStyle : inactivePageStyle
+              }
             >
-              <Button
-                variant="primary"
-                className="p-0 w-100 h-100 m-0 px-2 text-white"
-              >
                 Metadata Model
-              </Button>
-            </Nav.Link>
+            </NavLink>
           </Nav>
         </Navbar.Collapse>
       </Container>

@@ -60,6 +60,7 @@ export interface experimentEmbeddedModel {
   ];
   description: string;
   accession: string;
+  ega_accession: string;
   alias: string;
   has_sample: sampleModel[];
   type: string;
@@ -89,6 +90,7 @@ export interface sampleModel {
   tissue: string;
   description: string;
   accession: string;
+  ega_accession: string;
   alias: string;
 }
 
@@ -152,6 +154,7 @@ export interface datasetEmbeddedModel {
   has_publication: publicationModel[];
   creation_date: string;
   accession: string;
+  ega_accession: string;
   release_status: string;
   release_date: string;
   update_date: string;
@@ -160,6 +163,7 @@ export interface datasetEmbeddedModel {
 export interface hitContentModel {
   id: string;
   accession: string;
+  ega_accession: string;
   title: string;
   description: string;
   type: string[];

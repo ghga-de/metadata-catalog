@@ -15,7 +15,7 @@ const SingleDatasetViewAccordion = (props: SingleDatasetViewAccordionProps) => {
         <Accordion.Button className="bg-secondary py-2 text-white rounded-0">
           Experiment Summary
         </Accordion.Button>
-        <Accordion.Body className="pt-4">
+        <Accordion.Body className="pt-4 overflow-auto" style={{ maxHeight: "425px" }}>
           <Table hover className="fs-8" size="sm">
             <thead className="border-light-alternative border-1">
               <tr>
@@ -27,11 +27,11 @@ const SingleDatasetViewAccordion = (props: SingleDatasetViewAccordionProps) => {
             <tbody className="border-light-alternative border-1">
               {props.details.has_experiment?.map((x) => {
                 return (
-                  <tr key={x.accession}>
+                  <tr key={x.ega_accession !== null ? x.ega_accession : x.ega_accession}>
                     <td>
-                      {x.accession}
+                      {x.ega_accession !== null ? x.ega_accession : x.ega_accession}
                       <br />
-                      <span className="fs-9 text-muted">{}</span>
+                      <span className="fs-9 text-muted">{ }</span>
                     </td>
                     <td>{x.alias}</td>
                     <td>{x.type ? x.type : "N/A"}</td>
@@ -46,7 +46,7 @@ const SingleDatasetViewAccordion = (props: SingleDatasetViewAccordionProps) => {
         <Accordion.Button className="bg-secondary py-2 text-white rounded-0">
           Sample Summary
         </Accordion.Button>
-        <Accordion.Body className="pt-4">
+        <Accordion.Body className="pt-4 overflow-auto" style={{ maxHeight: "425px" }}>
           <Table hover className="fs-8 rounded" size="sm">
             <thead className="border-light-alternative border-1">
               <tr>
@@ -58,14 +58,14 @@ const SingleDatasetViewAccordion = (props: SingleDatasetViewAccordionProps) => {
             <tbody className="border-light-alternative border-1">
               {props.details.has_sample?.map((x) => {
                 return (
-                  <tr key={x.accession}>
+                  <tr key={x.ega_accession !== null ? x.ega_accession : x.ega_accession}>
                     <td>
-                      {x.accession}
+                      {x.ega_accession !== null ? x.ega_accession : x.ega_accession}
                       <br />
-                      <span className="fs-9 text-muted">{}</span>
+                      <span className="fs-9 text-muted">{ }</span>
                     </td>
                     <td>{x.description}</td>
-                    <td className="text-capitalize">{}</td>
+                    <td className="text-capitalize">{ }</td>
                   </tr>
                 );
               })}
@@ -82,7 +82,7 @@ const SingleDatasetViewAccordion = (props: SingleDatasetViewAccordionProps) => {
           })}
           {parseBytes(fileSize)})
         </Accordion.Button>
-        <Accordion.Body className="pt-4">
+        <Accordion.Body className="pt-4 overflow-auto" style={{ maxHeight: "425px" }}>
           <Table hover className="fs-8" size="sm">
             <thead className="border-light-alternative border-1">
               <tr>

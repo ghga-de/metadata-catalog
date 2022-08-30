@@ -38,7 +38,7 @@ const DatasetAccordion = (props: dataSetListProps) => {
               onClick={() => getDetails(hit.id)}
             >
               <Col lg={3} md={3} sm={3} xl={3} xs={3} xxl={3}>
-                {hit.content.accession}
+                {hit.content.ega_accession !== null ? hit.content.ega_accession : hit.content.accession}
               </Col>
               <Col className="pe-2" style={{ height: "42px" }}>
                 <div

@@ -7,6 +7,7 @@ import { Routes, BrowserRouter, Route } from "react-router-dom";
 import Home from "./components/home/home";
 import AboutUs from "./components/aboutUs/aboutUs";
 import SingleDatasetView from "./components/browse/singleDatasetView/singleDatasetView";
+import MetadataModel from "./components/metadataModel/metadataModel";
 
 function App() {
   return (
@@ -29,6 +30,9 @@ function App() {
         <Route path="*" element={<PageNotFound />} />
         <Route path="/browse/:id">
           <Route index element={<SingleDatasetView />} />
+        </Route>
+        <Route path="/metadata-model">
+          <Route index element={<MetadataModel />} />
         </Route>
       </Routes>
       <Footer />
