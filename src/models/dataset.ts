@@ -237,3 +237,26 @@ export interface fileSummaryModel {
     size: number
   }
 }
+
+export interface individualSummaryModel {
+  count: number;
+  stats: {
+    sex: { [key: string]: number };
+  }
+}
+
+export interface protocolSummaryModel {
+  count: number;
+  stats: {
+    protocol: { [key: string]: number };
+  }
+}
+
+export interface metadataSummaryModel {
+  sample_summary: sampleSummaryModel;
+  study_summary: studySummaryModel;
+  experiment_summary: experimentSummaryModel;
+  file_summary: fileSummaryModel;
+  individual_summary: individualSummaryModel;
+  protocol_summary: protocolSummaryModel;
+}
