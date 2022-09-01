@@ -33,7 +33,7 @@ const StudyTabContents = (props: StudyTabContentsProps) => {
                 </h5>
                 <p className="mb-4">
                   <strong>ID: </strong>
-                  {x.accession}
+                  {x.ega_accession !== null ? x.ega_accession : x.accession}
                 </p>
                 <p className="mb-4">
                   <strong>Title: </strong>

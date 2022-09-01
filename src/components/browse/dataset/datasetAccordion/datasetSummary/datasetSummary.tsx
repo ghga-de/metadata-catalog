@@ -1,8 +1,5 @@
 import { Row, Button, Spinner, Col } from "react-bootstrap";
-import {
-  datasetSummaryModel,
-  hitModel,
-} from "../../../../../models/dataset";
+import { datasetSummaryModel, hitModel } from "../../../../../models/dataset";
 import DatasetExperiments from "./datasetExperiments";
 import DatasetFiles from "./datasetFiles";
 import DatasetSamples from "./datasetSamples";
@@ -10,7 +7,7 @@ import DatasetStudies from "./datasetStudies";
 import DataRequestModal from "./dataRequestModal/dataRequestModal";
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faKey } from "@fortawesome/free-solid-svg-icons";
+import { faKey, faUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 
 interface dataSetDetailsProps {
   hit: hitModel;
@@ -28,7 +25,11 @@ const DatasetSummary = (props: dataSetDetailsProps) => {
   }*/
 
   const handleOpen = () => {
-    setCopyEmail(props.summary !== null && props.summary ? props.summary.dac_email : "helpdesk@ghga.de");
+    setCopyEmail(
+      props.summary !== null && props.summary
+        ? props.summary.dac_email
+        : "helpdesk@ghga.de"
+    );
     setShow(true);
   };
 
@@ -69,12 +70,23 @@ const DatasetSummary = (props: dataSetDetailsProps) => {
                 />
               </Button>
             )}
+            <Button
+              href={
+                props.hit.content.ega_accession !== null
+                  ? "browse/" + props.hit.content.ega_accession
+                  : "browse/" + props.hit.content.accession
+              }
+              variant="secondary"
+              className="text-white mb-2"
+            >
+              <FontAwesomeIcon icon={faUpRightFromSquare} />&nbsp;Dataset Details
+            </Button>
             <p>
               <span className="fw-bold">Dataset ID:&nbsp;</span>
               <span style={{ userSelect: "all" }}>
-                <a href={props.hit.content.ega_accession !== null ? "browse/" + props.hit.content.ega_accession : "browse/" + props.hit.content.accession}>
-                  {props.hit.content.ega_accession !== null ? props.hit.content.ega_accession : props.hit.content.accession}
-                </a>
+                {props.hit.content.ega_accession !== null
+                  ? props.hit.content.ega_accession
+                  : props.hit.content.accession}
               </span>
               <br />
               <span className="fw-bold">Full title:&nbsp;</span>
@@ -87,7 +99,11 @@ const DatasetSummary = (props: dataSetDetailsProps) => {
             </p>
           </div>
           <DataRequestModal
-            accession={props.hit.content.ega_accession !== null ? props.hit.content.ega_accession : props.hit.content.accession}
+            accession={
+              props.hit.content.ega_accession !== null
+                ? props.hit.content.ega_accession
+                : props.hit.content.accession
+            }
             copyEmail={copyEmail}
             show={show}
             handleClose={handleClose}
@@ -104,7 +120,8 @@ const DatasetSummary = (props: dataSetDetailsProps) => {
           <Row className="pb-4 pt-2 ">
             <DatasetSamples samples={props.summary.sample_summary} />
             <DatasetExperiments
-              experiments={props.summary.experiment_summary} />
+              experiments={props.summary.experiment_summary}
+            />
           </Row>
         </div>
       ) : (

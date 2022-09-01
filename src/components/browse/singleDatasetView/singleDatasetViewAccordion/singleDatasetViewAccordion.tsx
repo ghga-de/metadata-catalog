@@ -13,28 +13,24 @@ const SingleDatasetViewAccordion = (props: SingleDatasetViewAccordionProps) => {
     <Accordion>
       <Accordion.Item className="mb-4 border-0" eventKey="0">
         <Accordion.Button className="bg-secondary py-2 text-white rounded-0">
-          Experiment Summary
+          Experiment Summary {props.details.has_sample !== null ? (<>({props.details.has_experiment.length} experiments)</>) : (<></>)}
         </Accordion.Button>
         <Accordion.Body className="pt-4 overflow-auto" style={{ maxHeight: "425px" }}>
           <Table hover className="fs-8" size="sm">
             <thead className="border-light-alternative border-1">
               <tr>
                 <th className="w-25">Experiment ID</th>
-                <th className="w-50 text-wrap">Description</th>
-                <th>Experiment Type</th>
+                <th className="text-wrap text-break">Description</th>
               </tr>
             </thead>
             <tbody className="border-light-alternative border-1">
               {props.details.has_experiment?.map((x) => {
                 return (
-                  <tr key={x.ega_accession !== null ? x.ega_accession : x.ega_accession}>
+                  <tr key={x.ega_accession !== null ? x.ega_accession : x.accession}>
                     <td>
-                      {x.ega_accession !== null ? x.ega_accession : x.ega_accession}
-                      <br />
-                      <span className="fs-9 text-muted">{ }</span>
+                      {x.ega_accession !== null ? x.ega_accession : x.alias}
                     </td>
-                    <td>{x.alias}</td>
-                    <td>{x.type ? x.type : "N/A"}</td>
+                    <td>{x.description}</td>
                   </tr>
                 );
               })}
@@ -44,28 +40,28 @@ const SingleDatasetViewAccordion = (props: SingleDatasetViewAccordionProps) => {
       </Accordion.Item>
       <Accordion.Item className="mb-4 border-0" eventKey="1">
         <Accordion.Button className="bg-secondary py-2 text-white rounded-0">
-          Sample Summary
+          Sample Summary {props.details.has_sample !== null ? (<>({props.details.has_sample.length} samples)</>) : (<></>)}
         </Accordion.Button>
         <Accordion.Body className="pt-4 overflow-auto" style={{ maxHeight: "425px" }}>
           <Table hover className="fs-8 rounded" size="sm">
             <thead className="border-light-alternative border-1">
               <tr>
-                <th className="w-25">Sample ID</th>
-                <th className="w-50 text-wrap">Description</th>
-                <th>Sample Type</th>
+                <th>Sample ID</th>
+                <th className="text-wrap text-break">Description</th>
+                <th>Phenotype</th>
+                <th>Tissue</th>
               </tr>
             </thead>
             <tbody className="border-light-alternative border-1">
               {props.details.has_sample?.map((x) => {
                 return (
-                  <tr key={x.ega_accession !== null ? x.ega_accession : x.ega_accession}>
+                  <tr key={x.ega_accession !== null ? x.ega_accession : x.accession}>
                     <td>
-                      {x.ega_accession !== null ? x.ega_accession : x.ega_accession}
-                      <br />
-                      <span className="fs-9 text-muted">{ }</span>
+                      {x.ega_accession !== null ? x.ega_accession : x.alias}
                     </td>
                     <td>{x.description}</td>
-                    <td className="text-capitalize">{ }</td>
+                    <td className="text-capitalize">{x.has_individual.has_phenotypic_feature[0].concept_name}</td>
+                    <td className="text-capitalize">{x.has_anatomical_entity[0].concept_name}</td>
                   </tr>
                 );
               })}
@@ -86,10 +82,10 @@ const SingleDatasetViewAccordion = (props: SingleDatasetViewAccordionProps) => {
           <Table hover className="fs-8" size="sm">
             <thead className="border-light-alternative border-1">
               <tr>
-                <th className="w-25">File name</th>
-                <th className="w-25">File type</th>
+                <th className="text-break">File name</th>
+                <th>File type</th>
                 <th>Size</th>
-                <th>Quality control</th>
+                <th>Checksum</th>
               </tr>
             </thead>
             <tbody className="border-light-alternative border-1">
@@ -99,7 +95,7 @@ const SingleDatasetViewAccordion = (props: SingleDatasetViewAccordionProps) => {
                     <td>{x.name}</td>
                     <td>{x.format.toUpperCase()}</td>
                     <td>{parseBytes(x.size)}</td>
-                    <td></td>
+                    <td>{x.checksum_type}: {x.checksum}</td>
                   </tr>
                 );
               })}

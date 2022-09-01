@@ -31,16 +31,16 @@ const DapTabContents = (props: DapTabContentsProps) => {
               <strong>Policy and Data Access Committee</strong>
             </h5>
             <p>
-              <strong>Policy: </strong>
-              {props.details.has_data_access_policy.policy_text}
-            </p>
-            <p>
               <strong>Data Access Committee: </strong>
               {props.details.has_data_access_policy.has_data_access_committee.name}
             </p>
             <p>
               <strong>e-Mail: </strong>
               {getDACEmailId(props.details)}
+            </p>
+            <p>
+              <strong>Policy: </strong>
+              {props.details.has_data_access_policy.policy_text}
             </p>
           </PerfectScrollbar>
         </div>

@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
-import { querySearchService } from "../../../api/browse";
-import { searchResponseModel } from "../../../models/dataset";
+import { getMetadataSummary, querySearchService } from "../../../api/browse";
+import { metadataSummaryModel, searchResponseModel } from "../../../models/dataset";
 import { facetFilterModel, facetModel } from "../../../models/facets";
 import HomeFilterSelects from "./homeFilterSelects";
 import HomeSearchbar from "./homeSearchbar";
@@ -11,18 +11,21 @@ import bundeslaender from "../../../assets/homepage/Bundeslaender.svg";
 const HomeTopSection = () => {
   const [searchResults, setSearchResults] =
     React.useState<searchResponseModel | null>(null);
+    const [summary, setSummary] =
+    React.useState<metadataSummaryModel | null>(null);
 
   const [filterDict, setFilterDict] = React.useState<facetFilterModel[]>([]);
 
   React.useEffect(() => {
     const getData = () => {
       querySearchService(setSearchResults, [], "", 0, 1, "Dataset");
+      getMetadataSummary(setSummary)
     };
     getData();
   }, []);
 
   var facetList: facetModel[] | null = null;
-  var dsCount: number = 0;
+  var dsCount: number = 0;  
 
   if (searchResults !== null) {
     if (searchResults.hits.length > 0 || searchResults.count === -1) {
@@ -80,7 +83,7 @@ const HomeTopSection = () => {
             </Container>
           </Row>
           <Row className="text-black justify-content-center">
-            <TopSectionBadges />
+            <TopSectionBadges summaryStats={summary} />
           </Row>
         </Col>
       </Row>
