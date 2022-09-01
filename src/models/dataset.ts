@@ -204,8 +204,8 @@ export interface sampleSummaryModel {
   count: number;
   stats: {
     sex: sexSummaryModel;
-    tissues: number;
-    phenotypes: number;
+    tissues: { [key: string]: number };
+    phenotypes: { [key: string]: number };
   }
 }
 
