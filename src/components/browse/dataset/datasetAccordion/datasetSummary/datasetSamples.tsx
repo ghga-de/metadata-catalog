@@ -75,7 +75,7 @@ const DatasetSamples = (props: dataSetSamplesProps) => {
                     aria-controls="example-collapse-text"
                     aria-expanded={openPhenotypesList}
                     variant="link"
-                    className="p-0 "
+                    className="p-0 fs-8"
                   >
                     {openPhenotypesList ? <>See less ...</> : <>See full list ...</>}
                   </Button>
