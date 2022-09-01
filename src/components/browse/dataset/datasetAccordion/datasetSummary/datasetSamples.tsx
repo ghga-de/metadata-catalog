@@ -1,5 +1,5 @@
 import React from "react";
-import { Row } from "react-bootstrap";
+import { Button, Collapse, Row } from "react-bootstrap";
 import DatasetDetailsLayout from "./datasetDetailsLayout/datasetDetailsLayout";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -16,7 +16,7 @@ interface dataSetSamplesProps {
 }
 
 const DatasetSamples = (props: dataSetSamplesProps) => {
-
+  const [openPhenotypesList, setOpenPhenotypesList] = React.useState(false);
 
   return (
     <DatasetDetailsLayout
@@ -50,20 +50,34 @@ const DatasetSamples = (props: dataSetSamplesProps) => {
                 </span>{" "}
                 )
                 <br />
-                <div className="mb-0">Tissues:
+                <div className="mb-0"><strong>{props.samples.count}</strong>&nbsp;Tissues:
                   <ul>
                     {getItemsForSummary(props.samples.stats?.tissues).map((x) => {
-                      return (<li key={x}>{x}</li>)
+                      return (<li key={x} className="text-capitalize">{x}</li>)
                     })}
                   </ul>
                 </div>
                 <br />
-                <div className="mb-0">Phenotypes:
+                <div className="mb-0"><strong>{props.samples.count}</strong>&nbsp;Phenotypes:
                   <ul>
-                    {getItemsForSummary(props.samples.stats?.phenotypes).map((x) => {
-                      return (<li key={x}>{x}</li>)
+                    {getItemsForSummary(props.samples.stats?.phenotypes).slice(0, 3).map((x) => {
+                      return (<li key={x} className="text-capitalize">{x}</li>)
                     })}
                   </ul>
+                  <Button onClick={() => setOpenPhenotypesList(!openPhenotypesList)}
+                    aria-controls="example-collapse-text"
+                    aria-expanded={openPhenotypesList}
+                    variant="link"
+                  >
+                    Show more ...
+                  </Button>
+                  <Collapse in={openPhenotypesList}>
+                    <ul id="extended-phenotypes">
+                      {getItemsForSummary(props.samples.stats?.phenotypes).slice(3).map((x) => {
+                        return (<li key={x} className="text-capitalize">{x}</li>)
+                      })}
+                    </ul>
+                  </Collapse>
                 </div>
               </p>
             </div>
