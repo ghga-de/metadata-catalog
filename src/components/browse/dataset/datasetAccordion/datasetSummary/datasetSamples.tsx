@@ -9,12 +9,15 @@ import {
   faGenderless,
 } from "@fortawesome/free-solid-svg-icons";
 import { sampleSummaryModel } from "../../../../../models/dataset";
+import { getItemsForSummary } from "../../../../../utils/utils"
 
 interface dataSetSamplesProps {
   samples: sampleSummaryModel | null;
 }
 
 const DatasetSamples = (props: dataSetSamplesProps) => {
+
+
   return (
     <DatasetDetailsLayout
       icon={<FontAwesomeIcon icon={faVial} />}
@@ -47,9 +50,21 @@ const DatasetSamples = (props: dataSetSamplesProps) => {
                 </span>{" "}
                 )
                 <br />
-                <strong>{props.samples.stats?.tissues}</strong>&nbsp;Tissues:{" "}
+                <div className="mb-0">Tissues:
+                  <ul>
+                    {getItemsForSummary(props.samples.stats?.tissues).map((x) => {
+                      return (<li key={x}>{x}</li>)
+                    })}
+                  </ul>
+                </div>
                 <br />
-                <strong>{props.samples.stats?.phenotypes}</strong>&nbsp;Phenotypes:{" "}
+                <div className="mb-0">Phenotypes:
+                  <ul>
+                    {getItemsForSummary(props.samples.stats?.phenotypes).map((x) => {
+                      return (<li key={x}>{x}</li>)
+                    })}
+                  </ul>
+                </div>
               </p>
             </div>
           ) : (

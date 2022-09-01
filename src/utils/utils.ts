@@ -137,3 +137,12 @@ export const getDACEmailId = (details :  datasetEmbeddedModel | null | undefined
   }
   return mailId;
 }
+
+export const getItemsForSummary = (item: { [key: string]: number } | undefined) => {
+  let items: string[] = []
+  for (let key in item) {
+    let value = item[key]
+    items.push(key + " : " + value)
+  }
+  return items
+};
