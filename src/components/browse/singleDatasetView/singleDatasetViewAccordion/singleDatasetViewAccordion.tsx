@@ -27,9 +27,9 @@ const SingleDatasetViewAccordion = (props: SingleDatasetViewAccordionProps) => {
             <tbody className="border-light-alternative border-1">
               {props.details.has_experiment?.map((x) => {
                 return (
-                  <tr key={x.ega_accession !== null ? x.ega_accession : x.ega_accession}>
+                  <tr key={x.ega_accession !== null ? x.ega_accession : x.accession}>
                     <td>
-                      {x.ega_accession !== null ? x.ega_accession : x.ega_accession}
+                      {x.ega_accession !== null ? x.ega_accession : x.accession}
                       <br />
                       <span className="fs-9 text-muted">{ }</span>
                     </td>
@@ -58,9 +58,9 @@ const SingleDatasetViewAccordion = (props: SingleDatasetViewAccordionProps) => {
             <tbody className="border-light-alternative border-1">
               {props.details.has_sample?.map((x) => {
                 return (
-                  <tr key={x.ega_accession !== null ? x.ega_accession : x.ega_accession}>
+                  <tr key={x.ega_accession !== null ? x.ega_accession : x.accession}>
                     <td>
-                      {x.ega_accession !== null ? x.ega_accession : x.ega_accession}
+                      {x.ega_accession !== null ? x.ega_accession : x.accession}
                       <br />
                       <span className="fs-9 text-muted">{ }</span>
                     </td>
