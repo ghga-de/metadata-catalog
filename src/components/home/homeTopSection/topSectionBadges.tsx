@@ -2,8 +2,10 @@ import { faCircle, faUser } from "@fortawesome/free-regular-svg-icons";
 import {
   faChartColumn,
   faDna,
+  faFileMedical,
   faGenderless,
   faMars,
+  faNotesMedical,
   faVenus,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -40,11 +42,11 @@ const TopSectionBadges = (props: HomeTopBadgesProps) => {
                 </Row>
               </Card.Title>
               <Card.Text as="div">
-                <Row className="pt-3">
+                <Row className="pt-3 fs-7 ">
                   <Col>
-                    <ul className="ms-0">
+                    <ul className="fa-ul">
                       {getItemsForSummary(props.summaryStats.protocol_summary.stats.protocol).map((x) => {
-                        return (<li key={x} className="text-secondary text-capitalize fw-bold">{x}</li>)
+                        return (<li key={x} className="text-secondary text-capitalize fw-bold ms-0 ps-0 fa-li"><FontAwesomeIcon icon={faNotesMedical} />{x}</li>)
                       })}
                     </ul>
                   </Col>
@@ -102,15 +104,15 @@ const TopSectionBadges = (props: HomeTopBadgesProps) => {
                       <FontAwesomeIcon icon={faChartColumn} transform="shrink-6" />
                     </span>
                   </Col>
-                  <Col className="mt-3 fw-bold ps-0">Files: {props.summaryStats.file_summary.count}</Col>
+                  <Col className="mt-3 ps-0">Files: {props.summaryStats.file_summary.count}</Col>
                 </Row>
               </Card.Title>
               <Card.Text as="div">
-                <Row className="mt-4 pt-3 align-items-center">
+                <Row className="mt-4 pt-3 fs-7 align-items-center">
                   <Col>
-                    <ul className="ms-0">
+                    <ul className="fa-ul">
                       {getItemsForSummary(props.summaryStats.file_summary.stats.format).map((x) => {
-                        return (<li key={x} className="text-secondary text-capitalize fw-bold">{x}</li>)
+                        return (<li key={x} className="text-secondary text-capitalize fw-bold fa-li ms-0 ps-0"><FontAwesomeIcon icon={faFileMedical}/>{x}</li>)
                       })}
                     </ul>
                   </Col>
