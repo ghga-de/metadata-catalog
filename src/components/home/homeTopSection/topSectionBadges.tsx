@@ -36,15 +36,17 @@ const TopSectionBadges = (props: HomeTopBadgesProps) => {
                       <FontAwesomeIcon icon={faDna} transform="shrink-6" />
                     </span>
                   </Col>
-                  <Col className="mt-3 fw-bold ps-0">Protocols</Col>
+                  <Col className="mt-3 fw-bold ps-0">Protocols: {props.summaryStats.protocol_summary.count}</Col>
                 </Row>
               </Card.Title>
               <Card.Text as="div">
-                <Row className="fs-8">
+                <Row className="fs-8 pt-3">
                   <Col>
-                    {getItemsForSummary(props.summaryStats.protocol_summary.stats.protocol).map((x) => {
-                      return (<span key={x} className="text-primary text-capitalize fw-bold">{x}<br /></span>)
-                    })}
+                    <ul>
+                      {getItemsForSummary(props.summaryStats.protocol_summary.stats.protocol).map((x) => {
+                        return (<li key={x} className="text-secondary text-capitalize fw-bold">{x}</li>)
+                      })}
+                    </ul>
                   </Col>
                 </Row>
               </Card.Text>
@@ -63,7 +65,7 @@ const TopSectionBadges = (props: HomeTopBadgesProps) => {
                       <FontAwesomeIcon icon={faUser} transform="shrink-6" />
                     </span>
                   </Col>
-                  <Col className="mt-3 fw-bold ps-0">Sex</Col>
+                  <Col className="mt-3 fw-bold ps-0">Individuals: {props.summaryStats.individual_summary.count}</Col>
                 </Row>
               </Card.Title>
               <Card.Text as="div" className="fs-8">
@@ -92,7 +94,7 @@ const TopSectionBadges = (props: HomeTopBadgesProps) => {
             className="d-inline-block shadow border-muted mx-2"
           >
             <Card.Body>
-            <Card.Title className="text-secondary fw-bold">
+              <Card.Title className="text-secondary fw-bold">
                 <Row>
                   <Col style={{ fontSize: "48px" }} className="p-0 col-auto">
                     <span className="fa-layers fa-fw fa-lg ms-2">
@@ -100,15 +102,17 @@ const TopSectionBadges = (props: HomeTopBadgesProps) => {
                       <FontAwesomeIcon icon={faChartColumn} transform="shrink-6" />
                     </span>
                   </Col>
-                  <Col className="mt-3 fw-bold ps-0">Files</Col>
+                  <Col className="mt-3 fw-bold ps-0">Files: {props.summaryStats.file_summary.count}</Col>
                 </Row>
               </Card.Title>
               <Card.Text as="div">
                 <Row className="mt-4 pt-3 fs-8 align-items-center">
                   <Col>
-                    {getItemsForSummary(props.summaryStats.file_summary.stats.format).map((x) => {
-                      return (<span key={x} className="text-primary text-capitalize fw-bold">{x}<br /></span>)
-                    })}
+                    <ul>
+                      {getItemsForSummary(props.summaryStats.file_summary.stats.format).map((x) => {
+                        return (<li key={x} className="text-secondary text-capitalize fw-bold">{x}</li>)
+                      })}
+                    </ul>
                   </Col>
                 </Row>
               </Card.Text>
