@@ -55,7 +55,7 @@ const DatasetAccordion = (props: dataSetListProps) => {
                 </div>
               </Col>
             </Accordion.Button>
-            <Accordion.Body>
+            <Accordion.Body as="div">
               <DatasetSummary hit={hit} summary={summaryMap.get(hit.id)} />
             </Accordion.Body>
           </Accordion.Item>
