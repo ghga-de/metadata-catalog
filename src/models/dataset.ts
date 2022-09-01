@@ -213,7 +213,7 @@ export interface sampleSummaryModel {
     sex: sexSummaryModel;
     tissues: { [key: string]: number };
     phenotypes: { [key: string]: number };
-  };
+  }
 }
 
 export interface sexSummaryModel {
