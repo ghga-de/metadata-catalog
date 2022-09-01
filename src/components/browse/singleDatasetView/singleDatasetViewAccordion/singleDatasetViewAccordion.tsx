@@ -47,7 +47,7 @@ const SingleDatasetViewAccordion = (props: SingleDatasetViewAccordionProps) => {
             <thead className="border-light-alternative border-1">
               <tr>
                 <th>Sample ID</th>
-                <th className="w-50 text-wrap">Description</th>
+                <th className="text-wrap text-break">Description</th>
                 <th>Phenotype</th>
                 <th>Tissue</th>
               </tr>
@@ -82,7 +82,7 @@ const SingleDatasetViewAccordion = (props: SingleDatasetViewAccordionProps) => {
           <Table hover className="fs-8" size="sm">
             <thead className="border-light-alternative border-1">
               <tr>
-                <th>File name</th>
+                <th className="text-break">File name</th>
                 <th>File type</th>
                 <th>Size</th>
                 <th>Checksum</th>
