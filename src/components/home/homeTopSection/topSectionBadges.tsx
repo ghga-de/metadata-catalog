@@ -29,13 +29,13 @@ const TopSectionBadges = (props: HomeTopBadgesProps) => {
           >
             <Card.Body>
               <Card.Title className="text-secondary fw-bold mt-3">
-                Technology
+                Protocols
               </Card.Title>
               <Card.Text as="div">
                 <Row className="fs-8">
                   <Col>
                     {getItemsForSummary(props.summaryStats.protocol_summary.stats.protocol).map((x) => {
-                      return (<>{x}</>)
+                      return (<>{x}<br/></>)
                     })}
                   </Col>
                 </Row>
@@ -110,7 +110,7 @@ const TopSectionBadges = (props: HomeTopBadgesProps) => {
                   </Col>
                   <Col>
                     {getItemsForSummary(props.summaryStats.file_summary.stats.format).map((x) => {
-                      return (<>{x}</>)
+                      return (<>{x}<br/></>)
                     })}
                   </Col>
                 </Row>
