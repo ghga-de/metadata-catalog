@@ -50,7 +50,7 @@ const DatasetSamples = (props: dataSetSamplesProps) => {
                 </span>{" "}
                 )
                 <br />
-                <div className="mb-0"><strong>{(props.samples.stats?.tissues).length}</strong>&nbsp;Tissues:
+                <div className="mb-0"><strong>{getItemsForSummary(props.samples.stats?.tissues).length}</strong>&nbsp;Tissues:
                   <ul>
                     {getItemsForSummary(props.samples.stats?.tissues).map((x) => {
                       return (<li key={x} className="text-capitalize">{x}</li>)
@@ -58,7 +58,7 @@ const DatasetSamples = (props: dataSetSamplesProps) => {
                   </ul>
                 </div>
                 <br />
-                <div className="mb-0"><strong>{(props.samples.stats?.tissues).length}</strong>&nbsp;Phenotypes:
+                <div className="mb-0"><strong>{getItemsForSummary(props.samples.stats?.tissues).length}</strong>&nbsp;Phenotypes:
                   <p className="mb-0">
                     {getItemsForSummary(props.samples.stats?.phenotypes).slice(0, 3).map((x) => {
                       return (<p key={x} className="text-capitalize mb-1 ms-4" style={{ display: "list-item" }}>{x}</p>)
