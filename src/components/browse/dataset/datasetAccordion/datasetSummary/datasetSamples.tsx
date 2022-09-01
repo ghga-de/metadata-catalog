@@ -70,11 +70,11 @@ const DatasetSamples = (props: dataSetSamplesProps) => {
                   >
                     show_complete list
                   </a>
-                  <ul id="extended-phenotypes">
+                  <ul>
                     <Collapse in={openPhenotypesList}>
                       <>
                         {getItemsForSummary(props.samples.stats?.phenotypes).slice(3).map((x) => {
-                          return (<li key={x} className="text-capitalize">{x}</li>)
+                          return (<li key={x} id="extended-phenotypes" className="text-capitalize">{x}</li>)
                         })}
                       </>
                     </Collapse>

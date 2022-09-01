@@ -119,6 +119,7 @@ export interface studyEmbeddedModel {
   type: string;
   has_attribute: attributeModel[];
   has_project: projectModel;
+  ega_accession: string;
 }
 
 export interface dataAccessPolicyModel {

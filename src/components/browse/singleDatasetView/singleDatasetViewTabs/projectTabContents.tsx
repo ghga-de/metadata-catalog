@@ -34,9 +34,7 @@ const ProjectTabContents = (props: ProjectTabContentsProps) => {
                 </h5>
                 <p>
                   <strong>ID: </strong>
-                  {x.has_project?.accession !== null ? (
-                    x.has_project?.accession
-                  ) : (
+                  {x.ega_accession !== null ? x.ega_accession : x.accession !== null ? x.accession : (
                     <>N/A</>
                   )}
                 </p>

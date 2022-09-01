@@ -10,12 +10,15 @@ interface PublicationTabContentsProps {
 }
 
 const PublicationTabContents = (props: PublicationTabContentsProps) => {
+  let numPubs = 0;
+
   return (
     <Tab.Pane eventKey="2" className="h-100">
-      {props.details.has_publication && props.details.has_publication !== null ? (
-        props.details.has_publication.map((x) => {
+      {props.details.has_study.map((y) => {
+        y.has_publication?.map((x) => {
           return (
             <div key={x.id} className="text-break overflow-auto h-100">
+              {numPubs += 1}
               <PerfectScrollbar>
                 <h5 className="mb-4 d-flex align-items-center">
                   <FontAwesomeIcon
@@ -47,7 +50,10 @@ const PublicationTabContents = (props: PublicationTabContentsProps) => {
             </div>
           );
         })
-      ) : (
+        return null;
+      })
+      }
+      {numPubs === 0 ? (
         <>
           <h5 className="mb-4 d-flex align-items-center">
             <FontAwesomeIcon
@@ -65,7 +71,7 @@ const PublicationTabContents = (props: PublicationTabContentsProps) => {
           </h5>
           <p>No publications found.</p>
         </>
-      )}
+      ) : (<></>)}
     </Tab.Pane>
   );
 };
