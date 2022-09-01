@@ -77,7 +77,7 @@ const DatasetSummary = (props: dataSetDetailsProps) => {
                   : "browse/" + props.hit.content.accession
               }
               variant="secondary"
-              className="text-white mb-2 mt-2"
+              className="text-white mb-2"
             >
               <FontAwesomeIcon icon={faUpRightFromSquare} />&nbsp;Dataset Details
             </Button>
