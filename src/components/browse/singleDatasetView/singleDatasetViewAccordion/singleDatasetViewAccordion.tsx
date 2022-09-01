@@ -29,10 +29,8 @@ const SingleDatasetViewAccordion = (props: SingleDatasetViewAccordionProps) => {
                   <tr key={x.ega_accession !== null ? x.ega_accession : x.accession}>
                     <td>
                       {x.ega_accession !== null ? x.ega_accession : x.alias}
-                      <br />
-                      <span className="fs-9 text-muted">{ }</span>
                     </td>
-                    <td>{x.alias}</td>
+                    <td>{x.description}</td>
                   </tr>
                 );
               })}
@@ -61,6 +59,7 @@ const SingleDatasetViewAccordion = (props: SingleDatasetViewAccordionProps) => {
                     <td>
                       {x.ega_accession !== null ? x.ega_accession : x.alias}
                     </td>
+                    <td>{x.description}</td>
                     <td className="text-capitalize">{x.has_individual.has_phenotypic_feature[0].concept_name}</td>
                     <td className="text-capitalize">{x.has_anatomical_entity[0].concept_name}</td>
                   </tr>
@@ -95,8 +94,8 @@ const SingleDatasetViewAccordion = (props: SingleDatasetViewAccordionProps) => {
                   <tr key={x.id}>
                     <td>{x.name}</td>
                     <td>{x.format.toUpperCase()}</td>
+                    <td>{parseBytes(x.size)}</td>
                     <td>{x.checksum_type}: {x.checksum}</td>
-                    <td></td>
                   </tr>
                 );
               })}
