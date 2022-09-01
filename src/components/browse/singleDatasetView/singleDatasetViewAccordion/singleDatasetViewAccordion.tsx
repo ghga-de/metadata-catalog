@@ -13,7 +13,7 @@ const SingleDatasetViewAccordion = (props: SingleDatasetViewAccordionProps) => {
     <Accordion>
       <Accordion.Item className="mb-4 border-0" eventKey="0">
         <Accordion.Button className="bg-secondary py-2 text-white rounded-0">
-          Experiment Summary
+          Experiment Summary {props.details.has_sample !== null ? (<>({props.details.has_experiment.length} experiments)</>) : (<></>)}
         </Accordion.Button>
         <Accordion.Body className="pt-4 overflow-auto" style={{ maxHeight: "425px" }}>
           <Table hover className="fs-8" size="sm">
@@ -40,7 +40,7 @@ const SingleDatasetViewAccordion = (props: SingleDatasetViewAccordionProps) => {
       </Accordion.Item>
       <Accordion.Item className="mb-4 border-0" eventKey="1">
         <Accordion.Button className="bg-secondary py-2 text-white rounded-0">
-          Sample Summary
+          Sample Summary {props.details.has_sample !== null ? (<>({props.details.has_sample.length} samples)</>) : (<></>)}
         </Accordion.Button>
         <Accordion.Body className="pt-4 overflow-auto" style={{ maxHeight: "425px" }}>
           <Table hover className="fs-8 rounded" size="sm">
