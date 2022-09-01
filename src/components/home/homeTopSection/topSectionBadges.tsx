@@ -29,22 +29,22 @@ const TopSectionBadges = (props: HomeTopBadgesProps) => {
           >
             <Card.Body>
               <Card.Title className="text-secondary fw-bold mt-3">
-                Protocols
+                <Row>
+                  <Col style={{ fontSize: "48px" }} className="p-0 col-auto">
+                    <span className="fa-layers fa-fw fa-lg ms-2">
+                      <FontAwesomeIcon icon={faCircle} />
+                      <FontAwesomeIcon icon={faDna} transform="shrink-6" />
+                    </span>
+                  </Col>
+                  <Col className="mt-3 fw-bold ps-0">Sex</Col>
+                </Row>
               </Card.Title>
               <Card.Text as="div">
                 <Row className="fs-8">
                   <Col>
                     {getItemsForSummary(props.summaryStats.protocol_summary.stats.protocol).map((x) => {
-                      return (<>{x}<br/></>)
+                      return (<span key={x} className="text-primary text-capitalize">{x}<br /></span>)
                     })}
-                  </Col>
-                </Row>
-                <Row>
-                  <Col className="text-secondary mt-4" style={{ fontSize: "72px" }}>
-                    <span className="fa-layers fa-fw fa-lg ms-2">
-                      <FontAwesomeIcon icon={faCircle} />
-                      <FontAwesomeIcon icon={faDna} transform="shrink-6" />
-                    </span>
                   </Col>
                 </Row>
               </Card.Text>
@@ -79,13 +79,11 @@ const TopSectionBadges = (props: HomeTopBadgesProps) => {
                     Male: {props.summaryStats.individual_summary.stats.sex['male']}
                   </Col>
                 </Row>
-                {props.summaryStats.individual_summary.stats.sex['unknown'] ? (
-                  <Row className="mt-3">
-                    <FontAwesomeIcon icon={faGenderless} className="fs-4" />
-                    <br />
-                    <Col className="text-center">Unknown: {props.summaryStats.individual_summary.stats.sex['unknown']}</Col>
-                  </Row>
-                ) : (<></>)}
+                <Row className="mt-3">
+                  <FontAwesomeIcon icon={faGenderless} className="fs-4" />
+                  <br />
+                  <Col className="text-center">Unknown: {props.summaryStats.individual_summary.stats.sex['unknown']}</Col>
+                </Row>
               </Card.Text>
             </Card.Body>
           </Card>
@@ -110,7 +108,7 @@ const TopSectionBadges = (props: HomeTopBadgesProps) => {
                   </Col>
                   <Col>
                     {getItemsForSummary(props.summaryStats.file_summary.stats.format).map((x) => {
-                      return (<>{x}<br/></>)
+                      return (<span key={x} className="text-primary text-capitalize">{x}<br /></span>)
                     })}
                   </Col>
                 </Row>
