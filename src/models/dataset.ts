@@ -48,6 +48,7 @@ export interface fileModel {
   creation_date: string;
   accession: string;
   alias: string;
+  checksum_type: string;
 }
 
 export interface experimentEmbeddedModel {
@@ -84,9 +85,15 @@ export interface sampleModel {
       {
         id: string;
         name: string;
+        concept_name: string;
       }
     ];
   };
+  has_anatomical_entity: [
+    {
+      concept_name: string;
+    }
+  ];
   tissue: string;
   description: string;
   accession: string;
@@ -206,7 +213,7 @@ export interface sampleSummaryModel {
     sex: sexSummaryModel;
     tissues: { [key: string]: number };
     phenotypes: { [key: string]: number };
-  }
+  };
 }
 
 export interface sexSummaryModel {
@@ -219,37 +226,37 @@ export interface studySummaryModel {
   count: number;
   stats: {
     ega_accession: string[];
-    accession: []
-  }
+    accession: [];
+  };
 }
 
 export interface experimentSummaryModel {
   count: number;
   stats: {
-    protocol: { [key: string]: number }
-  }
+    protocol: { [key: string]: number };
+  };
 }
 
 export interface fileSummaryModel {
   count: number;
   stats: {
     format: { [key: string]: number };
-    size: number
-  }
+    size: number;
+  };
 }
 
 export interface individualSummaryModel {
   count: number;
   stats: {
     sex: { [key: string]: number };
-  }
+  };
 }
 
 export interface protocolSummaryModel {
   count: number;
   stats: {
     protocol: { [key: string]: number };
-  }
+  };
 }
 
 export interface metadataSummaryModel {

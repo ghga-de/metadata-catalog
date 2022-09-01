@@ -2,7 +2,7 @@ import { faCircle, faUser } from "@fortawesome/free-regular-svg-icons";
 import {
   faChartColumn,
   faDna,
-  faFileMedical,
+  faFile,
   faGenderless,
   faMars,
   faNotesMedical,
@@ -112,7 +112,7 @@ const TopSectionBadges = (props: HomeTopBadgesProps) => {
                   <Col>
                     <ul className="fa-ul">
                       {getItemsForSummary(props.summaryStats.file_summary.stats.format).map((x) => {
-                        return (<li key={x} className="text-secondary text-capitalize fw-bold ms-0 ps-0"><FontAwesomeIcon className="fa-li" icon={faFileMedical}/>{x}</li>)
+                        return (<li key={x} className="text-secondary text-capitalize fw-bold ms-0 ps-0"><FontAwesomeIcon className="fa-li" icon={faFile}/>{x}</li>)
                       })}
                     </ul>
                   </Col>
