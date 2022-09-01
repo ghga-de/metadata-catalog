@@ -10,30 +10,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { Card, Col, Row } from "react-bootstrap";
 import { metadataSummaryModel } from "../../../models/dataset";
+import { getItemsForSummary } from "../../../utils/utils";
 
 interface HomeTopBadgesProps {
   summaryStats: metadataSummaryModel | null;
 }
 
 const TopSectionBadges = (props: HomeTopBadgesProps) => {
-
-  const getFormats = (format: { [key: string]: number } | undefined) => {
-    let formats: string[] = []
-    for (let item in format) {
-      let value = format[item]
-      formats.push(item + ": " + value + "\n")
-    }
-    return formats
-  };
-
-  const getProtocols = (protocol: { [key: string]: number } | undefined) => {
-    let protocols: string[] = []
-    for (let item in protocol) {
-      let value = protocol[item]
-      protocols.push(item + ": " + value + "\n")
-    }
-    return protocols
-  };
 
 
   return (
@@ -51,7 +34,7 @@ const TopSectionBadges = (props: HomeTopBadgesProps) => {
               <Card.Text as="div">
                 <Row className="fs-8">
                   <Col>
-                    {getProtocols(props.summaryStats.protocol_summary.stats.protocol).map((x) => {
+                    {getItemsForSummary(props.summaryStats.protocol_summary.stats.protocol).map((x) => {
                       return (<>{x}</>)
                     })}
                   </Col>
@@ -126,7 +109,7 @@ const TopSectionBadges = (props: HomeTopBadgesProps) => {
                     </span>
                   </Col>
                   <Col>
-                    {getFormats(props.summaryStats.file_summary.stats.format).map((x) => {
+                    {getItemsForSummary(props.summaryStats.file_summary.stats.format).map((x) => {
                       return (<>{x}</>)
                     })}
                   </Col>

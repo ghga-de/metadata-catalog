@@ -48,9 +48,6 @@ const HomeFilterSelects = (props: HomeFilterSelectsProps) => {
       <div className="w-75">
         {generateSelect("has_study.type", "Study type")}
         {generateSelect("type", "Type")}
-        <Form.Select className="d-inline-block w-25 fs-8" size="sm" disabled>
-          <option>Size</option>
-        </Form.Select>
       </div>
     </Container>
   );
