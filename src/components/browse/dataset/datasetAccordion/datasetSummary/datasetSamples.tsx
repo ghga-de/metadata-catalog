@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Collapse, Row } from "react-bootstrap";
+import { Collapse, Row } from "react-bootstrap";
 import DatasetDetailsLayout from "./datasetDetailsLayout/datasetDetailsLayout";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -59,25 +59,26 @@ const DatasetSamples = (props: dataSetSamplesProps) => {
                 </div>
                 <br />
                 <div className="mb-0"><strong>{props.samples.count}</strong>&nbsp;Phenotypes:
-                  <ul>
+                  <ul className="mb-0">
                     {getItemsForSummary(props.samples.stats?.phenotypes).slice(0, 3).map((x) => {
                       return (<li key={x} className="text-capitalize">{x}</li>)
                     })}
                   </ul>
-                  <Button onClick={() => setOpenPhenotypesList(!openPhenotypesList)}
+                  <a href="##" onClick={() => setOpenPhenotypesList(!openPhenotypesList)}
                     aria-controls="example-collapse-text"
                     aria-expanded={openPhenotypesList}
-                    variant="link"
                   >
-                    Show more ...
-                  </Button>
-                  <Collapse in={openPhenotypesList}>
-                    <ul id="extended-phenotypes">
-                      {getItemsForSummary(props.samples.stats?.phenotypes).slice(3).map((x) => {
-                        return (<li key={x} className="text-capitalize">{x}</li>)
-                      })}
-                    </ul>
-                  </Collapse>
+                    show_complete list
+                  </a>
+                  <ul id="extended-phenotypes">
+                    <Collapse in={openPhenotypesList}>
+                      <>
+                        {getItemsForSummary(props.samples.stats?.phenotypes).slice(3).map((x) => {
+                          return (<li key={x} className="text-capitalize">{x}</li>)
+                        })}
+                      </>
+                    </Collapse>
+                  </ul>
                 </div>
               </p>
             </div>

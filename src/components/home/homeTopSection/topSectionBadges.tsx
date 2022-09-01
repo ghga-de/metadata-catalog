@@ -46,7 +46,7 @@ const TopSectionBadges = (props: HomeTopBadgesProps) => {
                   <Col>
                     <ul className="fa-ul">
                       {getItemsForSummary(props.summaryStats.protocol_summary.stats.protocol).map((x) => {
-                        return (<li key={x} className="text-secondary text-capitalize fw-bold ms-0 ps-0"><FontAwesomeIcon className="fa-li" icon={faNotesMedical} />{x}</li>)
+                        return (<li key={x} className="text-secondary text-capitalize fw-bold ms-0 ps-0 mb-2"><FontAwesomeIcon className="fa-li" transform="grow-3" icon={faNotesMedical} />{x}</li>)
                       })}
                     </ul>
                   </Col>
@@ -112,7 +112,7 @@ const TopSectionBadges = (props: HomeTopBadgesProps) => {
                   <Col>
                     <ul className="fa-ul">
                       {getItemsForSummary(props.summaryStats.file_summary.stats.format).map((x) => {
-                        return (<li key={x} className="text-secondary text-capitalize fw-bold ms-0 ps-0"><FontAwesomeIcon className="fa-li" icon={faFile}/>{x}</li>)
+                        return (<li key={x} className="text-secondary text-capitalize fw-bold ms-0 ps-0 mb-2"><FontAwesomeIcon className="fa-li" transform="grow-3" icon={faFile}/>{x}</li>)
                       })}
                     </ul>
                   </Col>
