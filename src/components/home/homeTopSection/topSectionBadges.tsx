@@ -28,7 +28,7 @@ const TopSectionBadges = (props: HomeTopBadgesProps) => {
             className="d-inline-block shadow border-muted mx-2"
           >
             <Card.Body>
-              <Card.Title className="text-secondary fw-bold mt-3">
+              <Card.Title className="text-secondary fw-bold">
                 <Row>
                   <Col style={{ fontSize: "48px" }} className="p-0 col-auto">
                     <span className="fa-layers fa-fw fa-lg ms-2">
@@ -36,14 +36,14 @@ const TopSectionBadges = (props: HomeTopBadgesProps) => {
                       <FontAwesomeIcon icon={faDna} transform="shrink-6" />
                     </span>
                   </Col>
-                  <Col className="mt-3 fw-bold ps-0">Sex</Col>
+                  <Col className="mt-3 fw-bold ps-0">Protocols</Col>
                 </Row>
               </Card.Title>
               <Card.Text as="div">
                 <Row className="fs-8">
                   <Col>
                     {getItemsForSummary(props.summaryStats.protocol_summary.stats.protocol).map((x) => {
-                      return (<span key={x} className="text-primary text-capitalize">{x}<br /></span>)
+                      return (<span key={x} className="text-primary text-capitalize fw-bold">{x}<br /></span>)
                     })}
                   </Col>
                 </Row>
@@ -82,7 +82,7 @@ const TopSectionBadges = (props: HomeTopBadgesProps) => {
                 <Row className="mt-3">
                   <FontAwesomeIcon icon={faGenderless} className="fs-4" />
                   <br />
-                  <Col className="text-center">Unknown: {props.summaryStats.individual_summary.stats.sex['unknown']}</Col>
+                  <Col className="text-center">Unknown: {props.summaryStats.individual_summary.stats.sex['unknown'] ? props.summaryStats.individual_summary.stats.sex['unknown'] : 0}</Col>
                 </Row>
               </Card.Text>
             </Card.Body>
@@ -92,23 +92,22 @@ const TopSectionBadges = (props: HomeTopBadgesProps) => {
             className="d-inline-block shadow border-muted mx-2"
           >
             <Card.Body>
-              <Card.Title className="text-secondary fw-bold mt-3">
-                File Format
-              </Card.Title>
-              <Card.Text as="div">
-                <Row className="mt-4 pt-3 fs-8 align-items-center">
-                  <Col
-                    style={{ fontSize: "72px" }}
-                    className="p-0 col-auto text-secondary"
-                  >
+            <Card.Title className="text-secondary fw-bold">
+                <Row>
+                  <Col style={{ fontSize: "48px" }} className="p-0 col-auto">
                     <span className="fa-layers fa-fw fa-lg ms-2">
                       <FontAwesomeIcon icon={faCircle} />
                       <FontAwesomeIcon icon={faChartColumn} transform="shrink-6" />
                     </span>
                   </Col>
+                  <Col className="mt-3 fw-bold ps-0">Files</Col>
+                </Row>
+              </Card.Title>
+              <Card.Text as="div">
+                <Row className="mt-4 pt-3 fs-8 align-items-center">
                   <Col>
                     {getItemsForSummary(props.summaryStats.file_summary.stats.format).map((x) => {
-                      return (<span key={x} className="text-primary text-capitalize">{x}<br /></span>)
+                      return (<span key={x} className="text-primary text-capitalize fw-bold">{x}<br /></span>)
                     })}
                   </Col>
                 </Row>
