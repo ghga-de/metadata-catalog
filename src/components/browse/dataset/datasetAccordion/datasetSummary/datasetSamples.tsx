@@ -1,5 +1,5 @@
 import React from "react";
-import { Collapse, Row } from "react-bootstrap";
+import { Button, Collapse, Row } from "react-bootstrap";
 import DatasetDetailsLayout from "./datasetDetailsLayout/datasetDetailsLayout";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -59,26 +59,24 @@ const DatasetSamples = (props: dataSetSamplesProps) => {
                 </div>
                 <br />
                 <div className="mb-0"><strong>{props.samples.count}</strong>&nbsp;Phenotypes:
-                  <ul className="mb-0">
+                  <p className="mb-0">
                     {getItemsForSummary(props.samples.stats?.phenotypes).slice(0, 3).map((x) => {
-                      return (<li key={x} className="text-capitalize">{x}</li>)
+                      return (<p key={x} className="text-capitalize" style={{ display: "list-item" }}>{x}</p>)
                     })}
-                  </ul>
-                  <a href="##" onClick={() => setOpenPhenotypesList(!openPhenotypesList)}
+                  </p>
+                  <Button onClick={() => setOpenPhenotypesList(!openPhenotypesList)}
                     aria-controls="example-collapse-text"
                     aria-expanded={openPhenotypesList}
                   >
-                    show_complete list
-                  </a>
-                  <ul>
-                    <Collapse in={openPhenotypesList}>
-                      <>
-                        {getItemsForSummary(props.samples.stats?.phenotypes).slice(3).map((x) => {
-                          return (<li key={x} id="extended-phenotypes" className="text-capitalize">{x}</li>)
-                        })}
-                      </>
-                    </Collapse>
-                  </ul>
+                    Show complete list
+                  </Button>
+                  <Collapse in={openPhenotypesList}>
+                    <p id="extended-phenotypes" >
+                      {getItemsForSummary(props.samples.stats?.phenotypes).slice(3).map((x) => {
+                        return (<p key={x} className="text-capitalize" style={{ display: "list-item" }}>{x}</p>)
+                      })}
+                    </p>
+                  </Collapse>
                 </div>
               </p>
             </div>
