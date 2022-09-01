@@ -27,7 +27,7 @@ const DatasetFiles = (props: dataSetFilesProps) => {
               <p className="mb-0">{props.files.count} Files</p>
               <ul className="mb-0">
                 {getItemsForSummary(props.files.stats?.format).map((x) => {
-                  return (<li key={x}>{x}</li>)
+                  return (<li key={x} className="text-uppercase">{x}</li>)
                 })}
               </ul>
               <p className="mb-0">{parseBytes(props.files.stats?.size)} total size</p>

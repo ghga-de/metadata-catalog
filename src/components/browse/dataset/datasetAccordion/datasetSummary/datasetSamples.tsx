@@ -61,23 +61,23 @@ const DatasetSamples = (props: dataSetSamplesProps) => {
                 <div className="mb-0"><strong>{props.samples.count}</strong>&nbsp;Phenotypes:
                   <p className="mb-0">
                     {getItemsForSummary(props.samples.stats?.phenotypes).slice(0, 3).map((x) => {
-                      return (<p key={x} className="text-capitalize mb-1" style={{ display: "list-item" }}>{x}</p>)
+                      return (<p key={x} className="text-capitalize mb-1 ms-3" style={{ display: "list-item" }}>{x}</p>)
                     })}
                   </p>
                   <Collapse in={openPhenotypesList}>
                     <span id="extended-phenotypes" >
                       {getItemsForSummary(props.samples.stats?.phenotypes).slice(3).map((x) => {
-                        return (<span key={x} className="text-capitalize mb-1" style={{ display: "list-item" }}>{x}</span>)
+                        return (<span key={x} className="text-capitalize mb-1 ms-3" style={{ display: "list-item" }}>{x}</span>)
                       })}
                     </span>
                   </Collapse>
-                  <Button onClick={() => setOpenPhenotypesList(!openPhenotypesList)}
+                  <Button onClick={() => { setOpenPhenotypesList(!openPhenotypesList) }}
                     aria-controls="example-collapse-text"
                     aria-expanded={openPhenotypesList}
                     variant="link"
                     className="p-0 "
                   >
-                    Toggle complete list
+                    {openPhenotypesList ? <>See less ...</> : <>See full list ...</>}
                   </Button>
                 </div>
               </p>
