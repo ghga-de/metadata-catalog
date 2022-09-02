@@ -38,7 +38,8 @@ const TopSectionBadges = (props: HomeTopBadgesProps) => {
                       <FontAwesomeIcon icon={faDna} transform="shrink-6" />
                     </span>
                   </Col>
-                  <Col className="mt-3 fw-bold ps-0">Protocols: {props.summaryStats.protocol_summary.count}</Col>
+                  {/*<Col className="mt-3 fw-bold ps-0">Protocols: {props.summaryStats.protocol_summary.count}</Col>*/}
+                  <Col className="ms-3 fw-bold ps-0">Instrument Models: 115</Col>
                 </Row>
               </Card.Title>
               <Card.Text as="div">
@@ -67,7 +68,7 @@ const TopSectionBadges = (props: HomeTopBadgesProps) => {
                       <FontAwesomeIcon icon={faUser} transform="shrink-6" />
                     </span>
                   </Col>
-                  <Col className="mt-3 fw-bold ps-0">Individuals: {props.summaryStats.individual_summary.count}</Col>
+                  <Col className="ms-3 fw-bold ps-0">Individuals: {props.summaryStats.individual_summary.count}</Col>
                 </Row>
               </Card.Title>
               <Card.Text as="div" className="fs-7">
@@ -104,7 +105,7 @@ const TopSectionBadges = (props: HomeTopBadgesProps) => {
                       <FontAwesomeIcon icon={faChartColumn} transform="shrink-6" />
                     </span>
                   </Col>
-                  <Col className="mt-3 ps-0">Files: {props.summaryStats.file_summary.count}</Col>
+                  <Col className="ms-3 ps-0">Files: {props.summaryStats.file_summary.count}</Col>
                 </Row>
               </Card.Title>
               <Card.Text as="div">
@@ -112,7 +113,7 @@ const TopSectionBadges = (props: HomeTopBadgesProps) => {
                   <Col>
                     <ul className="fa-ul">
                       {getItemsForSummary(props.summaryStats.file_summary.stats.format).map((x) => {
-                        return (<li key={x} className="text-secondary text-uppercase fw-bold ms-0 ps-0 mb-2"><FontAwesomeIcon className="fa-li" transform="grow-3" icon={faFile}/>{x}</li>)
+                        return (<li key={x} className="text-secondary text-uppercase fw-bold ms-0 ps-0 mb-2"><FontAwesomeIcon className="fa-li" transform="grow-3" icon={faFile} />{x}</li>)
                       })}
                     </ul>
                   </Col>

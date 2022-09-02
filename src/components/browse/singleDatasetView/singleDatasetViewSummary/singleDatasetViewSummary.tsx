@@ -17,7 +17,7 @@ const SingleDatasetViewSummary = (props: SingleDatasetViewSummaryProps) => {
         <strong>{props.details.title}</strong>
       </h5>
       <p>
-        Dataset ID | {props.details.ega_accession !== null ? props.details.ega_accession : props.details.accession }
+        Dataset ID | {props.details.ega_accession !== null ? props.details.ega_accession : props.details.accession}
       </p>
       <p className="fs-7">
         <span className="me-3">
@@ -32,6 +32,15 @@ const SingleDatasetViewSummary = (props: SingleDatasetViewSummaryProps) => {
               </Badge>
             );
           })}
+        </span>
+        <span className="me-3">
+          Dataset Type |{" "}
+          <Badge
+            key={props.details.type}
+            className="py-1 px-2 fw-normal text-capitalize me-2"
+          >
+            {props.details.type}
+          </Badge>
         </span>
         {props.details.has_attribute?.length > 0 ? (
           props.details.has_attribute?.map((x) => {
@@ -56,12 +65,12 @@ const SingleDatasetViewSummary = (props: SingleDatasetViewSummaryProps) => {
           </strong>
         </Col>
         <Col className="text-end">
-          <Badge className="py-1 px-2 fw-normal">
+          {/*<Badge className="py-1 px-2 fw-normal">
             Status:{" "}
             <span className="text-capitalize">
               {props.details.release_status}
             </span>
-          </Badge>
+        </Badge>*/}
         </Col>
       </Row>
       <Row className="fs-8 my-2 border border-1 border-dark border-end-0 border-start-0 pt-2 pb-3">

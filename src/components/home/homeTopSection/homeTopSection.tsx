@@ -11,7 +11,7 @@ import bundeslaender from "../../../assets/homepage/Bundeslaender.svg";
 const HomeTopSection = () => {
   const [searchResults, setSearchResults] =
     React.useState<searchResponseModel | null>(null);
-    const [summary, setSummary] =
+  const [summary, setSummary] =
     React.useState<metadataSummaryModel | null>(null);
 
   const [filterDict, setFilterDict] = React.useState<facetFilterModel[]>([]);
@@ -25,7 +25,7 @@ const HomeTopSection = () => {
   }, []);
 
   var facetList: facetModel[] | null = null;
-  var dsCount: number = 0;  
+  var dsCount: number = 0;
 
   if (searchResults !== null) {
     if (searchResults.hits.length > 0 || searchResults.count === -1) {
@@ -78,7 +78,7 @@ const HomeTopSection = () => {
           <Row className="mb-4 justify-content-center">
             <Container className="col-3 text-center">
               <Button variant="white" className="shadow-md-dark" href="/browse">
-                {dsCount} Total Datasets
+                Browse our {dsCount} Datasets
               </Button>
             </Container>
           </Row>
