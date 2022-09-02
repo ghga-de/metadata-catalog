@@ -113,6 +113,7 @@ export interface studyEmbeddedModel {
   release_date: string;
   id: string;
   title: string;
+  description: string;
   accession: string;
   abstract: string;
   has_publication: publicationModel[];

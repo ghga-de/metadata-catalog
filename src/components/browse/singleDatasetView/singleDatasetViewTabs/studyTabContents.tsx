@@ -39,6 +39,10 @@ const StudyTabContents = (props: StudyTabContentsProps) => {
                   <strong>Title: </strong>
                   {x.title}
                 </p>
+                <p>
+                  <strong>Description: </strong>
+                  {x.description}
+                </p>
                 <p className="mb-4">
                   <strong>Type: </strong>
                   <span className="text-capitalize">{x.type}</span>
@@ -79,10 +83,6 @@ const StudyTabContents = (props: StudyTabContentsProps) => {
                   ) : (
                     <>N/A</>
                   )}
-                </p>
-                <p>
-                  <strong>Description: </strong>
-                  {props.details.description}
                 </p>
               </PerfectScrollbar>
             </div>
