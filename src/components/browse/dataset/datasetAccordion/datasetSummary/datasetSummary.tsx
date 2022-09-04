@@ -77,7 +77,7 @@ const DatasetSummary = (props: dataSetDetailsProps) => {
                   : "browse/" + props.hit.content.accession
               }
               variant="secondary"
-              className="text-white mb-2"
+              className="text-white mb-2 shadow-md-dark"
             >
               <FontAwesomeIcon icon={faUpRightFromSquare} />&nbsp;Dataset Details
             </Button>
@@ -85,7 +85,7 @@ const DatasetSummary = (props: dataSetDetailsProps) => {
               href={"https://ega-archive.org/datasets//" + props.hit.content.ega_accession}
               target="_blank"
               variant="light"
-              className="text-secondary mb-2"
+              className="fs-8 py-2 float-mid mb-2 ms-4 text-secondary shadow-md-dark"
             >
               <FontAwesomeIcon icon={faLink} />&nbsp;EGA Dataset
             </Button>) : (<div />)}

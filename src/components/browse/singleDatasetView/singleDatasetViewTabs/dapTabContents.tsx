@@ -31,8 +31,8 @@ const DapTabContents = (props: DapTabContentsProps) => {
               <strong>Policy and Data Access Committee</strong>
             </h5>
             <p>
-              <strong>Data Access Committee: </strong>
-              {props.details.has_data_access_policy.has_data_access_committee.name}
+              <strong>Data Access Policy: </strong>
+              {props.details.has_data_access_policy.name}
             </p>
             <p>
               <strong>e-Mail: </strong>

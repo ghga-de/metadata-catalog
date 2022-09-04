@@ -104,9 +104,11 @@ export interface sampleModel {
 export interface projectModel {
   id: string;
   title: string;
+  alias: string;
   has_attribute: attributeModel[];
   description: string;
   accession: string;
+  ega_accession: string;
 }
 
 export interface studyEmbeddedModel {
@@ -125,6 +127,7 @@ export interface studyEmbeddedModel {
 
 export interface dataAccessPolicyModel {
   id: string;
+  name: string;
   accession: string;
   has_data_access_committee: dataAccessCommitteeModel;
   data_request_form: string;
