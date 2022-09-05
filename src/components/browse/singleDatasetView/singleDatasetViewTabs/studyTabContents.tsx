@@ -1,6 +1,6 @@
-import { faBook } from "@fortawesome/free-solid-svg-icons";
+import { faBook, faLink } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Tab } from "react-bootstrap";
+import { Tab, Button } from "react-bootstrap";
 import { datasetEmbeddedModel } from "../../../../models/dataset";
 import "react-perfect-scrollbar/dist/css/styles.css";
 import PerfectScrollbar from "react-perfect-scrollbar";
@@ -34,6 +34,14 @@ const StudyTabContents = (props: StudyTabContentsProps) => {
                 <p className="mb-4">
                   <strong>ID: </strong>
                   {x.ega_accession !== null ? x.ega_accession : x.accession}
+                  <Button
+                    href={"https://ega-archive.org/studies//" + x.ega_accession}
+                    target="_blank"
+                    variant="light"
+                    className="fs-8 py-2 float-mid mb-2 ms-4 text-secondary shadow-md-dark"
+                  >
+                    <FontAwesomeIcon icon={faLink} />&nbsp;EGA Study
+                  </Button>
                 </p>
                 <p className="mb-4">
                   <strong>Title: </strong>
