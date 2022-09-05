@@ -7,7 +7,7 @@ import DatasetStudies from "./datasetStudies";
 import DataRequestModal from "./dataRequestModal/dataRequestModal";
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faKey, faUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
+import { faKey, faLink, faUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 
 interface dataSetDetailsProps {
   hit: hitModel;
@@ -77,10 +77,18 @@ const DatasetSummary = (props: dataSetDetailsProps) => {
                   : "browse/" + props.hit.content.accession
               }
               variant="secondary"
-              className="text-white mb-2"
+              className="text-white mb-2 shadow-md-dark"
             >
               <FontAwesomeIcon icon={faUpRightFromSquare} />&nbsp;Dataset Details
             </Button>
+            {props.hit.content.ega_accession !== null ? (<Button
+              href={"https://ega-archive.org/datasets//" + props.hit.content.ega_accession}
+              target="_blank"
+              variant="light"
+              className="fs-8 py-2 float-mid mb-2 ms-4 text-secondary shadow-md-dark"
+            >
+              <FontAwesomeIcon icon={faLink} />&nbsp;EGA Dataset
+            </Button>) : (<div />)}
             <p>
               <span className="fw-bold">Dataset ID:&nbsp;</span>
               <span style={{ userSelect: "all" }}>
@@ -96,6 +104,11 @@ const DatasetSummary = (props: dataSetDetailsProps) => {
               <br />
               <span className="fw-bold">Description:&nbsp;</span>
               {props.hit.content.description}
+              <br />
+              <span className="fw-bold">Type:&nbsp;</span>
+              <span style={{ userSelect: "all" }}>
+                {props.hit.content.type}
+              </span>
             </p>
           </div>
           <DataRequestModal

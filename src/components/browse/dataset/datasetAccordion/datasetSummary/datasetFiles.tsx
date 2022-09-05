@@ -24,13 +24,13 @@ const DatasetFiles = (props: dataSetFilesProps) => {
           </p>
           {props.files !== null ? (
             <div>
-              <p className="mb-0">{props.files.count} Files</p>
+              <p className="mb-0"><strong>{props.files.count}</strong> Files</p>
               <ul className="mb-0">
                 {getItemsForSummary(props.files.stats?.format).map((x) => {
                   return (<li key={x} className="text-uppercase">{x}</li>)
                 })}
               </ul>
-              <p className="mb-0">{parseBytes(props.files.stats?.size)} total size</p>
+              <p className="mb-0"><strong>{parseBytes(props.files.stats?.size)}</strong> total size</p>
             </div>
           ) : (
             <p className="mb-0">0 Files</p>

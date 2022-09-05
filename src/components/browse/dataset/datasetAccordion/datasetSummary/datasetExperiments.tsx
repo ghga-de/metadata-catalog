@@ -23,9 +23,9 @@ const DatasetExperiments = (props: dataSetExperimentsProps) => {
             <strong>Experiment info</strong>
           </p>
           <br />
-          <p className="mb-0">Experiments: {props.experiments?.count} total</p>
+          <p className="mb-0">Experiments: <strong>{props.experiments?.count}</strong> </p>
           <br />
-          <div className="mb-0">Protocols: <ul>
+          <div className="mb-0">Instrument Models: <ul>
             {getItemsForSummary(props.experiments?.stats.protocol).map((x) => {
               return (<li key={x}>{x}</li>)
             })}
