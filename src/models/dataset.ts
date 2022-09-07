@@ -139,6 +139,7 @@ export interface dataAccessCommitteeModel {
   main_contact: string;
   accession: string;
   has_member: dataAccessCommitteeMemberModel[];
+  alias: string;
 }
 
 export interface dataAccessCommitteeMemberModel {

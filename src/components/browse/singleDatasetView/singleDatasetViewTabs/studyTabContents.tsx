@@ -35,10 +35,10 @@ const StudyTabContents = (props: StudyTabContentsProps) => {
                   <strong>ID: </strong>
                   {x.ega_accession !== null ? x.ega_accession : x.accession}
                   <Button
-                    href={"https://ega-archive.org/studies//" + x.ega_accession}
+                    href={"https://ega-archive.org/studies/" + x.ega_accession}
                     target="_blank"
                     variant="light"
-                    className="fs-8 py-2 float-mid mb-2 ms-4 text-secondary shadow-md-dark"
+                    className="fs-8 py-2 float-mid mb-2 ms-4 text-secondary shadow-md-dark fw-bold"
                   >
                     <FontAwesomeIcon icon={faLink} />&nbsp;EGA Study
                   </Button>

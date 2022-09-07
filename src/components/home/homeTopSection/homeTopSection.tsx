@@ -5,7 +5,7 @@ import { metadataSummaryModel, searchResponseModel } from "../../../models/datas
 import { facetFilterModel, facetModel } from "../../../models/facets";
 import HomeFilterSelects from "./homeFilterSelects";
 import HomeSearchbar from "./homeSearchbar";
-import TopSectionBadges from "./topSectionBadges";
+import TopSectionBadges from "./homeTopSectionBadges";
 import bundeslaender from "../../../assets/homepage/Bundeslaender.svg";
 
 const HomeTopSection = () => {
@@ -77,8 +77,8 @@ const HomeTopSection = () => {
           </Row>
           <Row className="mb-4 justify-content-center">
             <Container className="col-3 text-center">
-              <Button variant="white" className="shadow-md-dark" href="/browse">
-                Browse our {dsCount} Datasets
+              <Button variant="white" className="shadow-md-dark fs-5 fw-bold px-5" href="/browse">
+                {dsCount} Total Datasets
               </Button>
             </Container>
           </Row>
