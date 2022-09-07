@@ -66,7 +66,7 @@ const Sidebar = (props: sidebarProps) => {
   };
 
   return (
-    <div className="border rounded border-light p-2 mt-3">
+    <div className="border rounded border-light p-2 mt-3 shadow">
       <Row>
         <Search
           searchKeyword={props.searchKeyword}

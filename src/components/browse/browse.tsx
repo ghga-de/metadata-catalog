@@ -1,5 +1,5 @@
 import React from "react";
-import { Col, Row, Container } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 import { useSearchParams } from "react-router-dom";
 import { searchResponseModel, hitModel } from "../../models/dataset";
 import { facetFilterModel, facetModel } from "../../models/facets";
@@ -72,7 +72,7 @@ const Browse = () => {
   }
 
   return (
-    <Container className="mt-4">
+    <div className="mt-4 mx-auto w-75 px-5">
       <Row>
         <DatasetHeader
           dsCount={dsCount}
@@ -92,7 +92,7 @@ const Browse = () => {
         />
       </Row>
       <Row>
-        <Col lg={3} md={3} sm={3} xl={3} xs={3} xxl={3}>
+        <Col className="col-3">
           <Sidebar
             searchKeyword={searchKeyword}
             setSearchKeyword={setSearchKeyword}
@@ -111,7 +111,7 @@ const Browse = () => {
             check={check}
           />
         </Col>
-        <Col lg={9} md={9} sm={9} xl={9} xs={9} xxl={9}>
+        <Col>
           <DatasetList
             searchKeyword={searchKeyword}
             setSearchResults={setSearchResults}
@@ -130,7 +130,7 @@ const Browse = () => {
           />
         </Col>
       </Row>
-    </Container>
+    </div>
   );
 };
 

@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "../../assets/metadata-catalog.png";
-import { Navbar, Container, Nav, Button } from "react-bootstrap";
+import { Navbar, Nav, Button } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 
 const HeaderNavbar = () => {
@@ -17,7 +17,7 @@ const HeaderNavbar = () => {
       variant="dark"
       className="p-0"
     >
-      <Container>
+      <div className="mx-auto w-75 px-5 d-flex">
         <Navbar.Brand className="p-0">
           <Button href="/" className="p-1 m-0">
             <img src={logo} alt="GHGA logo" height="50px" />
@@ -91,7 +91,7 @@ const HeaderNavbar = () => {
             </NavLink>
           </Nav>
         </Navbar.Collapse>
-      </Container>
+      </div>
     </Navbar>
   );
 };

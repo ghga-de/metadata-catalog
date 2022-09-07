@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Collapse, Row } from "react-bootstrap";
+import { Button, Collapse, Row, Badge } from "react-bootstrap";
 import DatasetDetailsLayout from "./datasetDetailsLayout/datasetDetailsLayout";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -57,13 +57,13 @@ const DatasetSamples = (props: dataSetSamplesProps) => {
                     </strong> &nbsp;Tissues:
                   </p>
                   {getItemsForSummary(props.samples.stats?.tissues).map((x) => {
-                    return (<p key={x} className="text-capitalize mb-0 ms-4" style={{ display: "list-item" }}>{x}</p>)
+                    return (<Badge key={x} className="bg-success text-capitalize fw-normal py-1 fs-9 mb-0 ms-4 mb-1">{x}</Badge>)
                   })}
                 </div>
                 <div className="mb-0"><strong>{getItemsForSummary(props.samples.stats?.phenotypes).length}</strong>&nbsp;Phenotypes:
                   <div className="mb-0">
                     {getItemsForSummary(props.samples.stats?.phenotypes).slice(0, 3).map((x) => {
-                      return (<p key={x} className="text-capitalize mb-0 ms-4" style={{ display: "list-item" }}>{x}</p>)
+                      return (<Badge key={x} className="bg-primary py-1 text-capitalize fw-normal fs-9 mb-0 ms-4 d-table mb-1">{x}</Badge>)
                     })}
                   </div>
                   {getItemsForSummary(props.samples.stats?.phenotypes).length > 3 ? (
@@ -71,7 +71,7 @@ const DatasetSamples = (props: dataSetSamplesProps) => {
                       <Collapse in={openPhenotypesList}>
                         <span id="extended-phenotypes">
                           {getItemsForSummary(props.samples.stats?.phenotypes).slice(3).map((x) => {
-                            return (<span key={x} className="text-capitalize mb-0 ms-4" style={{ display: "list-item" }}>{x}</span>)
+                            return (<Badge key={x} className="bg-primary py-1 text-capitalize fw-normal fs-9 mb-0 ms-4 d-table mb-1 text-break text-wrap text-start">{x}</Badge>)
                           })}
                         </span>
                       </Collapse>
@@ -79,7 +79,7 @@ const DatasetSamples = (props: dataSetSamplesProps) => {
                         aria-controls="example-collapse-text"
                         aria-expanded={openPhenotypesList}
                         variant="link"
-                        className="p-0 fs-8"
+                        className="p-0 fs-8 d-block"
                       >
                         {openPhenotypesList ? <>See less ...</> : <>See full list ...</>}
                       </Button>

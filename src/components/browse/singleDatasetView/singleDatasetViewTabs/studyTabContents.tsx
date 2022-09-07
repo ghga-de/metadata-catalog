@@ -1,6 +1,6 @@
 import { faBook, faLink } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Tab, Button } from "react-bootstrap";
+import { Tab, Button, Row, Col } from "react-bootstrap";
 import { datasetEmbeddedModel } from "../../../../models/dataset";
 import "react-perfect-scrollbar/dist/css/styles.css";
 import PerfectScrollbar from "react-perfect-scrollbar";
@@ -17,6 +17,25 @@ const StudyTabContents = (props: StudyTabContentsProps) => {
           return (
             <div key={x.id} className="text-break overflow-auto h-100">
               <PerfectScrollbar>
+                {x.ega_accession !== null ? (
+                  <Button
+                    href={"https://ega-archive.org/studies/" + x.ega_accession}
+                    target="_blank"
+                    variant="white"
+                    className="float-end fs-8 py-2 mb-2 ms-4 text-secondary shadow-md-dark fw-bold border-secondary"
+                  >
+                    <Row className="p-0 m-0 align-items-center text-start">
+                      <Col className="p-0 m-0 col-3 ">
+                        <FontAwesomeIcon icon={faLink} />
+                      </Col>
+                      <Col className="p-0 m-0 lh-1">
+                        <strong>Visit EGA Study</strong>
+                      </Col>
+                    </Row>
+                  </Button>
+                ) : (
+                  <></>
+                )}
                 <h5 className="mb-4 d-flex align-items-center">
                   <FontAwesomeIcon
                     icon={faBook}
@@ -34,14 +53,6 @@ const StudyTabContents = (props: StudyTabContentsProps) => {
                 <p className="mb-4">
                   <strong>ID: </strong>
                   {x.ega_accession !== null ? x.ega_accession : x.accession}
-                  <Button
-                    href={"https://ega-archive.org/studies/" + x.ega_accession}
-                    target="_blank"
-                    variant="light"
-                    className="fs-8 py-2 float-mid mb-2 ms-4 text-secondary shadow-md-dark fw-bold"
-                  >
-                    <FontAwesomeIcon icon={faLink} />&nbsp;EGA Study
-                  </Button>
                 </p>
                 <p className="mb-4">
                   <strong>Title: </strong>

@@ -26,7 +26,7 @@ const TopSectionBadges = (props: HomeTopBadgesProps) => {
       {props.summaryStats !== null ? (
         <>
           <Card
-            style={{ width: "18rem" }}
+            style={{ width: "18rem", borderRadius: "15px" }}
             className="d-inline-block shadow border-muted mx-2"
           >
             <Card.Body>
@@ -35,11 +35,11 @@ const TopSectionBadges = (props: HomeTopBadgesProps) => {
                   <Col style={{ fontSize: "36px" }} className="p-0 col-auto">
                     <span className="fa-layers fa-fw fa-lg ms-2">
                       <FontAwesomeIcon icon={faCircle} />
-                      <FontAwesomeIcon icon={faDna} transform="shrink-6" />
+                      <FontAwesomeIcon icon={faDna} transform="shrink-8" />
                     </span>
                   </Col>
                   {/*<Col className="mt-3 fw-bold fs-6 ps-0">Protocols: {props.summaryStats.protocol_summary.count}</Col>*/}
-                  <Col className="ms-3 fw-bold fs-6 ps-0">Instrument Models:&nbsp;{Object.keys(props.summaryStats.protocol_summary.stats.protocol).length}</Col>
+                  <Col className="ms-3 fw-bold fs-5 ps-0">Platforms:&nbsp;{Object.keys(props.summaryStats.protocol_summary.stats.protocol).length}</Col>
                 </Row>
               </Card.Title>
               <Card.Text as="div">
@@ -56,7 +56,7 @@ const TopSectionBadges = (props: HomeTopBadgesProps) => {
             </Card.Body>
           </Card>
           <Card
-            style={{ width: "18rem" }}
+            style={{ width: "18rem", borderRadius: "15px" }}
             className="d-inline-block shadow border-muted mx-2 bg-primary"
           >
             <Card.Body className="text-white">
@@ -65,10 +65,10 @@ const TopSectionBadges = (props: HomeTopBadgesProps) => {
                   <Col style={{ fontSize: "36px" }} className="p-0 col-auto">
                     <span className="fa-layers fa-fw fa-lg ms-2">
                       <FontAwesomeIcon icon={faCircle} />
-                      <FontAwesomeIcon icon={faUser} transform="shrink-6" />
+                      <FontAwesomeIcon icon={faUser} transform="shrink-8" />
                     </span>
                   </Col>
-                  <Col className="ms-3 fw-bold fs-6 ps-0">Individuals:&nbsp;{props.summaryStats.individual_summary.count}</Col>
+                  <Col className="ms-3 fw-bold fs-5 ps-0">Individuals:&nbsp;{props.summaryStats.individual_summary.count}</Col>
                 </Row>
               </Card.Title>
               <Card.Text as="div" className="fs-7">
@@ -93,7 +93,7 @@ const TopSectionBadges = (props: HomeTopBadgesProps) => {
             </Card.Body>
           </Card>
           <Card
-            style={{ width: "18rem" }}
+            style={{ width: "18rem", borderRadius: "15px" }}
             className="d-inline-block shadow border-muted mx-2"
           >
             <Card.Body>
@@ -102,10 +102,10 @@ const TopSectionBadges = (props: HomeTopBadgesProps) => {
                   <Col style={{ fontSize: "36px" }} className="p-0 col-auto">
                     <span className="fa-layers fa-fw fa-lg ms-2">
                       <FontAwesomeIcon icon={faCircle} />
-                      <FontAwesomeIcon icon={faChartColumn} transform="shrink-6" />
+                      <FontAwesomeIcon icon={faChartColumn} transform="shrink-8" />
                     </span>
                   </Col>
-                  <Col className="ms-3 ps-0 fs-6">Files:&nbsp;{props.summaryStats.file_summary.count}</Col>
+                  <Col className="ms-3 ps-0 fs-5">Files:&nbsp;{props.summaryStats.file_summary.count}</Col>
                 </Row>
               </Card.Title>
               <Card.Text as="div">

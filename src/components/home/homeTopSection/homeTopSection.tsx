@@ -1,7 +1,10 @@
 import React from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
 import { getMetadataSummary, querySearchService } from "../../../api/browse";
-import { metadataSummaryModel, searchResponseModel } from "../../../models/dataset";
+import {
+  metadataSummaryModel,
+  searchResponseModel,
+} from "../../../models/dataset";
 import { facetFilterModel, facetModel } from "../../../models/facets";
 import HomeFilterSelects from "./homeFilterSelects";
 import HomeSearchbar from "./homeSearchbar";
@@ -11,15 +14,16 @@ import bundeslaender from "../../../assets/homepage/Bundeslaender.svg";
 const HomeTopSection = () => {
   const [searchResults, setSearchResults] =
     React.useState<searchResponseModel | null>(null);
-  const [summary, setSummary] =
-    React.useState<metadataSummaryModel | null>(null);
+  const [summary, setSummary] = React.useState<metadataSummaryModel | null>(
+    null
+  );
 
   const [filterDict, setFilterDict] = React.useState<facetFilterModel[]>([]);
 
   React.useEffect(() => {
     const getData = () => {
       querySearchService(setSearchResults, [], "", 0, 1, "Dataset");
-      getMetadataSummary(setSummary)
+      getMetadataSummary(setSummary);
     };
     getData();
   }, []);
@@ -54,13 +58,20 @@ const HomeTopSection = () => {
           </Row>
           <Row>
             <div
-              className="border border-black border-2 p-0 rounded ms-3 py-5 px-5 fw-bold"
-              style={{ background: "RGBA(0,0,0,0.3)" }}
+              className="border border-black border-2 p-0 ms-3 py-5 px-5 fw-bold text-center"
+              style={{ background: "RGBA(0,0,0,0.3)", borderRadius: "15px" }}
             >
-              <span>
+              <p className="mb-4">
                 A FAIR Portal for Human Genomics data with GDPR-compliant access
                 control.
-              </span>
+              </p>
+              <Button
+                href="/browse"
+                variant="white"
+                className="py-2 mb-2 ms-4 text-secondary fw-bold shadow-md-dark border-secondary"
+              >
+                <span className="text-uppercase">Get started</span>
+              </Button>
             </div>
           </Row>
         </Col>
@@ -77,7 +88,11 @@ const HomeTopSection = () => {
           </Row>
           <Row className="mb-4 justify-content-center">
             <Container className="col-3 text-center">
-              <Button variant="white" className="shadow-md-dark fs-5 fw-bold px-5" href="/browse">
+              <Button
+                variant="white"
+                className="shadow-md-dark fs-5 fw-bold px-5"
+                href="/browse"
+              >
                 {dsCount} Total Datasets
               </Button>
             </Container>
