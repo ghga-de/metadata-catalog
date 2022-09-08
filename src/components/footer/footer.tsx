@@ -21,7 +21,7 @@ const Footer = () => {
       >
         &nbsp;
       </div>
-      <div className="mx-auto w-75 px-5">
+      <div className="mx-auto">
         <FooterIcons></FooterIcons>
       </div>
     </footer>

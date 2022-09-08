@@ -59,7 +59,7 @@ const TopSectionBadges = (props: HomeTopBadgesProps) => {
             style={{ width: "18rem", borderRadius: "15px" }}
             className="d-inline-block shadow border-muted mx-2 bg-primary"
           >
-            <Card.Body className="text-white">
+            <Card.Body className="text-white fw-bold">
               <Card.Title>
                 <Row className="align-items-center">
                   <Col style={{ fontSize: "36px" }} className="p-0 col-auto">

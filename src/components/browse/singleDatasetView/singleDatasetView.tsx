@@ -128,7 +128,7 @@ const SingleDatasetView = () => {
             onClick={() => handleOpen()}
             style={{ width: "105px" }}
           >
-            <Row className="p-0 m-0 align-items-center">
+            <Row className="p-0 m-0 align-items-center text-start">
               <Col className="p-0 m-0 col-3 ">
                 <FontAwesomeIcon icon={faKey} />
               </Col>

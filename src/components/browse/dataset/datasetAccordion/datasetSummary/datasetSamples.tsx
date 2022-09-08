@@ -9,7 +9,8 @@ import {
   faGenderless,
 } from "@fortawesome/free-solid-svg-icons";
 import { sampleSummaryModel } from "../../../../../models/dataset";
-import { getItemsForSummary } from "../../../../../utils/utils"
+import { getItemsForSummary } from "../../../../../utils/utils";
+import BoldenedSummaryDetails from "./boldenedSummaryDetails/boldenedSummaryDetails";
 
 interface dataSetSamplesProps {
   samples: sampleSummaryModel | null;
@@ -54,37 +55,77 @@ const DatasetSamples = (props: dataSetSamplesProps) => {
                   <p className="mb-0">
                     <strong>
                       {getItemsForSummary(props.samples.stats?.tissues).length}
-                    </strong> &nbsp;Tissues:
+                    </strong>{" "}
+                    &nbsp;Tissues:
                   </p>
                   {getItemsForSummary(props.samples.stats?.tissues).map((x) => {
-                    return (<Badge key={x} className="bg-success text-capitalize fw-normal py-1 fs-9 mb-0 ms-4 mb-1">{x}</Badge>)
+                    return (
+                      <Badge
+                        key={x}
+                        className="bg-success text-capitalize fw-normal py-1 fs-9 mb-0 ms-4 mb-1"
+                      >
+                        {<BoldenedSummaryDetails x={x} />}
+                      </Badge>
+                    );
                   })}
                 </div>
-                <div className="mb-0"><strong>{getItemsForSummary(props.samples.stats?.phenotypes).length}</strong>&nbsp;Phenotypes:
+                <div className="mb-0">
+                  <strong>
+                    {getItemsForSummary(props.samples.stats?.phenotypes).length}
+                  </strong>
+                  &nbsp;Phenotypes:
                   <div className="mb-0">
-                    {getItemsForSummary(props.samples.stats?.phenotypes).slice(0, 3).map((x) => {
-                      return (<Badge key={x} className="bg-primary py-1 text-capitalize fw-normal fs-9 mb-0 ms-4 d-table mb-1">{x}</Badge>)
-                    })}
+                    {getItemsForSummary(props.samples.stats?.phenotypes)
+                      .slice(0, 3)
+                      .map((x) => {
+                        return (
+                          <Badge
+                            key={x}
+                            className="bg-primary py-1 text-capitalize fw-normal fs-9 mb-0 ms-4 d-table mb-1"
+                          >
+                            {<BoldenedSummaryDetails x={x} />}
+                          </Badge>
+                        );
+                      })}
                   </div>
-                  {getItemsForSummary(props.samples.stats?.phenotypes).length > 3 ? (
+                  {getItemsForSummary(props.samples.stats?.phenotypes).length >
+                  3 ? (
                     <>
                       <Collapse in={openPhenotypesList}>
                         <span id="extended-phenotypes">
-                          {getItemsForSummary(props.samples.stats?.phenotypes).slice(3).map((x) => {
-                            return (<Badge key={x} className="bg-primary py-1 text-capitalize fw-normal fs-9 mb-0 ms-4 d-table mb-1 text-break text-wrap text-start">{x}</Badge>)
-                          })}
+                          {getItemsForSummary(props.samples.stats?.phenotypes)
+                            .slice(3)
+                            .map((x) => {
+                              return (
+                                <Badge
+                                  key={x}
+                                  className="bg-primary py-1 text-capitalize fw-normal fs-9 mb-0 ms-4 d-table mb-1 text-break text-wrap text-start"
+                                >
+                                  {<BoldenedSummaryDetails x={x} />}
+                                </Badge>
+                              );
+                            })}
                         </span>
                       </Collapse>
-                      <Button onClick={() => { setOpenPhenotypesList(!openPhenotypesList) }}
+                      <Button
+                        onClick={() => {
+                          setOpenPhenotypesList(!openPhenotypesList);
+                        }}
                         aria-controls="example-collapse-text"
                         aria-expanded={openPhenotypesList}
                         variant="link"
                         className="p-0 fs-8 d-block"
                       >
-                        {openPhenotypesList ? <>See less ...</> : <>See full list ...</>}
+                        {openPhenotypesList ? (
+                          <>See less ...</>
+                        ) : (
+                          <>See full list ...</>
+                        )}
                       </Button>
                     </>
-                  ) : (<></>)}
+                  ) : (
+                    <></>
+                  )}
                 </div>
               </div>
             </div>

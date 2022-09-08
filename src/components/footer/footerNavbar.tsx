@@ -12,7 +12,7 @@ import { Link } from "react-router-dom";
 const FooterNavbar = () => {
   return (
     <div className="mt-4 pb-2 mw-100 mx-0 bg-primary">
-      <div  className="mx-auto w-75 px-5 pt-3 pb-2 text-center">
+      <div className="mx-auto container pt-3 pb-2 text-center">
         <Row>
           <Col className="border-1 border-end px-3 mx-0 fs-8 text-white">
             <Link to="/">
@@ -64,7 +64,7 @@ const FooterNavbar = () => {
           </Button>
           <Button
             href="/about-us"
-            className="text-white text-decoration-none col border-1 px-3 mx-0 flex-shrink-0"
+            className="text-white text-decoration-none col border-1 border-end px-3 mx-0 flex-shrink-0"
           >
             <FontAwesomeIcon
               icon={faQuestionCircle}

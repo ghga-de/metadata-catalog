@@ -5,7 +5,7 @@ import banner2 from "../../assets/aboutUs/about-banner2.png";
 
 const AboutUs = () => {
   return (
-    <div className="mx-auto w-75 px-5">
+    <div className="mx-auto w-75 px-5 mt-4">
       <Row
         className="bg-primary m-0 mb-4 py-4 px-3"
         style={{

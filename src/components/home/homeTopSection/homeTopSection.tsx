@@ -10,6 +10,7 @@ import HomeFilterSelects from "./homeFilterSelects";
 import HomeSearchbar from "./homeSearchbar";
 import TopSectionBadges from "./homeTopSectionBadges";
 import bundeslaender from "../../../assets/homepage/Bundeslaender.svg";
+import { NavLink } from "react-router-dom";
 
 const HomeTopSection = () => {
   const [searchResults, setSearchResults] =
@@ -65,13 +66,14 @@ const HomeTopSection = () => {
                 A FAIR Portal for Human Genomics data with GDPR-compliant access
                 control.
               </p>
-              <Button
-                href="/browse"
-                variant="white"
-                className="py-2 mb-2 ms-4 text-secondary fw-bold shadow-md-dark border-secondary"
-              >
-                <span className="text-uppercase">Get started</span>
-              </Button>
+              <NavLink to="/browse">
+                <Button
+                  variant="white"
+                  className="py-2 mb-2 text-secondary fw-bold shadow-md-dark border-secondary"
+                >
+                  <span className="text-uppercase">Get started</span>
+                </Button>
+              </NavLink>
             </div>
           </Row>
         </Col>
@@ -88,13 +90,14 @@ const HomeTopSection = () => {
           </Row>
           <Row className="mb-4 justify-content-center">
             <Container className="col-3 text-center">
-              <Button
-                variant="white"
-                className="shadow-md-dark fs-5 fw-bold px-5"
-                href="/browse"
-              >
-                {dsCount} Total Datasets
-              </Button>
+              <NavLink to="/browse">
+                <Button
+                  variant="white"
+                  className="shadow-md-dark fs-5 fw-bold px-5"
+                >
+                  {dsCount}&nbsp;Total&nbsp;Datasets
+                </Button>
+              </NavLink>
             </Container>
           </Row>
           <Row className="text-black justify-content-center">

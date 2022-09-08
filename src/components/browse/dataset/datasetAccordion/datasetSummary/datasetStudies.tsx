@@ -21,7 +21,7 @@ const DatasetStudies = (props: dataSetStudiesProps) => {
                 {props.study.stats.ega_accession !== null ? props.study.stats.ega_accession : props.study.stats?.accession}
               </strong>
               <br />
-              {props.study.stats.ega_accession !== null ? (<>EGA Accession: {props.study.stats.ega_accession}</>) : <>Accession ID: {props.study.stats?.accession}</>}
+              {props.study.stats.ega_accession !== null ? (<>EGA Accession ID: {props.study.stats.ega_accession}</>) : <>Accession ID: {props.study.stats?.accession}</>}
               <br />
             </p>
           </div>

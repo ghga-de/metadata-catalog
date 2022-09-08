@@ -68,9 +68,17 @@ const DataRequestModal = (props: DataRequestModalProps) => {
     `Thank you.\n\n` +
     `Kind regards`;
 
+  const cleanEmail = (email: string) => {
+    let clean_email : string = email
+    clean_email = clean_email.replace('[at]', '@')
+    clean_email = clean_email.replace('[dot]', '.')
+    clean_email = clean_email.replace(';', '')
+    return clean_email
+  }
+
   const requestAccess = () => {
     window.location.assign(
-      `mailto:${props.copyEmail}?subject=${subject}&body=${encodeURIComponent(
+      `mailto:${cleanEmail(props.copyEmail)}?subject=${subject}&body=${encodeURIComponent(
         body
       )}`
     );
@@ -170,7 +178,7 @@ const DataRequestModal = (props: DataRequestModalProps) => {
                 overlay={renderTooltip(emailTooltipString)}
                 rootClose={true}
               >
-                <Col><CopyToClipboard text={props.copyEmail}>
+                <Col><CopyToClipboard text={cleanEmail(props.copyEmail)}>
                   <Col
                     lg={"auto"}
                     md={"auto"}

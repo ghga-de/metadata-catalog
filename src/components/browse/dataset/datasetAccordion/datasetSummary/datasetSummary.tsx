@@ -47,6 +47,7 @@ const DatasetSummary = (props: dataSetDetailsProps) => {
               variant="secondary"
               onClick={() => handleOpen()}
               style={{ width: "115px" }}
+              title="Request access"
             >
               <Row className="p-0 m-0 align-items-center text-start">
                 <Col className="p-0 m-0 col-3 ">
@@ -66,6 +67,7 @@ const DatasetSummary = (props: dataSetDetailsProps) => {
               }
               variant="secondary"
               className="text-white mb-3 fs-8 shadow-md-dark"
+              title="Dataset Details"
               style={{ width: "115px" }}
             >
               <Row className="p-0 m-0 align-items-center text-start">
@@ -86,6 +88,7 @@ const DatasetSummary = (props: dataSetDetailsProps) => {
                 }
                 target="_blank"
                 variant="white"
+                title="Visit the EGA Page for this Dataset"
                 className="fs-8 mb-3 text-secondary shadow-md-dark text-start border-secondary"
                 style={{ width: "115px" }}
               >
