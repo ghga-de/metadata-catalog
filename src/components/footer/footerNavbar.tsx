@@ -14,18 +14,10 @@ const FooterNavbar = () => {
     <div className="mt-4 pb-2 mw-100 mx-0 bg-primary">
       <div className="mx-auto container pt-3 pb-2 text-center">
         <Row>
-          <Col className="border-1 border-end px-3 mx-0 fs-8 text-white">
+          <Col className="border-1 border-end px-3 pt-4 mx-0 fs-8 text-white align-items-center">
             <Link to="/">
               <img src={logo} alt="GHGA logo" height="70px" />
             </Link>
-            <p className="text-start mt-2 mb-1">
-              GHGA Data Portal running in Beta mode
-            </p>
-            <p className="text-start">
-              <Link to="/browse" className="fw-bold text-white">
-                Browse Datasets
-              </Link>
-            </p>
           </Col>
           <Button
             href="https://www.ghga.de/data/data-download"

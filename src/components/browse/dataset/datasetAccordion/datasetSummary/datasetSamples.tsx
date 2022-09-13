@@ -81,7 +81,7 @@ const DatasetSamples = (props: dataSetSamplesProps) => {
                         return (
                           <Badge
                             key={x}
-                            className="bg-primary py-1 text-capitalize fw-normal fs-9 mb-0 ms-4 d-table mb-1"
+                            className="bg-primary py-1 text-capitalize fw-normal fs-9 mb-0 ms-4 d-table mb-1 text-break text-wrap text-start"
                           >
                             {<BoldenedSummaryDetails x={x} />}
                           </Badge>
