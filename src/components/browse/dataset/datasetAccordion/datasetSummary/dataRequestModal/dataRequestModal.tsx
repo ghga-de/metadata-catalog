@@ -211,7 +211,7 @@ const DataRequestModal = (props: DataRequestModalProps) => {
                   overlay={renderTooltip(emailTooltipString)}
                   rootClose={true}
                 >
-                  <Col><CopyToClipboard text={props.copyEmail}>
+                  <Col><CopyToClipboard text={cleanEmail(props.copyEmail)}>
                     <Button
                       id={"email_address"}
                       variant="outline-dark"

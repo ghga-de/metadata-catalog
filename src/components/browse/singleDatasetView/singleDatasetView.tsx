@@ -137,11 +137,11 @@ const SingleDatasetView = () => {
               </Col>
             </Row>
           </Button>
-          {details.accession !== null ? (
+          {details.ega_accession !== null ? (
             <Button
               href={
                 "https://ega-archive.org/datasets/" +
-                details.accession
+                details.ega_accession
               }
               target="_blank"
               variant="white"
@@ -161,7 +161,7 @@ const SingleDatasetView = () => {
             <div />
           )}
           <DataRequestModal
-            accession={details.accession}
+            accession={details.ega_accession !== null ? details.ega_accession : details.accession}
             copyEmail={copyEmail}
             show={show}
             handleClose={handleClose}
