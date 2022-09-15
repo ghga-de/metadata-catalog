@@ -6,7 +6,7 @@ import schemaImg from "../../assets/metadataModel/schema.png";
 
 export const MetadataModel = () => {
   return (
-    <Container className="my-4">
+    <div className="mx-auto w-75 px-5 my-4">
       <h4 className="fw-bold">GHGA Metadata Model</h4>
       <div
         className="p-4 my-4"
@@ -112,7 +112,7 @@ export const MetadataModel = () => {
           </ul>
         </div>
       </Container>
-    </Container>
+    </div>
   );
 };
 

@@ -60,8 +60,8 @@ const SingleDatasetViewAccordion = (props: SingleDatasetViewAccordionProps) => {
                       {x.ega_accession !== null ? x.ega_accession : x.alias}
                     </td>
                     <td>{x.description}</td>
-                    <td className="text-capitalize">{x.has_individual.has_phenotypic_feature[0].concept_name}</td>
-                    <td className="text-capitalize">{x.has_anatomical_entity[0].concept_name}</td>
+                    <td className="text-capitalize">{x.has_individual.has_phenotypic_feature !== null ? x.has_individual.has_phenotypic_feature[0].concept_name: 'N/A'}</td>
+                    <td className="text-capitalize">{x.has_anatomical_entity !== null ? x.has_anatomical_entity[0].concept_name : 'N/A'}</td>
                   </tr>
                 );
               })}

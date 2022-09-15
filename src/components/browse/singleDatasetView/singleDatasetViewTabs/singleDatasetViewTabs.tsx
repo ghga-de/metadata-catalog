@@ -5,7 +5,7 @@ import {
   faUsersRays,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Container, Nav, Tab } from "react-bootstrap";
+import { Nav, Tab } from "react-bootstrap";
 import { datasetEmbeddedModel } from "../../../../models/dataset";
 import DapTabContents from "./dapTabContents";
 import ProjectTabContents from "./projectTabContents";
@@ -18,9 +18,9 @@ interface SingleDatasetViewTabsProps {
 
 const SingleDatasetViewTabs = (props: SingleDatasetViewTabsProps) => {
   return (
-    <Container className="mb-5">
+    <div className="mx-auto w-100 mb-5">
       <Tab.Container defaultActiveKey="0">
-        <Nav variant="pills" className="justify-content-center mb-2">
+        <Nav variant="pills" className="justify-content-center mb-2 w-100">
           <Nav.Item>
             <Nav.Link
               eventKey="0"
@@ -80,16 +80,16 @@ const SingleDatasetViewTabs = (props: SingleDatasetViewTabsProps) => {
             </Nav.Link>
           </Nav.Item>
         </Nav>
-        <Container className="mb-5 border border-1 border-light-alternative p-3 shadow-sm" style={{borderRadius: "20px"}}>
+        <div className="mx-auto w-100 mb-5 border border-1 border-light-alternative p-3 shadow-sm" style={{borderRadius: "20px"}}>
           <Tab.Content className="mb-4" style={{height: "450px"}}>
             <StudyTabContents details={props.details} />
             <ProjectTabContents details={props.details} />
             <PublicationTabContents details={props.details} />
             <DapTabContents details={props.details} />
           </Tab.Content>
-        </Container>
+        </div>
       </Tab.Container>
-    </Container>
+    </div>
   );
 };
 

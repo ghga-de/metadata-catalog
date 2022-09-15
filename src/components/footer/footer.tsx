@@ -1,5 +1,4 @@
 import React from "react";
-import { Container } from "react-bootstrap";
 import FooterIcons from "./footerIcons";
 import FooterNavbar from "./footerNavbar";
 
@@ -22,9 +21,9 @@ const Footer = () => {
       >
         &nbsp;
       </div>
-      <Container>
+      <div className="mx-auto">
         <FooterIcons></FooterIcons>
-      </Container>
+      </div>
     </footer>
   );
 };

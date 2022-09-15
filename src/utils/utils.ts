@@ -1,7 +1,12 @@
 import { facetFilterModel } from "../models/facets";
 import { querySearchService } from "../api/browse";
 import { Dispatch, SetStateAction } from "react";
-import { dataAccessCommitteeModel, dataAccessPolicyModel, datasetEmbeddedModel, searchResponseModel } from "../models/dataset";
+import {
+  dataAccessCommitteeModel,
+  dataAccessPolicyModel,
+  datasetEmbeddedModel,
+  searchResponseModel,
+} from "../models/dataset";
 
 export const getFilterString = (filterDict: facetFilterModel[]) => {
   let filterString = "";
@@ -75,7 +80,7 @@ export const handleFilterAndSearch = (
     setFilterDict(appliedFilterDict);
   }
   page = page + 1;
-  setPage(page)
+  setPage(page);
   querySearchService(
     setSearchResults,
     filterDict,
@@ -107,11 +112,13 @@ export const handleFilterAndSearch = (
   }
 };
 
-export const importAllFilesFromFolder = (r : any) => {
+export const importAllFilesFromFolder = (r: any) => {
   return r.keys().map(r);
-}
+};
 
-export const getDACEmailId = (details :  datasetEmbeddedModel | null | undefined) => {
+export const getDACEmailId = (
+  details: datasetEmbeddedModel | null | undefined
+) => {
   let mailId: string = "helpdesk@ghga.de";
   if (details !== null && details !== undefined) {
     const dataAccessPolicy: dataAccessPolicyModel =
@@ -119,30 +126,36 @@ export const getDACEmailId = (details :  datasetEmbeddedModel | null | undefined
     const dataAccessCommittee: dataAccessCommitteeModel =
       dataAccessPolicy.has_data_access_committee;
     const main_contact = dataAccessCommittee.main_contact;
-    for (var item of dataAccessCommittee.has_member) {
-      if (main_contact === null) {
-        mailId =
-          item.email === null || item.email === undefined
-            ? mailId
-            : item.email;
+    if (main_contact === null) {
+      for (var item of dataAccessCommittee.has_member) {
+        if (main_contact === null) {
+          mailId =
+            item.email === null || item.email === undefined
+              ? mailId
+              : item.email;
+        }
+        if (
+          item.id === main_contact &&
+          item.email !== null &&
+          item.email !== undefined
+        ) {
+          mailId = item.email;
+        }
       }
-      if (
-        item.id === main_contact &&
-        item.email !== null &&
-        item.email !== undefined
-      ) {
-        mailId = item.email;
-      }
+    } else {
+      mailId = main_contact;
     }
   }
   return mailId;
-}
+};
 
-export const getItemsForSummary = (item: { [key: string]: number } | undefined) => {
-  let items: string[] = []
+export const getItemsForSummary = (
+  item: { [key: string]: number } | undefined
+) => {
+  let items: string[] = [];
   for (let key in item) {
-    let value = item[key]
-    items.push(key + " : " + value)
+    let value = item[key];
+    items.push(key + ": " + value);
   }
-  return items
+  return items;
 };

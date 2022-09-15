@@ -30,17 +30,23 @@ const DapTabContents = (props: DapTabContentsProps) => {
               />
               <strong>Policy and Data Access Committee</strong>
             </h5>
-            <p>
-              <strong>Data Access Policy: </strong>
-              {props.details.has_data_access_policy.name}
-            </p>
+            {props.details.has_data_access_policy.has_data_access_committee.alias !== null ? (
+              <p>
+                <strong>Data Access Committee: </strong>
+                {props.details.has_data_access_policy.has_data_access_committee.alias}
+              </p>
+            ) : ''}
             <p>
               <strong>e-Mail: </strong>
               {getDACEmailId(props.details)}
             </p>
             <p>
+              <strong>Data Access Policy: </strong>
+              {props.details.has_data_access_policy.name}
+            </p>
+            <p>
               <strong>Policy: </strong>
-              {props.details.has_data_access_policy.policy_text}
+              {props.details.has_data_access_policy.policy_text.split('\n').map((x, idx) => (<span key={'dap_policy_' + idx} className="fs-7">{x}<br /></span>))}
             </p>
           </PerfectScrollbar>
         </div>

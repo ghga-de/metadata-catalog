@@ -26,20 +26,20 @@ const TopSectionBadges = (props: HomeTopBadgesProps) => {
       {props.summaryStats !== null ? (
         <>
           <Card
-            style={{ width: "18rem" }}
+            style={{ width: "18rem", borderRadius: "15px" }}
             className="d-inline-block shadow border-muted mx-2"
           >
             <Card.Body>
               <Card.Title className="text-secondary fw-bold">
-                <Row>
-                  <Col style={{ fontSize: "42px" }} className="p-0 col-auto">
+                <Row className="align-items-center">
+                  <Col style={{ fontSize: "36px" }} className="p-0 col-auto">
                     <span className="fa-layers fa-fw fa-lg ms-2">
                       <FontAwesomeIcon icon={faCircle} />
-                      <FontAwesomeIcon icon={faDna} transform="shrink-6" />
+                      <FontAwesomeIcon icon={faDna} transform="shrink-8" />
                     </span>
                   </Col>
-                  {/*<Col className="mt-3 fw-bold ps-0">Protocols: {props.summaryStats.protocol_summary.count}</Col>*/}
-                  <Col className="ms-3 fw-bold ps-0">Instrument Models: 115</Col>
+                  {/*<Col className="mt-3 fw-bold fs-6 ps-0">Protocols: {props.summaryStats.protocol_summary.count}</Col>*/}
+                  <Col className="ms-3 fw-bold fs-5 ps-0">Platforms:&nbsp;{Object.keys(props.summaryStats.protocol_summary.stats.protocol).length}</Col>
                 </Row>
               </Card.Title>
               <Card.Text as="div">
@@ -56,19 +56,19 @@ const TopSectionBadges = (props: HomeTopBadgesProps) => {
             </Card.Body>
           </Card>
           <Card
-            style={{ width: "18rem" }}
+            style={{ width: "18rem", borderRadius: "15px" }}
             className="d-inline-block shadow border-muted mx-2 bg-primary"
           >
-            <Card.Body className="text-white">
+            <Card.Body className="text-white fw-bold">
               <Card.Title>
-                <Row>
-                  <Col style={{ fontSize: "42px" }} className="p-0 col-auto">
+                <Row className="align-items-center">
+                  <Col style={{ fontSize: "36px" }} className="p-0 col-auto">
                     <span className="fa-layers fa-fw fa-lg ms-2">
                       <FontAwesomeIcon icon={faCircle} />
-                      <FontAwesomeIcon icon={faUser} transform="shrink-6" />
+                      <FontAwesomeIcon icon={faUser} transform="shrink-8" />
                     </span>
                   </Col>
-                  <Col className="ms-3 fw-bold ps-0">Individuals: {props.summaryStats.individual_summary.count}</Col>
+                  <Col className="ms-3 fw-bold fs-5 ps-0">Individuals:&nbsp;{props.summaryStats.individual_summary.count}</Col>
                 </Row>
               </Card.Title>
               <Card.Text as="div" className="fs-7">
@@ -76,36 +76,36 @@ const TopSectionBadges = (props: HomeTopBadgesProps) => {
                   <Col className="text-center">
                     <FontAwesomeIcon icon={faVenus} className="fs-4" />
                     <br />
-                    Female: {props.summaryStats.individual_summary.stats.sex['female']}
+                    Female:&nbsp;{props.summaryStats.individual_summary.stats.sex['female']}
                   </Col>
                   <Col className="text-center">
                     <FontAwesomeIcon icon={faMars} className="fs-4" />
                     <br />
-                    Male: {props.summaryStats.individual_summary.stats.sex['male']}
+                    Male:&nbsp;{props.summaryStats.individual_summary.stats.sex['male']}
                   </Col>
                 </Row>
                 <Row className="mt-3">
                   <FontAwesomeIcon icon={faGenderless} className="fs-4" />
                   <br />
-                  <Col className="text-center">Unknown: {props.summaryStats.individual_summary.stats.sex['unknown'] ? props.summaryStats.individual_summary.stats.sex['unknown'] : 0}</Col>
+                  <Col className="text-center">Unknown:&nbsp;{props.summaryStats.individual_summary.stats.sex['unknown'] ? props.summaryStats.individual_summary.stats.sex['unknown'] : 0}</Col>
                 </Row>
               </Card.Text>
             </Card.Body>
           </Card>
           <Card
-            style={{ width: "18rem" }}
+            style={{ width: "18rem", borderRadius: "15px" }}
             className="d-inline-block shadow border-muted mx-2"
           >
             <Card.Body>
               <Card.Title className="text-secondary fw-bold">
-                <Row>
-                  <Col style={{ fontSize: "42px" }} className="p-0 col-auto">
+                <Row className="align-items-center">
+                  <Col style={{ fontSize: "36px" }} className="p-0 col-auto">
                     <span className="fa-layers fa-fw fa-lg ms-2">
                       <FontAwesomeIcon icon={faCircle} />
-                      <FontAwesomeIcon icon={faChartColumn} transform="shrink-6" />
+                      <FontAwesomeIcon icon={faChartColumn} transform="shrink-8" />
                     </span>
                   </Col>
-                  <Col className="ms-3 ps-0">Files: {props.summaryStats.file_summary.count}</Col>
+                  <Col className="ms-3 ps-0 fs-5">Files:&nbsp;{props.summaryStats.file_summary.count}</Col>
                 </Row>
               </Card.Title>
               <Card.Text as="div">

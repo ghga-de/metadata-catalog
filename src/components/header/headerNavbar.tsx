@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "../../assets/metadata-catalog.png";
-import { Navbar, Container, Nav, Button } from "react-bootstrap";
+import { Navbar, Nav, Button } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 
 const HeaderNavbar = () => {
@@ -17,19 +17,19 @@ const HeaderNavbar = () => {
       variant="dark"
       className="p-0"
     >
-      <Container>
-        <Navbar.Brand className="p-0">
-          <Button href="/" className="p-1 m-0">
-            <img src={logo} alt="GHGA logo" height="50px" />
-          </Button>
-        </Navbar.Brand>
+      <div className="container px-5 d-flex">
         <Navbar.Toggle
           aria-controls="basic-navbar-nav"
           className="border-2 text-white"
         />
         <Navbar.Collapse id="responsive-navbar-nav">
+          <Navbar.Brand className="p-0 col-2">
+            <Button href="/" className="p-1 m-0">
+              <img src={logo} alt="GHGA logo" className="w-100" />
+            </Button>
+          </Navbar.Brand>
           <Nav
-            className="justify-content-center flex-fill"
+            className="justify-content-center col-8"
             style={{ height: "36px" }}
           >
             <NavLink
@@ -87,11 +87,11 @@ const HeaderNavbar = () => {
                 isActive ? activePageStyle : inactivePageStyle
               }
             >
-                Metadata Model
+              Metadata Model
             </NavLink>
           </Nav>
         </Navbar.Collapse>
-      </Container>
+      </div>
     </Navbar>
   );
 };

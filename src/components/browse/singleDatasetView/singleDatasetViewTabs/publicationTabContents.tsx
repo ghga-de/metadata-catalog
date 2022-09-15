@@ -13,8 +13,8 @@ const PublicationTabContents = (props: PublicationTabContentsProps) => {
 
   return (
     <Tab.Pane eventKey="2" className="h-100">
-      {props.details.has_study.map((y) => {
-        return (<>
+      {props.details.has_study.map((y, idy) => {
+        return (<div key={'study_' + idy}>
           {y.has_publication?.map((x) => {
             return (
               <div key={x.id} className="text-break overflow-auto h-100">
@@ -39,13 +39,13 @@ const PublicationTabContents = (props: PublicationTabContentsProps) => {
                   </p>
                   <p>
                     <strong>Abstract: </strong>
-                    {x.abstract}
+                    {x.abstract.split('\n').map((x, idx) => (<span key={'pub_abstract_' + idx}>{x}<br/></span>))}
                   </p>
                 </PerfectScrollbar>
               </div>
             );
           })
-          }</>)
+          }</div>)
       })}
     </Tab.Pane>
   );

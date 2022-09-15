@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Col, Row, Container, Button } from "react-bootstrap";
+import { Col, Row, Button } from "react-bootstrap";
 import {
   faCloudDownload,
   faCloudUpload,
@@ -12,20 +12,12 @@ import { Link } from "react-router-dom";
 const FooterNavbar = () => {
   return (
     <div className="mt-4 pb-2 mw-100 mx-0 bg-primary">
-      <Container className="pt-3 pb-2 text-center">
+      <div className="mx-auto container pt-3 pb-2 text-center">
         <Row>
-          <Col className="border-1 border-end px-3 mx-0 fs-8 text-white">
+          <Col className="border-1 border-end px-3 pt-4 mx-0 fs-8 text-white align-items-center">
             <Link to="/">
               <img src={logo} alt="GHGA logo" height="70px" />
             </Link>
-            <p className="text-start mt-2 mb-1">
-              GHGA Data Portal running in Beta mode
-            </p>
-            <p className="text-start">
-              <Link to="/browse" className="fw-bold text-white">
-                Browse Datasets
-              </Link>
-            </p>
           </Col>
           <Button
             href="https://www.ghga.de/data/data-download"
@@ -64,7 +56,7 @@ const FooterNavbar = () => {
           </Button>
           <Button
             href="/about-us"
-            className="text-white text-decoration-none col border-1 px-3 mx-0 flex-shrink-0"
+            className="text-white text-decoration-none col border-1 border-end px-3 mx-0 flex-shrink-0"
           >
             <FontAwesomeIcon
               icon={faQuestionCircle}
@@ -74,7 +66,7 @@ const FooterNavbar = () => {
             <p>About / FAQ</p>
           </Button>
         </Row>
-      </Container>
+      </div>
     </div>
   );
 };
