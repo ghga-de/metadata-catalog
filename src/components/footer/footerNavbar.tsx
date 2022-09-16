@@ -22,7 +22,7 @@ const FooterNavbar = () => {
           <Button
             href="https://www.ghga.de/data/data-download"
             target="_blank"
-            className="text-white text-decoration-none col border-1 border-end px-3 mx-0 flex-shrink-0"
+            className="text-white text-decoration-none col border-1 border-end px-3 mx-0 flex-shrink-0 rounded-0"
           >
             <FontAwesomeIcon
               icon={faCloudDownload}
@@ -34,7 +34,7 @@ const FooterNavbar = () => {
           <Button
             href="https://www.ghga.de/data/data-upload"
             target="_blank"
-            className="text-white text-decoration-none col border-1 border-end px-3 mx-0 flex-shrink-0"
+            className="text-white text-decoration-none col border-1 border-end px-3 mx-0 flex-shrink-0 rounded-0"
           >
             <FontAwesomeIcon
               icon={faCloudUpload}
@@ -45,7 +45,7 @@ const FooterNavbar = () => {
           </Button>
           <Button
             href="/metadata-model"
-            className="text-white text-decoration-none col border-1 border-end px-3 mx-0 flex-shrink-0"
+            className="text-white text-decoration-none col border-1 border-end px-3 mx-0 flex-shrink-0 rounded-0"
           >
             <FontAwesomeIcon
               icon={faFileLines}
@@ -56,7 +56,7 @@ const FooterNavbar = () => {
           </Button>
           <Button
             href="/about-us"
-            className="text-white text-decoration-none col border-1 border-end px-3 mx-0 flex-shrink-0"
+            className="text-white text-decoration-none col border-1 border-end px-3 mx-0 flex-shrink-0 rounded-0"
           >
             <FontAwesomeIcon
               icon={faQuestionCircle}
