@@ -127,14 +127,14 @@ const DatasetSummary = (props: dataSetDetailsProps) => {
           <div className="pe-0 d-block">
             <p>
               <span className="fw-bold">Dataset ID:&nbsp;</span>
-              <span style={{ userSelect: "all" }}>
+              <span>
                 {props.hit.content.ega_accession !== null
                   ? props.hit.content.ega_accession
                   : props.hit.content.accession}
               </span>
               <br />
               <span className="fw-bold">Full title:&nbsp;</span>
-              <span style={{ userSelect: "all" }}>
+              <span>
                 {props.hit.content.title}
               </span>
               <br />
@@ -142,7 +142,7 @@ const DatasetSummary = (props: dataSetDetailsProps) => {
               {props.hit.content.description}
               <br />
               <span className="fw-bold">Type:&nbsp;</span>
-              <span style={{ userSelect: "all" }}>
+              <span>
                 {props.hit.content.type}
               </span>
             </p>
