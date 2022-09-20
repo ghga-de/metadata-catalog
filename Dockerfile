@@ -13,7 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-FROM node:16.6.0-buster
+FROM node:lts-bullseye
 
 # install python:
 ARG PYTHON_VERSION="3.9"
@@ -25,18 +25,21 @@ RUN export DEBIAN_FRONTEND=noninteractive \
     && update-alternatives --install /usr/bin/python python /usr/bin/python3.9 10 \
     && update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.9 10
 
+# setting up env for non-root user:
+ENV NPM_CONFIG_PREFIX=/home/node/.npm-global
+ENV PATH=$PATH:/home/node/.npm-global/bin
+
 # copy app source code:
-COPY . /service
 WORKDIR /service
+COPY . /service
 
-# # create new user and execute as that user
-# RUN useradd --create-home appuser && chown -R appuser:appuser /service
-# WORKDIR /home/appuser
-# USER appuser
+# install npm and serve:
+RUN npm install && npm install serve
 
-# install dependencies
-RUN yarn install && npm install serve \
-     && python3.9 -m pip install -r /service/configure_build_serve/requirements.txt
+# settung up user and installing dependencies:
+RUN chown -R  node:node /service
+USER node
+RUN python3.9 -m pip install --user -r  /service/configure_build_serve/requirements.txt
 
 # serve web app:
 ENTRYPOINT ["/service/configure_build_serve/run.py"]
