@@ -4,7 +4,7 @@
 cd /workspace
 
 # install web app dependencies:
-yarn install
+npm install
 
 # install helper script dependencies:
 pip install -r ./configure_build_serve/requirements.txt

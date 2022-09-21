@@ -4,4 +4,4 @@
 cd /workspace
 
 # install web app dependencies:
-yarn test
+npm test
