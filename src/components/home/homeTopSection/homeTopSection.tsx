@@ -89,7 +89,7 @@ const HomeTopSection = () => {
             />
           </Row>
           <Row className="mb-4 justify-content-center">
-            <Container className="text-center">
+            <Container className="col-3 text-center">
               <NavLink to="/browse">
                 <Button
                   variant="white"
