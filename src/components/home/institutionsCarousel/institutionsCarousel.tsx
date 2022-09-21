@@ -1,10 +1,10 @@
 import { Row, Col } from "react-bootstrap";
-import { Swiper, SwiperSlide } from "swiper/react/swiper-react.js";
+import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination } from "swiper";
-import "swiper/swiper.scss";
-import "swiper/modules/navigation/navigation.scss";
-import "swiper/modules/pagination/pagination.scss";
+import "swiper/css";
 import { importAllFilesFromFolder } from "../../../utils/utils";
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 const InstitutionsCarousel = () => {
   const listInstitutionImages: any = importAllFilesFromFolder(
@@ -41,7 +41,7 @@ const InstitutionsCarousel = () => {
                 style={{ height: "125px" }}
               >
                 <div className="">
-                  <img src={x.default} alt="Institution" className="w-100" />
+                  <img src={x} alt="Institution" className="w-100" />
                 </div>
               </SwiperSlide>
             ))}
