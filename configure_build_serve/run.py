@@ -4,7 +4,7 @@
 This is a helper script to configure, build, and serve the web app.
 
 Before running this utility, please make sure that all javascript
-dependencies are installed by running `yarn install` in the repository
+dependencies are installed by running `npm install` in the repository
 root dir.
 
 To get help run:
@@ -61,18 +61,19 @@ def set_react_app_env_vars(config: Config):
 def build():
     """Builds a production ready version of the web app"""
 
-    simplelog("Executing `yarn build`")
+    simplelog("Executing `npm build`")
     cmd_build = [
-        "yarn",
-        "--cwd",
-        str(ROOT_DIR),
-        "build"
+        "npm",
+        "run",
+        "build",
+        "--prefix",
+        str(ROOT_DIR)
     ]
     exit_code_build = Popen(cmd_build).wait()
 
     if exit_code_build != 0:
         raise RuntimeError(
-            f"`yarn` terminated with non-zero exit code: {exit_code_build}."
+            f"`npm` terminated with non-zero exit code: {exit_code_build}."
         )
 
 
@@ -81,16 +82,16 @@ def serve(config: Config):
 
     simplelog("Making the `serve` package globally available:")
     cmd_add_serve = [
-        "yarn",
-        "global",
-        "add",
+        "npm",
+        "install",
+        "--global",
         "serve",
     ]
     exit_code_add_serve = Popen(cmd_add_serve).wait()
 
     if exit_code_add_serve != 0:
         raise RuntimeError(
-            f"`yarn` terminated with non-zero exit code: {exit_code_add_serve}."
+            f"`npm` terminated with non-zero exit code: {exit_code_add_serve}."
         )
 
     simplelog("serve forever:")
@@ -105,7 +106,7 @@ def serve(config: Config):
     exit_code_serve = Popen(cmd_serve).wait()
 
     raise RuntimeError(
-        f"Serving of app was interupted: {exit_code_serve}."
+        f"Serving of app was interrupted: {exit_code_serve}."
     )
 
 
@@ -123,15 +124,15 @@ def dev_serve(config: Config):
         "Do not use for production!\n"
     )
     cmd_start = [
-        "yarn",
-        "--cwd",
-        str(ROOT_DIR),
-        "start"
+        "npm",
+        "start",
+        "--prefix",
+        str(ROOT_DIR)
     ]
     exit_code_start = Popen(cmd_start).wait()
 
     raise RuntimeError(
-        f"Serving of app was interupted: {exit_code_start}."
+        f"Serving of app was interrupted: {exit_code_start}."
     )
 
 
@@ -142,9 +143,8 @@ def run():
     parser = argparse.ArgumentParser(
         prog="run.py",
         description="""This is a helper script to configure, build, and serve the web app.
-
         Before running this utility, please make sure that all javascript
-        dependencies are installed by running `yarn install` in the repository
+        dependencies are installed by running `npm install` in the repository
         root dir."""
     )
 
