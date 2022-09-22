@@ -24,7 +24,7 @@ ROOT_DIR = Path(__file__).parent.parent.resolve()
 
 # define which parameters of the Config class shall not be translated
 # into env vars for the React app (as performed by the `set_react_app_env_vars`
-# funtion):
+# function):
 IGNORE_PARAMS_FOR_REACT_APP = ["host", "port"]
 
 
@@ -143,6 +143,7 @@ def run():
     parser = argparse.ArgumentParser(
         prog="run.py",
         description="""This is a helper script to configure, build, and serve the web app.
+
         Before running this utility, please make sure that all javascript
         dependencies are installed by running `npm install` in the repository
         root dir."""
