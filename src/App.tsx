@@ -8,6 +8,7 @@ import Home from "./components/home/home";
 import AboutUs from "./components/aboutUs/aboutUs";
 import SingleDatasetView from "./components/browse/singleDatasetView/singleDatasetView";
 import MetadataModel from "./components/metadataModel/metadataModel";
+import UploadPage from "./components/upload/upload";
 
 function App() {
   return (
@@ -33,6 +34,9 @@ function App() {
         </Route>
         <Route path="/metadata-model">
           <Route index element={<MetadataModel />} />
+        </Route>
+        <Route path="/upload">
+          <Route index element={<UploadPage />} />
         </Route>
       </Routes>
       <Footer />
