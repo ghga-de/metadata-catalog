@@ -59,12 +59,10 @@ const PublicationTabContents = (props: PublicationTabContentsProps) => {
                   <p>
                     <strong>Author: </strong>
                     {x.author}
-                  </p>
-                  <p>
+                    &nbsp;
                     <strong>Journal: </strong>
                     {x.journal}
-                  </p>
-                  <p>
+                    &nbsp;
                     <strong>Year: </strong>
                     {x.year}
                   </p>
