@@ -40,7 +40,7 @@ const ProjectTabContents = (props: ProjectTabContentsProps) => {
                   <strong>Title: </strong>
                   {x.has_project?.title}
                 </p>
-                <p>
+                {/* <p>
                   <strong>Attributes: </strong>
                   {x.has_project?.has_attribute !== null ? (
                     <>
@@ -56,7 +56,7 @@ const ProjectTabContents = (props: ProjectTabContentsProps) => {
                   ) : (
                     <>N/A</>
                   )}
-                </p>
+                </p> */}
                 <p>
                   <strong>Description: </strong>
                   {x.has_project?.description}
