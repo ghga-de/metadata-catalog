@@ -74,6 +74,9 @@ export interface publicationModel {
   alias: string;
   xref: string[];
   accession: string;
+  author: string;
+  journal: string;
+  year: number;
 }
 
 export interface sampleModel {
@@ -99,6 +102,7 @@ export interface sampleModel {
   accession: string;
   ega_accession: string;
   alias: string;
+  case_control_status: string;
 }
 
 export interface projectModel {
@@ -231,8 +235,9 @@ export interface sexSummaryModel {
 export interface studySummaryModel {
   count: number;
   stats: {
-    ega_accession: string[];
-    accession: [];
+    ega_accession: string;
+    accession: string;
+    title: string
   };
 }
 
