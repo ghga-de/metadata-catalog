@@ -109,32 +109,30 @@ const Sidebar = (props: sidebarProps) => {
             Clear
           </Button>
         </Col>
-        {props.facetList === null || props.facetList.length === 0 ? null : (
-          <Col>
-            <Button
-              variant="secondary"
-              className="w-100 rounded text-white border-2 shadow-md-dark"
-              onClick={() => {
-                navigate(
-                  handleFilterAndSearch(
-                    props.setSearchResults,
-                    props.filterDict,
-                    props.searchKeyword,
-                    props.limit,
-                    0,
-                    0,
-                    props.setPage,
-                    props.setFilterDict,
-                    props.appliedFilterDict
-                  )
-                );
-                scrollUp();
-              }}
-            >
-              Filter
-            </Button>
-          </Col>
-        )}
+        <Col>
+          <Button
+            variant="secondary"
+            className="w-100 rounded text-white border-2 shadow-md-dark"
+            onClick={() => {
+              navigate(
+                handleFilterAndSearch(
+                  props.setSearchResults,
+                  props.filterDict,
+                  props.searchKeyword,
+                  props.limit,
+                  0,
+                  0,
+                  props.setPage,
+                  props.setFilterDict,
+                  props.appliedFilterDict
+                )
+              );
+              scrollUp();
+            }}
+          >
+            Filter
+          </Button>
+        </Col>
       </Row>
     </div>
   );
