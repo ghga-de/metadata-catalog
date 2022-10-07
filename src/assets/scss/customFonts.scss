@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'Lexend';
+  src: local('Lexend'), url(../fonts/Lexend-VariableFont_wght.ttf) format('truetype');
+}
+
+// $font-family-sans-serif: "Lexend", sans-serif;
+
 $utilities: map-merge(
   $utilities,
   (
