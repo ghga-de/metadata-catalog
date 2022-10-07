@@ -58,7 +58,7 @@ const Download = () => {
                         }}
                         className="me-3 fs-4 rounded"
                     />
-                    Browse Datasets
+                    Explore Datasets
                 </h5>
                 <p>
                     To explore a dataset, please find the dataset of interest on the&nbsp;
