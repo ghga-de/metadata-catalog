@@ -29,6 +29,10 @@ export const MetadataModel = () => {
             The GHGA Metadata Catalog provides core functionality to capture metadata and allows for FAIR compliant sharing of genomics data.
             Our model is constructed using ontologies and controlled vocabularies that enable the data submitters to enrich their submitted data in a standardised manner as well as efficiently communicate their data to the research community.
             The implementation of our metadata catalog is done using the Linked Data Modelling Language (LinkML) and is openly accessible for everyone on the GHGA GitHub Repository.
+            For more information please visit our&nbsp;
+            <a href="https://ghga-de.github.io/ghga-metadata-schema/" target="_blank" rel="noreferrer">
+              documentation.
+            </a>
           </p>
           <p>
             The Core-Model captures three categories of data:
