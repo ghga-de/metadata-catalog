@@ -4,10 +4,6 @@ import banner2 from "../../assets/aboutUs/about-banner2.png";
 import { Link } from "react-router-dom";
 
 const AboutUs = () => {
-  const activePageStyle =
-    "btn btn-secondary p-0 h-100 m-0 mx-2 px-2 pt-1 text-white";
-  const inactivePageStyle =
-    "btn btn-primary p-0 h-100 m-0 mx-2 px-2 pt-1 text-white";
   return (
     <div className="mx-auto w-75 px-5 mt-4">
       <Row
