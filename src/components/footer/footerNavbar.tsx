@@ -6,7 +6,7 @@ import {
   faFileLines,
 } from "@fortawesome/free-solid-svg-icons";
 import { faQuestionCircle } from "@fortawesome/free-regular-svg-icons";
-import logo from "../../assets/metadata-catalog.png";
+import logo from "../../assets/GHGA_logo.png";
 import { Link } from "react-router-dom";
 
 const FooterNavbar = () => {
@@ -14,9 +14,19 @@ const FooterNavbar = () => {
     <div className="mt-4 pb-2 mw-100 mx-0 bg-primary">
       <div className="mx-auto container pt-3 pb-2 text-center">
         <Row>
-          <Col className="border-1 border-end px-3 pt-4 mx-0 fs-8 text-white align-items-center">
-            <Link to="/">
-              <img src={logo} alt="GHGA logo" height="70px" />
+          <Col className="border-1 border-end px-3 mx-0" style={{height: "170px"}}>
+            <Link to="/" className="text-lightgreen text-decoration-none">
+              <div>
+                <img src={logo} alt="GHGA logo" height="51px" />
+                <hr className="border-lightgreen" />
+                <div style={{fontFamily: 'Lexend'}}>
+                  <span className="position-relative" style={{ fontSize: "45px", top: "-15px" }}>
+                    METADATA
+                  </span>
+                  <br />
+                  <span className="position-relative" style={{fontSize: "51px", top: "-45px"}}>CATALOG</span>
+                </div>
+              </div>
             </Link>
           </Col>
           <Button

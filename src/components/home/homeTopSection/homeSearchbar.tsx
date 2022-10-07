@@ -41,7 +41,7 @@ const HomeSearchbar = (props: HomeSearchbarProps) => {
             onChange={(event) => setSearchKeyword(event.target.value)}
           />
         </Col>
-        <Col className="col-2 ms-0">
+        <Col className="col-3 ms-0">
           <Button
             variant="secondary"
             className="text-white shadow-md-dark"
