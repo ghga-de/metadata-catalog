@@ -33,7 +33,7 @@ const HomeFilterSelects = (props: HomeFilterSelectsProps) => {
   const generateSelect = (key: string, display: string) => {
     return (
       <Form.Select
-        className="d-inline-block w-25 fs-8 text-capitalize me-2"
+        className="d-inline-block fs-8 text-capitalize me-1"
         size="sm"
         onChange={(event) => filterChange(key, event.target.value)}
       >
@@ -45,9 +45,11 @@ const HomeFilterSelects = (props: HomeFilterSelectsProps) => {
 
   return (
     <Container className="w-75">
-      <div className="w-75">
+      <div className="d-flex w-75">
         {generateSelect("has_study.type", "Study type")}
-        {generateSelect("type", "Type")}
+        {generateSelect("has_study.ega_accession", "Study ID")}
+        {generateSelect("type", "Dataset Type")}
+        {generateSelect("has_study.has_project.alias", "Project")}
       </div>
     </Container>
   );
