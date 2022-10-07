@@ -10,7 +10,6 @@ import SingleDatasetView from "./components/browse/singleDatasetView/singleDatas
 import Download from "./components/download/download"
 import Upload from "./components/upload/upload"
 import MetadataModel from "./components/metadataModel/metadataModel";
-import UploadPage from "./components/upload/upload";
 
 function App() {
   return (
@@ -42,9 +41,6 @@ function App() {
         </Route>
         <Route path="/metadata-model">
           <Route index element={<MetadataModel />} />
-        </Route>
-        <Route path="/upload">
-          <Route index element={<UploadPage />} />
         </Route>
       </Routes>
       <Footer />

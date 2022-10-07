@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { importAllFilesFromFolder } from "../../utils/utils";
 import uploadImg from "../../assets/upload/upload.png"
 
-const UploadPage = () => {
+const Upload = () => {
     const listInstitutionImages: any = importAllFilesFromFolder(
         require.context("../../assets/upload/institutions/", false, /\.png$/)
     );
@@ -55,4 +55,4 @@ const UploadPage = () => {
     );
 };
 
-export default UploadPage;
+export default Upload;
