@@ -57,25 +57,21 @@ const HeaderNavbar = () => {
             >
               About
             </NavLink>
-            <Nav.Link
-              href="https://www.ghga.de/data/data-download"
-              target="_blank"
-              className="mx-2 p-0"
+            <NavLink
+              to="/download"
+              className={({ isActive }) =>
+                isActive ? activePageStyle : inactivePageStyle
+              }
             >
-              <Button
-                variant="primary"
-                className="p-0 w-100 h-100 m-0 px-2 text-white"
-              >
-                Download
-              </Button>
-            </Nav.Link>
+              Download
+            </NavLink>
             <NavLink
               to="/upload"
               className={({ isActive }) =>
                 isActive ? activePageStyle : inactivePageStyle
               }
             >
-              About
+              Upload
             </NavLink>
             <NavLink
               to="/metadata-model"

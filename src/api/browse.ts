@@ -24,6 +24,11 @@ export const querySearchService: getDatasetsSearchRespType = (
   limit: number,
   documentType = "Dataset"
 ) => {
+  if(searchKeyword !== ""){
+    if(searchKeyword !== "*"){
+      searchKeyword = '"' + searchKeyword + '"'
+    }
+  }
   fetch(
     `${process.env.REACT_APP_SVC_SEARCH_URL}/rpc/search?document_type=${documentType}&return_facets=true&skip=${skip}&limit=${limit}`,
     {

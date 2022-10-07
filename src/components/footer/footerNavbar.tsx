@@ -20,8 +20,7 @@ const FooterNavbar = () => {
             </Link>
           </Col>
           <Button
-            href="https://www.ghga.de/data/data-download"
-            target="_blank"
+            href="/download"
             className="text-white text-decoration-none col border-1 border-end px-3 mx-0 flex-shrink-0 rounded-0"
           >
             <FontAwesomeIcon
@@ -32,8 +31,7 @@ const FooterNavbar = () => {
             <p>How to download data</p>
           </Button>
           <Button
-            href="https://www.ghga.de/data/data-upload"
-            target="_blank"
+            href="/upload"
             className="text-white text-decoration-none col border-1 border-end px-3 mx-0 flex-shrink-0 rounded-0"
           >
             <FontAwesomeIcon

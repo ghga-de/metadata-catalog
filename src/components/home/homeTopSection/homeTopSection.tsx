@@ -55,7 +55,7 @@ const HomeTopSection = () => {
       >
         <Col className="col-3">
           <Row className="ps-4 mb-4">
-            <h3 className="fw-bold">GHGA Data Portal</h3>
+            <h3 className="fw-bold">GHGA Metadata Catalog</h3>
           </Row>
           <Row>
             <div

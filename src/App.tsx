@@ -7,6 +7,8 @@ import { Routes, BrowserRouter, Route } from "react-router-dom";
 import Home from "./components/home/home";
 import AboutUs from "./components/aboutUs/aboutUs";
 import SingleDatasetView from "./components/browse/singleDatasetView/singleDatasetView";
+import Download from "./components/download/download"
+import Upload from "./components/upload/upload"
 import MetadataModel from "./components/metadataModel/metadataModel";
 import UploadPage from "./components/upload/upload";
 
@@ -31,6 +33,12 @@ function App() {
         <Route path="*" element={<PageNotFound />} />
         <Route path="/browse/:id">
           <Route index element={<SingleDatasetView />} />
+        </Route>
+        <Route path="/download">
+          <Route index element={<Download />} />
+        </Route>
+        <Route path="/upload">
+          <Route index element={<Upload />} />
         </Route>
         <Route path="/metadata-model">
           <Route index element={<MetadataModel />} />

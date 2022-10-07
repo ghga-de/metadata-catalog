@@ -66,7 +66,7 @@ const StudyTabContents = (props: StudyTabContentsProps) => {
                   <strong>Type: </strong>
                   <span className="text-capitalize">{x.type}</span>
                 </p>
-                <p>
+                {/* <p>
                   <strong>Attributes: </strong>
                   {x.has_attribute !== null ? (
                     <>
@@ -102,7 +102,7 @@ const StudyTabContents = (props: StudyTabContentsProps) => {
                   ) : (
                     <>N/A</>
                   )}
-                </p>
+                </p> */}
               </PerfectScrollbar>
             </div>
           );
