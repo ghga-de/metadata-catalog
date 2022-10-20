@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const AboutUs = () => {
   return (
-    <div className="mx-auto w-75 px-5 mt-4">
+    <div className="mx-auto px-5 mt-4">
       <Row
         className="bg-primary m-0 mb-4 py-4 px-3"
         style={{

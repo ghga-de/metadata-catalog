@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 const Download = () => {
     return (
 
-        <div className="mx-auto w-75 px-5 my-4">
+        <div className="mx-auto px-5 my-4">
             <div
                 className="mb-5 p-3"
                 style={{ borderRadius: "20px" }}
@@ -121,22 +121,20 @@ const Download = () => {
                 </div>
             </div>
             <div>
-                <p>
-                    <h5 className="mb-4 d-flex align-items-center text-secondary fw-bold">
-                        <FontAwesomeIcon
-                            icon={faClockFour}
-                            pull="left"
-                            style={{
-                                width: "30px",
-                                height: "30px",
-                                backgroundColor: "rgba(214,95,48,0.2)",
-                                padding: "8px",
-                            }}
-                            className="me-3 fs-4 rounded"
-                        />
-                        Data Owner Interaction
-                    </h5>
-                </p>
+                <h5 className="mb-4 d-flex align-items-center text-secondary fw-bold">
+                    <FontAwesomeIcon
+                        icon={faClockFour}
+                        pull="left"
+                        style={{
+                            width: "30px",
+                            height: "30px",
+                            backgroundColor: "rgba(214,95,48,0.2)",
+                            padding: "8px",
+                        }}
+                        className="me-3 fs-4 rounded"
+                    />
+                    Data Owner Interaction
+                </h5>
                 <p className="mb-5">
                     After communicating with the data owner, you will get permission for the desired datasets.<br />
                     <strong>Note: The GHGA Metadata Catalog is not resposible for data accesion</strong>

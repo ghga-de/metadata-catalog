@@ -9,7 +9,7 @@ const Upload = () => {
     );
 
     return (
-        <div className="mt-4 mx-auto w-75 px-5">
+        <div className="mt-4 mx-auto px-5">
             <h5 className="d-flex align-items-center text-secondary fw-bold">
                 <FontAwesomeIcon
                     icon={faCloudArrowUp}

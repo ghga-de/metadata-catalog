@@ -98,7 +98,7 @@ const DataRequestModal = (props: DataRequestModalProps) => {
       </Modal.Header>
 
       <Modal.Body className="px-4">
-        <Row className="mb-2 p-3 bg-gray align-items-center rounded">
+        <Row className="mb-2 p-3 bg-light-2 align-items-center rounded">
           <Col
             lg={"auto"}
             md={"auto"}

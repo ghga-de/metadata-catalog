@@ -85,7 +85,7 @@ const SingleDatasetView = () => {
   };
 
   return (
-    <div className="py-4 mx-auto w-75 px-5">
+    <div className="py-4 mx-auto px-5">
       {searchResults === null ? (
         <div className="fs-5">
           <Spinner animation="border" variant="primary" size="sm" />

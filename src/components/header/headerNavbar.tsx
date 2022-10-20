@@ -24,20 +24,22 @@ const HeaderNavbar = () => {
         />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Navbar.Brand className="p-0 col-2">
-            <Button href="/" className="p-1 m-0">
-              <div className="d-flex align-items-center">
-                <div style={{ width: "80%" }} className="flex-fill pe-2 me-2 border-end border-lightgreen">
-                  <img src={logo} alt="GHGA logo" height="35px" />
+            <NavLink to="/" end={true}>
+              <Button className="p-1 m-0">
+                <div className="d-flex align-items-center">
+                  <div style={{ width: "80%" }} className="flex-fill pe-2 me-2 border-end border-tertiary">
+                    <img src={logo} alt="GHGA logo" height="35px" />
+                  </div>
+                  <div className="text-tertiary h-100" style={{ fontFamily: 'Lexend' }}>
+                    <span className="position-relative" style={{ fontSize: "18px", top: "5px" }}>
+                      METADATA
+                    </span>
+                    <br />
+                    <span className="fs-5 position-relative" style={{ top: "-5px" }}>CATALOG</span>
+                  </div>
                 </div>
-                <div className="text-lightgreen h-100" style={{fontFamily: 'Lexend'}}>
-                  <span className="position-relative" style={{ fontSize: "18px", top: "5px" }}>
-                    METADATA
-                  </span>
-                  <br />
-                  <span className="fs-5 position-relative" style={{top: "-5px"}}>CATALOG</span>
-                </div>
-              </div>
-            </Button>
+              </Button>
+            </NavLink>
           </Navbar.Brand>
           <Nav
             className="justify-content-center col-8"
