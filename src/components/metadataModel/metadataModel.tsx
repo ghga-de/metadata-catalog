@@ -1,13 +1,12 @@
 import { faDesktop } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Container } from "react-bootstrap";
 import schemaImg from "../../assets/metadataModel/schema-1.png";
 
 export const MetadataModel = () => {
   return (
-    <div className="mx-auto w-75 px-5 my-4">
-      <Container
-        className="mb-5 border border-1 border-light-alternative p-3 shadow-sm"
+    <div className="mx-auto px-5 my-4">
+      <div
+        className="mb-5 border border-1 border-light-3 p-3 shadow-sm"
         style={{ borderRadius: "20px" }}
       >
         <h5 className="mb-4 d-flex align-items-center text-secondary fw-bold">
@@ -45,7 +44,7 @@ export const MetadataModel = () => {
           <img src={schemaImg} alt="schema" className="float-end" width="80%" />
         </div>
 
-      </Container>
+      </div>
     </div>
   );
 };

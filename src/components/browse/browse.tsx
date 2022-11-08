@@ -72,7 +72,7 @@ const Browse = () => {
   }
 
   return (
-    <div className="mt-4 mx-auto w-75 px-5">
+    <div className="mt-4 mx-auto px-5">
       <Row>
         <DatasetHeader
           dsCount={dsCount}

@@ -17,13 +17,13 @@ const SingleDatasetViewAccordion = (props: SingleDatasetViewAccordionProps) => {
         </Accordion.Button>
         <Accordion.Body className="pt-4 overflow-auto" style={{ maxHeight: "425px" }}>
           <Table hover className="fs-8" size="sm">
-            <thead className="border-light-alternative border-1">
+            <thead className="border-light-3 border-1">
               <tr>
                 <th className="w-25">Experiment ID</th>
                 <th className="text-wrap text-break">Description</th>
               </tr>
             </thead>
-            <tbody className="border-light-alternative border-1">
+            <tbody className="border-light-3 border-1">
               {props.details.has_experiment?.map((x) => {
                 return (
                   <tr key={x.ega_accession !== null ? x.ega_accession : x.accession}>
@@ -44,7 +44,7 @@ const SingleDatasetViewAccordion = (props: SingleDatasetViewAccordionProps) => {
         </Accordion.Button>
         <Accordion.Body className="pt-4 overflow-auto" style={{ maxHeight: "425px" }}>
           <Table hover className="fs-8 rounded" size="sm">
-            <thead className="border-light-alternative border-1">
+            <thead className="border-light-3 border-1">
               <tr>
                 <th>Sample ID</th>
                 <th className="text-wrap text-break">Description</th>
@@ -53,7 +53,7 @@ const SingleDatasetViewAccordion = (props: SingleDatasetViewAccordionProps) => {
                 <th>Tissue</th>
               </tr>
             </thead>
-            <tbody className="border-light-alternative border-1">
+            <tbody className="border-light-3 border-1">
               {props.details.has_sample?.map((x) => {
                 return (
                   <tr key={x.ega_accession !== null ? x.ega_accession : x.accession}>
@@ -82,7 +82,7 @@ const SingleDatasetViewAccordion = (props: SingleDatasetViewAccordionProps) => {
         </Accordion.Button>
         <Accordion.Body className="pt-4 overflow-auto" style={{ maxHeight: "425px" }}>
           <Table hover className="fs-8" size="sm">
-            <thead className="border-light-alternative border-1">
+            <thead className="border-light-3 border-1">
               <tr>
                 <th className="text-break">File name</th>
                 <th>File type</th>
@@ -90,7 +90,7 @@ const SingleDatasetViewAccordion = (props: SingleDatasetViewAccordionProps) => {
                 <th>Checksum</th>
               </tr>
             </thead>
-            <tbody className="border-light-alternative border-1">
+            <tbody className="border-light-3 border-1">
               {props.details.has_file?.map((x) => {
                 return (
                   <tr key={x.id}>

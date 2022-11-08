@@ -27,7 +27,7 @@ const TopSectionBadges = (props: HomeTopBadgesProps) => {
         <>
           <Card
             style={{ width: "18rem", borderRadius: "15px" }}
-            className="d-inline-block shadow border-muted mx-2"
+            className="d-inline-block shadow border-muted mx-2 p-1"
           >
             <Card.Body>
               <Card.Title className="text-secondary fw-bold">
@@ -39,7 +39,7 @@ const TopSectionBadges = (props: HomeTopBadgesProps) => {
                     </span>
                   </Col>
                   {/*<Col className="mt-3 fw-bold fs-6 ps-0">Protocols: {props.summaryStats.protocol_summary.count}</Col>*/}
-                  <Col className="ms-3 fw-bold fs-5 ps-0">Platforms:&nbsp;{Object.keys(props.summaryStats.protocol_summary.stats.protocol).length}</Col>
+                  <Col className="ms-1 fw-bold fs-5 ps-0">Platforms:&nbsp;{Object.keys(props.summaryStats.protocol_summary.stats.protocol).length}</Col>
                 </Row>
               </Card.Title>
               <Card.Text as="div">
@@ -57,7 +57,7 @@ const TopSectionBadges = (props: HomeTopBadgesProps) => {
           </Card>
           <Card
             style={{ width: "18rem", borderRadius: "15px" }}
-            className="d-inline-block shadow border-muted mx-2 bg-primary"
+            className="d-inline-block shadow border-muted mx-2 bg-primary p-1"
           >
             <Card.Body className="text-white fw-bold">
               <Card.Title>
@@ -68,7 +68,7 @@ const TopSectionBadges = (props: HomeTopBadgesProps) => {
                       <FontAwesomeIcon icon={faUser} transform="shrink-8" />
                     </span>
                   </Col>
-                  <Col className="ms-3 fw-bold fs-5 ps-0">Individuals:&nbsp;{props.summaryStats.individual_summary.count}</Col>
+                  <Col className="ms-1 fw-bold fs-5 ps-0">Individuals:&nbsp;{props.summaryStats.individual_summary.count}</Col>
                 </Row>
               </Card.Title>
               <Card.Text as="div" className="fs-7">
@@ -94,7 +94,7 @@ const TopSectionBadges = (props: HomeTopBadgesProps) => {
           </Card>
           <Card
             style={{ width: "18rem", borderRadius: "15px" }}
-            className="d-inline-block shadow border-muted mx-2"
+            className="d-inline-block shadow border-muted mx-2 p-1"
           >
             <Card.Body>
               <Card.Title className="text-secondary fw-bold">
@@ -105,7 +105,7 @@ const TopSectionBadges = (props: HomeTopBadgesProps) => {
                       <FontAwesomeIcon icon={faChartColumn} transform="shrink-8" />
                     </span>
                   </Col>
-                  <Col className="ms-3 ps-0 fs-5">Files:&nbsp;{props.summaryStats.file_summary.count}</Col>
+                  <Col className="ms-1 ps-0 fs-5">Files:&nbsp;{props.summaryStats.file_summary.count}</Col>
                 </Row>
               </Card.Title>
               <Card.Text as="div">

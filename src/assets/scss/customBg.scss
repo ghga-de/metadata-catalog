@@ -1,9 +1,16 @@
 $custom-colors: (
-  "gray": $gray-400,
-  "white": $white,
+  "tertiary": #CFE7CD,
+  "quaternary": #005a5a,
+  "quinary": #007e8c,
   "black": $black,
-  "light-alternative": #EFF0F6,
-  "lightgreen": #CFE7CD
+  "dark-1": #2e2e2e,
+  "dark-2": #404040,
+  "dark-3": #616161,
+  "gray": #7f7f7f,
+  "light-1": #a1a1a1,
+  "light-2": #bfbfbf,
+  "light-3": #e0e0e0,
+  "white": $white,
 );
 
 $theme-colors: map-merge($theme-colors, $custom-colors);
