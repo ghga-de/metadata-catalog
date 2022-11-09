@@ -1,114 +1,242 @@
-import { Row, Col, Carousel, Button } from "react-bootstrap";
-import projects from "./communities&standards.json";
-import bundeslaender from "../../../assets/homepage/Bundeslaender.svg";
-import 'react-perfect-scrollbar/dist/css/styles.css';
-import PerfectScrollbar from 'react-perfect-scrollbar'
+import { faCircle, faUser } from "@fortawesome/free-regular-svg-icons";
+import {
+  faChartColumn,
+  faDna,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React from "react";
+import { Card, Col, Row } from "react-bootstrap";
+import { getMetadataSummary, querySearchService } from "../../../api/browse";
+import { metadataSummaryModel, searchResponseModel } from "../../../models/dataset";
+import { getItemsForSummary } from "../../../utils/utils";
 
 const HomeMidSection = () => {
+  const [searchResults, setSearchResults] =
+    React.useState<searchResponseModel | null>(null);
+  const [summary, setSummary] = React.useState<metadataSummaryModel | null>(
+    null
+  );
+
+  React.useEffect(() => {
+    const getData = () => {
+      querySearchService(setSearchResults, [], "", 0, 1, "Dataset");
+      getMetadataSummary(setSummary);
+    };
+    getData();
+  }, []);
+  
+  var dsCount: number = 0;
+
+  if (searchResults !== null) {
+    if (searchResults.hits.length > 0 || searchResults.count === -1) {
+      dsCount = searchResults.count;
+    } else {
+      dsCount = 0;
+    }
+  }
+
   return (
-    <Row className="mx-2 mb-3">
-      <Col
-        className="bg-primary rounded text-white"
-        style={{
-          backgroundImage: `url(${bundeslaender})`,
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "450px",
-          backgroundPosition: "left 50px top -295px",
-          height: "425px",
-        }}
-      >
-        <h4 className="mb-4 fw-bold fs-3 p-3 pb-2">
-          Our Communities and Standards
-        </h4>
-        <Carousel indicators={false}>
-          {projects
-            .map((value) => ({ value, sort: Math.random() }))
-            .sort((a, b) => a.sort - b.sort)
-            .map(({ value }) => value)
-            .map((x, idx) => (
-              <Carousel.Item key={"homepage_projects_" + idx}>
-                <div className="px-5 mx-2">
-                  <h4 className="fw-bold">{x.name}</h4>
-                  <Row>
-                    {x.img_location === "" ? (
-                      <Col
-                        className="overflow-auto"
-                        style={{ height: "200px" }}
-                      >
-                        <PerfectScrollbar>
-                          <p>
-                            {x.description.split("\n").map((z, idz) => (
-                              <span
-                                key={
-                                  "homepage_span_" +
-                                  x.name +
-                                  "_description_" +
-                                  idz
-                                }
-                              >
-                                {z}
-                                <br />
-                              </span>
-                            ))}
-                          </p>
-                        </PerfectScrollbar>
-                      </Col>
-                    ) : (
-                      <>
-                        <Col
-                          className="col-7 overflow-auto"
-                          style={{ height: "200px" }}
+    <Col className="px-2">
+      <Row className="rounded bg-primary w-100 mx-0 mb-3 pt-5 pb-5 pe-4 justify-content-evenly">
+        <>
+          {summary !== null ? (
+            <>
+              <Card
+                style={{ width: "16rem", borderRadius: "15px" }}
+                className="d-inline-block shadow border-white bg-primary mx-2 p-1"
+              >
+                <Card.Body>
+                  <Card.Title className="text-white fw-bold">
+                    <Row className="w-bold fs-5 ps-0">
+                      <span className="text-center">Total Datasets:</span>
+                    </Row>
+                  </Card.Title>
+                  <Card.Text as="div">
+                    <Row className="mt-4 pt-3 fs-7 align-items-center">
+                      <Col className="text-center">
+                        <div
+                          style={{
+                            borderRadius: "50%",
+                            width: "9rem",
+                            height: "9rem",
+                            background:
+                              "linear-gradient(#e84614 5%, #CFE7CD 70%)",
+                          }}
+                          className="mx-auto"
                         >
-                          <PerfectScrollbar>
-                            <p>
-                              {x.description.split("\n").map((z, idz) => (
-                                <span
-                                  key={
-                                    "homepage_span_" +
-                                    x.name +
-                                    "_description_" +
-                                    idz
-                                  }
-                                >
-                                  {z}
-                                  <br />
-                                </span>
-                              ))}
-                            </p>
-                          </PerfectScrollbar>
-                        </Col>
-                        <Col>
-                          <img src={x.img_location} alt={x.img_alt} />
-                        </Col>
-                      </>
-                    )}
-                  </Row>
-                  <div className="text-center">
-                    {x.learn_more_href !== "" ? (
-                      <Button
-                        as="a"
-                        target="_blank"
-                        variant="white"
-                        className="shadow-md-dark text-secondary my-4 fw-bold"
-                        href={x.learn_more_href}
-                      >
-                        Learn more...
-                      </Button>
-                    ) : (
-                      <Button
-                        className="my-4 bg-primary pe-none"
-                        href={x.learn_more_href}
-                      >
-                        &nbsp;
-                      </Button>
-                    )}
-                  </div>
-                </div>
-              </Carousel.Item>
-            ))}
-        </Carousel>
-      </Col>
-    </Row>
+                          <div
+                            style={{
+                              borderRadius: "50%",
+                              width: "7rem",
+                              height: "7rem",
+                              top: "1rem",
+                              left: "1rem",
+                              position: "relative",
+                            }}
+                            className="bg-white d-flex align-items-center"
+                          >
+                            <span className="w-100 text-center fs-1">{dsCount}</span>
+                          </div>
+                        </div>
+                      </Col>
+                    </Row>
+                  </Card.Text>
+                </Card.Body>
+              </Card>
+              <Card
+                style={{ width: "16rem", borderRadius: "15px" }}
+                className="d-inline-block shadow border-muted mx-2 p-1"
+              >
+                <Card.Body>
+                  <Card.Title className="text-secondary fw-bold">
+                    <Row
+                      style={{ fontSize: "36px" }}
+                      className="p-0 col-auto mb-2"
+                    >
+                      <span className="fa-layers fa-fw fa-lg">
+                        <FontAwesomeIcon icon={faCircle} />
+                        <FontAwesomeIcon icon={faDna} transform="shrink-8" />
+                      </span>
+                    </Row>
+                    <Row className="w-bold fs-5 ps-0">
+                      <span className="text-center">
+                        Platforms:&nbsp;
+                        {
+                          Object.keys(summary.protocol_summary.stats.protocol)
+                            .length
+                        }
+                      </span>
+                    </Row>
+                  </Card.Title>
+                  <Card.Text as="div">
+                    <Row className="pt-3 fs-7 ">
+                      <Col>
+                        {getItemsForSummary(
+                          summary.protocol_summary.stats.protocol
+                        ).map((x) => {
+                          return (
+                            <Row
+                              key={x}
+                              className="text-capitalize ms-0 ps-0 mb-2"
+                            >
+                              <Col className="ms-0 ps-0">
+                                {x.split(": ")[0]}:
+                              </Col>
+                              <Col className="col-auto text-end fw-bold">
+                                {x.split(": ")[1]}
+                              </Col>
+                            </Row>
+                          );
+                        })}
+                      </Col>
+                    </Row>
+                  </Card.Text>
+                </Card.Body>
+              </Card>
+              <Card
+                style={{ width: "16rem", borderRadius: "15px" }}
+                className="d-inline-block shadow border-white mx-2 bg-primary p-1"
+              >
+                <Card.Body className="text-white">
+                  <Card.Title>
+                    <Row
+                      style={{ fontSize: "36px" }}
+                      className="p-0 col-auto mb-2"
+                    >
+                      <span className="fa-layers fa-fw fa-lg">
+                        <FontAwesomeIcon icon={faCircle} />
+                        <FontAwesomeIcon icon={faUser} transform="shrink-8" />
+                      </span>
+                    </Row>
+                    <Row className="w-bold fs-5 ps-0">
+                      <span className="text-center">
+                        Individuals:&nbsp;
+                        {summary.individual_summary.count}
+                      </span>
+                    </Row>
+                  </Card.Title>
+                  <Card.Text as="div" className="fs-7">
+                    <Row className="pt-4 mt-3">
+                      <Col className="text-center">
+                        Female:&nbsp;
+                        <strong>
+                          {summary.individual_summary.stats.sex["female"]}
+                        </strong>
+                      </Col>
+                      <Col className="text-center">
+                        Male:&nbsp;
+                        <strong>
+                          {summary.individual_summary.stats.sex["male"]}
+                        </strong>
+                      </Col>
+                    </Row>
+                    <Row className="mt-4">
+                      <Col className="text-center">
+                        Unknown:&nbsp;
+                        <strong>
+                          {summary.individual_summary.stats.sex["unknown"]
+                            ? summary.individual_summary.stats.sex["unknown"]
+                            : 0}
+                        </strong>
+                      </Col>
+                    </Row>
+                  </Card.Text>
+                </Card.Body>
+              </Card>
+              <Card
+                style={{ width: "16rem", borderRadius: "15px" }}
+                className="d-inline-block shadow border-muted mx-2 p-1"
+              >
+                <Card.Body>
+                  <Card.Title className="text-secondary fw-bold">
+                    <Row
+                      style={{ fontSize: "36px" }}
+                      className="p-0 col-auto mb-2"
+                    >
+                      <span className="fa-layers fa-fw fa-lg">
+                        <FontAwesomeIcon icon={faCircle} />
+                        <FontAwesomeIcon icon={faChartColumn} transform="shrink-8" />
+                      </span>
+                    </Row>
+                    <Row className="w-bold fs-5 ps-0">
+                      <span className="text-center">
+                        Files:&nbsp;
+                        {summary.file_summary.count}
+                      </span>
+                    </Row>
+                  </Card.Title>
+                  <Card.Text as="div">
+                    <Row className="mt-4 pt-3 fs-7 align-items-center">
+                      <Col>
+                        {getItemsForSummary(
+                          summary.file_summary.stats.format
+                        ).map((x) => {
+                          return (
+                            <Row
+                              key={x}
+                              className="text-uppercase ms-0 ps-0 mb-2"
+                            >
+                              <Col className="ms-0 ps-0">
+                                {x.split(": ")[0]}:
+                              </Col>
+                              <Col className="col-auto fw-bold text-end">
+                                {x.split(": ")[1]}
+                              </Col>
+                            </Row>
+                          );
+                        })}
+                      </Col>
+                    </Row>
+                  </Card.Text>
+                </Card.Body>
+              </Card>
+            </>
+          ) : (
+            <></>
+          )}
+        </>
+      </Row>
+    </Col>
   );
 };
 

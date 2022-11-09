@@ -1,10 +1,10 @@
-import { Row, Col } from "react-bootstrap";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Col, Row } from "react-bootstrap";
 import { Autoplay, Navigation, Pagination } from "swiper";
 import "swiper/css";
-import { importAllFilesFromFolder } from "../../../utils/utils";
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import { Swiper, SwiperSlide } from "swiper/react";
+import { importAllFilesFromFolder } from "../../../utils/utils";
 
 const InstitutionsCarousel = () => {
   const listInstitutionImages: any = importAllFilesFromFolder(
@@ -13,18 +13,20 @@ const InstitutionsCarousel = () => {
   return (
     <Row className="w-100 m-0 mb-3">
       <Col>
+        <h4 className="fw-bold fs-3 p-3 pb-1">Our Partners</h4>
+        <hr className="mx-3 border-primary mb-4" />
         <Swiper
           slidesPerView={6}
           navigation
           autoplay={{
-            delay: 3000,
+            delay: 4900,
             disableOnInteraction: false,
             pauseOnMouseEnter: false,
           }}
           spaceBetween={85}
           loop
           pagination={{ clickable: true }}
-          speed={1500}
+          speed={800}
           centeredSlides
           loopAdditionalSlides={5}
           modules={[Navigation, Autoplay, Pagination]}
@@ -38,7 +40,7 @@ const InstitutionsCarousel = () => {
               <SwiperSlide
                 key={"institution_carousel_item_" + idx}
                 className="d-flex align-items-center"
-                style={{ height: "125px" }}
+                style={{ height: "150px" }}
               >
                 <div className="">
                   <img src={x} alt="Institution" className="w-100" />
