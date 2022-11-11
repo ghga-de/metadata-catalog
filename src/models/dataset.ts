@@ -203,7 +203,7 @@ export interface searchResponseModel {
   facets: facetModel[];
 }
 
-export interface datasetSummaryModel {
+export interface datasetDetailsSummarModel {
   id: string;
   title: string;
   description: string;
@@ -215,6 +215,10 @@ export interface datasetSummaryModel {
   study_summary: studySummaryModel;
   experiment_summary: experimentSummaryModel;
   file_summary: fileSummaryModel;
+}
+
+export interface datasetSummaryModel {
+  count: number
 }
 
 export interface sampleSummaryModel {
@@ -271,6 +275,7 @@ export interface protocolSummaryModel {
 }
 
 export interface metadataSummaryModel {
+  dataset_summary: datasetSummaryModel;
   sample_summary: sampleSummaryModel;
   study_summary: studySummaryModel;
   experiment_summary: experimentSummaryModel;

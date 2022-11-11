@@ -1,4 +1,4 @@
-import { searchResponseModel, datasetEmbeddedModel, datasetSummaryModel, metadataSummaryModel } from "../models/dataset";
+import { searchResponseModel, datasetEmbeddedModel, datasetDetailsSummaryModel, metadataSummaryModel } from "../models/dataset";
 import { facetFilterModel } from "../models/facets";
 
 type getDatasetsSearchRespType = (
@@ -84,7 +84,7 @@ export const getDatasetDetails: getDatasetDetailsType = (
 
 type getDatasetSummaryType = (
   datasetId: string,
-  callbackFunc: (dataset: datasetSummaryModel) => void
+  callbackFunc: (dataset: datasetDetailsSummaryModel) => void
 ) => void;
 
 export const getDatasetSummary: getDatasetSummaryType = (

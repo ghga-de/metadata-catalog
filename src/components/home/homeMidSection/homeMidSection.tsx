@@ -6,35 +6,22 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { Card, Col, Row } from "react-bootstrap";
-import { getMetadataSummary, querySearchService } from "../../../api/browse";
-import { metadataSummaryModel, searchResponseModel } from "../../../models/dataset";
+import { getMetadataSummary } from "../../../api/browse";
+import { metadataSummaryModel } from "../../../models/dataset";
 import { getItemsForSummary } from "../../../utils/utils";
 
 const HomeMidSection = () => {
-  const [searchResults, setSearchResults] =
-    React.useState<searchResponseModel | null>(null);
   const [summary, setSummary] = React.useState<metadataSummaryModel | null>(
     null
   );
 
   React.useEffect(() => {
     const getData = () => {
-      querySearchService(setSearchResults, [], "", 0, 1, "Dataset");
       getMetadataSummary(setSummary);
     };
     getData();
   }, []);
   
-  var dsCount: number = 0;
-
-  if (searchResults !== null) {
-    if (searchResults.hits.length > 0 || searchResults.count === -1) {
-      dsCount = searchResults.count;
-    } else {
-      dsCount = 0;
-    }
-  }
-
   return (
     <Col className="px-2">
       <Row className="rounded bg-primary w-100 mx-0 mb-3 pt-5 pb-5 pe-4 justify-content-evenly">
@@ -75,7 +62,7 @@ const HomeMidSection = () => {
                             }}
                             className="bg-white d-flex align-items-center"
                           >
-                            <span className="w-100 text-center fs-1">{dsCount}</span>
+                            <span className="w-100 text-center fs-1">{summary.dataset_summary.count}</span>
                           </div>
                         </div>
                       </Col>
