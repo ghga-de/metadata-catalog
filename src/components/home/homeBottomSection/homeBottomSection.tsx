@@ -9,7 +9,7 @@ const HomeBottomSection = () => {
       <Col>
         <h4 className="fw-bold fs-3 p-3 pb-1">Our Standards</h4>
         <hr className="mx-3 border-primary mb-5" />
-        <Carousel indicators={false} variant="dark">
+        <Carousel indicators={false} variant="dark" interval={null}>
           {projects
             .map((value) => ({ value, sort: Math.random() }))
             .sort((a, b) => a.sort - b.sort)
