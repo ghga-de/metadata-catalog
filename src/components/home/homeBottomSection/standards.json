@@ -7,27 +7,6 @@
     "learn_more_href": "https://www.go-fair.org/fair-principles/"
   },
   {
-    "name": "GA4GH",
-    "description": "The Global Alliance for Genomics and Health (GA4GH) is an international, nonprofit alliance formed in 2013 to accelerate the potential of research and medicine to advance human health. Bringing together 600+ leading organizations working in healthcare, research, patient advocacy, life science, and information technology, the GA4GH community is working together to create frameworks and standards to enable the responsible, voluntary, and secure sharing of genomic and health-related data.",
-    "img_location": "",
-    "img_alt": "Chart",
-    "learn_more_href": ""
-  },
-  {
-    "name": "FairSharing",
-    "description": "FairSharing is a curated, informative and educational resource on data and metadata standards, inter-related to databases and data policies. FairSharing guides users to discover, select and use these resources with confidence, and encourages producers of resources to make them discoverable, more widely adopted and cited.",
-    "img_location": "",
-    "img_alt": "Chart",
-    "learn_more_href": "https://fairsharing.org/"
-  },
-  {
-    "name": "GSC",
-    "description": "The Genomic Standards Consortium (GSC) is an open-membership working body formed in September 2005. The aim of the GSC is making genomic data discoverable. The GSC enables genomic data integration, discovery and comparison through international community-driven standards.",
-    "img_location": "",
-    "img_alt": "Chart",
-    "learn_more_href": "https://gensc.org/"
-  },
-  {
     "name": "LinkML",
     "description": "LinkML is a flexible modeling language that allows you to author schemas in YAML that describe the structure of your data. Additionally, it is a framework for working with and validating data in a variety of formats (JSON, RDF, TSV), with generators for compiling LinkML schemas to other frameworks.",
     "img_location": "",
@@ -81,7 +60,7 @@
     "description": "The German National Cohort (“NAKO Gesundheitsstudie”) is an interdisciplinary, population-based cohort study that will follow the long-term medical histories of 200,000 participants over 25-30 years. As Germany’s largest health study, the overarching aim of the National Cohort is to inform more effective disease prevention strategies, with a focus on seven major disease groups: cancer, diabetes, and cardiovascular, neurologic and psychiatric, infectious, respiratory and musculoskeletal diseases. It will provide a major, central resource for population-based epidemiology in Germany, and will help to identify new and tailored strategies for early detection, prediction, and primary prevention of major diseases.",
     "img_location": "",
     "img_alt": "Chart",
-    "learn_more_href": ""
+    "learn_more_href": "https://www.dkfz.de/en/epidemiologie-krebserkrankungen/units/NAKO_Studienzentrum_eng/NAKO_engl.html"
   },
   {
     "name": "NCT-MASTER",

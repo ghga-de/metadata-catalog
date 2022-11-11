@@ -1,16 +1,16 @@
 import { Button, Carousel, Col, Row } from "react-bootstrap";
 import PerfectScrollbar from "react-perfect-scrollbar";
 import "react-perfect-scrollbar/dist/css/styles.css";
-import projects from "./communities&standards.json";
+import standards from "./standards.json";
 
 const HomeBottomSection = () => {
   return (
     <Row className="mx-2 mb-3">
       <Col>
         <h4 className="fw-bold fs-3 p-3 pb-1">Our Standards</h4>
-        <hr className="mx-3 border-primary mb-5" />
+        <hr className="mx-3 border-tertiary mb-5 opacity-100"/>
         <Carousel indicators={false} variant="dark" interval={null}>
-          {projects
+          {standards
             .map((value) => ({ value, sort: Math.random() }))
             .sort((a, b) => a.sort - b.sort)
             .map(({ value }) => value)
@@ -25,7 +25,7 @@ const HomeBottomSection = () => {
                         style={{ height: "200px" }}
                       >
                         <PerfectScrollbar>
-                          <p>
+                          <p style={{textAlign: "justify"}}>
                             {x.description.split("\n").map((z, idz) => (
                               <span
                                 key={
@@ -48,7 +48,7 @@ const HomeBottomSection = () => {
                           style={{ height: "200px" }}
                         >
                           <PerfectScrollbar>
-                            <p>
+                            <p style={{textAlign: "justify"}}>
                               {x.description.split("\n").map((z, idz) => (
                                 <span
                                   key={
@@ -77,7 +77,7 @@ const HomeBottomSection = () => {
                         as="a"
                         target="_blank"
                         variant="white"
-                        className="shadow-md-dark border-secondary text-secondary my-4 fw-bold"
+                        className="shadow-md-dark border-secondary text-secondary my-4"
                         href={x.learn_more_href}
                       >
                         Learn more...

@@ -15,32 +15,42 @@ const HeaderNavbar = () => {
       expand="lg"
       bg="primary"
       variant="dark"
-      className="p-0"
+      className="p-0 d-flex justify-content-between"
     >
-      <div className="container px-5 d-flex">
+      <NavLink to="/" end={true} className="ps-5 w-25">
+        <Button className="p-1 m-0 ps-3">
+          <div className="d-flex align-items-center">
+            <div
+              style={{ width: "80%" }}
+              className="flex-fill pe-2 me-2 border-end border-tertiary"
+            >
+              <img src={logo} alt="GHGA logo" height="35px" />
+            </div>
+            <div
+              className="text-tertiary h-100"
+              style={{ fontFamily: "Lexend" }}
+            >
+              <span
+                className="position-relative"
+                style={{ fontSize: "18px", top: "5px" }}
+              >
+                METADATA
+              </span>
+              <br />
+              <span className="fs-5 position-relative" style={{ top: "-5px" }}>
+                CATALOG
+              </span>
+            </div>
+          </div>
+        </Button>
+      </NavLink>
+      <div className="container px-5 mx-auto w-50 d-flex">
         <Navbar.Toggle
           aria-controls="basic-navbar-nav"
           className="border-2 text-white"
         />
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Navbar.Brand className="p-0 col-2">
-            <NavLink to="/" end={true}>
-              <Button className="p-1 m-0">
-                <div className="d-flex align-items-center">
-                  <div style={{ width: "80%" }} className="flex-fill pe-2 me-2 border-end border-tertiary">
-                    <img src={logo} alt="GHGA logo" height="35px" />
-                  </div>
-                  <div className="text-tertiary h-100" style={{ fontFamily: 'Lexend' }}>
-                    <span className="position-relative" style={{ fontSize: "18px", top: "5px" }}>
-                      METADATA
-                    </span>
-                    <br />
-                    <span className="fs-5 position-relative" style={{ top: "-5px" }}>CATALOG</span>
-                  </div>
-                </div>
-              </Button>
-            </NavLink>
-          </Navbar.Brand>
+          <Navbar.Brand className="p-0 col-2"></Navbar.Brand>
           <Nav
             className="justify-content-center col-8"
             style={{ height: "36px" }}
@@ -96,6 +106,9 @@ const HeaderNavbar = () => {
             </NavLink>
           </Nav>
         </Navbar.Collapse>
+      </div>
+      <div className="w-25">
+        &nbsp;
       </div>
     </Navbar>
   );

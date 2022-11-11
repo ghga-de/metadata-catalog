@@ -1,11 +1,9 @@
 import { faCircle, faUser } from "@fortawesome/free-regular-svg-icons";
-import {
-  faChartColumn,
-  faDna,
-} from "@fortawesome/free-solid-svg-icons";
+import { faChartColumn, faDna } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { Card, Col, Row } from "react-bootstrap";
+import { NavLink } from "react-router-dom";
 import { getMetadataSummary } from "../../../api/browse";
 import { metadataSummaryModel } from "../../../models/dataset";
 import { getItemsForSummary } from "../../../utils/utils";
@@ -21,10 +19,11 @@ const HomeMidSection = () => {
     };
     getData();
   }, []);
-  
+
   return (
     <Col className="px-2">
-      <Row className="rounded bg-primary w-100 mx-0 mb-3 pt-5 pb-5 pe-4 justify-content-evenly">
+      <Row className="rounded bg-primary w-100 mx-0 mb-3 pb-5 pe-4 justify-content-evenly">
+        <h4 className="fw-bold fs-2 text-white p-4 pb-4 ms-4">Statistics</h4>
         <>
           {summary !== null ? (
             <>
@@ -41,7 +40,8 @@ const HomeMidSection = () => {
                   <Card.Text as="div">
                     <Row className="mt-4 pt-3 fs-7 align-items-center">
                       <Col className="text-center">
-                        <div
+                        <NavLink
+                          to="/browse"
                           style={{
                             borderRadius: "50%",
                             width: "9rem",
@@ -49,7 +49,7 @@ const HomeMidSection = () => {
                             background:
                               "linear-gradient(#e84614 5%, #CFE7CD 70%)",
                           }}
-                          className="mx-auto"
+                          className="mx-auto d-block text-decoration-none"
                         >
                           <div
                             style={{
@@ -62,9 +62,11 @@ const HomeMidSection = () => {
                             }}
                             className="bg-white d-flex align-items-center"
                           >
-                            <span className="w-100 text-center fs-1">{summary.dataset_summary.count}</span>
+                            <span className="w-100 text-center fs-1">
+                              {summary.dataset_summary.count}
+                            </span>
                           </div>
-                        </div>
+                        </NavLink>
                       </Col>
                     </Row>
                   </Card.Text>
@@ -182,7 +184,10 @@ const HomeMidSection = () => {
                     >
                       <span className="fa-layers fa-fw fa-lg">
                         <FontAwesomeIcon icon={faCircle} />
-                        <FontAwesomeIcon icon={faChartColumn} transform="shrink-8" />
+                        <FontAwesomeIcon
+                          icon={faChartColumn}
+                          transform="shrink-8"
+                        />
                       </span>
                     </Row>
                     <Row className="w-bold fs-5 ps-0">
@@ -194,25 +199,28 @@ const HomeMidSection = () => {
                   </Card.Title>
                   <Card.Text as="div">
                     <Row className="mt-4 pt-3 fs-7 align-items-center">
-                      <Col>
+                      <table>
+                        <tbody>
                         {getItemsForSummary(
                           summary.file_summary.stats.format
                         ).map((x) => {
                           return (
-                            <Row
+                            <tr
                               key={x}
                               className="text-uppercase ms-0 ps-0 mb-2"
                             >
-                              <Col className="ms-0 ps-0">
+                              <td className="ms-0 ps-3 pe-4" 
+                              style={{width: "1px", whiteSpace: "nowrap"}}>
                                 {x.split(": ")[0]}:
-                              </Col>
-                              <Col className="col-auto fw-bold text-end">
+                              </td>
+                              <td className="fw-bold">
                                 {x.split(": ")[1]}
-                              </Col>
-                            </Row>
+                              </td>
+                            </tr>
                           );
                         })}
-                      </Col>
+                        </tbody>
+                      </table>
                     </Row>
                   </Card.Text>
                 </Card.Body>
