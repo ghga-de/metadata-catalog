@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Accordion, Col } from "react-bootstrap";
 import { getDatasetSummary } from "../../../../api/browse";
-import { datasetSummaryModel, hitModel } from "../../../../models/dataset";
+import { datasetDetailsSummaryModel, hitModel } from "../../../../models/dataset";
 import DatasetSummary from "./datasetSummary/datasetSummary";
 
 interface dataSetListProps {
@@ -9,9 +9,9 @@ interface dataSetListProps {
 }
 
 const DatasetAccordion = (props: dataSetListProps) => {
-  const [summary, setSummary] = useState<datasetSummaryModel | null | undefined>(null)
-  const [summaryMap, setSummaryMap] = useState<Map<string, datasetSummaryModel | null | undefined>>(
-    new Map<string, datasetSummaryModel | null>())
+  const [summary, setSummary] = useState<datasetDetailsSummaryModel | null | undefined>(null)
+  const [summaryMap, setSummaryMap] = useState<Map<string, datasetDetailsSummaryModel | null | undefined>>(
+    new Map<string, datasetDetailsSummaryModel | null>())
   const getDetails = (datasetId: string) => {
     if (summaryMap.get(datasetId) === undefined) {
       getDatasetSummary(datasetId, setSummary);

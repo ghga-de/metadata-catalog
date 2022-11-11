@@ -1,5 +1,5 @@
 import { Row, Button, Spinner, Col } from "react-bootstrap";
-import { datasetSummaryModel, hitModel } from "../../../../../models/dataset";
+import { datasetDetailsSummaryModel, hitModel } from "../../../../../models/dataset";
 import DatasetExperiments from "./datasetExperiments";
 import DatasetFiles from "./datasetFiles";
 import DatasetSamples from "./datasetSamples";
@@ -15,7 +15,7 @@ import {
 
 interface dataSetDetailsProps {
   hit: hitModel;
-  summary: datasetSummaryModel | null | undefined;
+  summary: datasetDetailsSummaryModel | null | undefined;
 }
 
 const DatasetSummary = (props: dataSetDetailsProps) => {
