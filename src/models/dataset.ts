@@ -203,7 +203,7 @@ export interface searchResponseModel {
   facets: facetModel[];
 }
 
-export interface datasetDetailsSummarModel {
+export interface datasetDetailsSummaryModel {
   id: string;
   title: string;
   description: string;
