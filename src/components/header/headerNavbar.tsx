@@ -49,10 +49,9 @@ const HeaderNavbar = () => {
           aria-controls="basic-navbar-nav"
           className="border-2 text-white"
         />
-        <Navbar.Collapse id="responsive-navbar-nav">
-          <Navbar.Brand className="p-0 col-2"></Navbar.Brand>
+        <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-center">
           <Nav
-            className="justify-content-center col-8"
+            className="justify-content-center"
             style={{ height: "36px" }}
           >
             <NavLink
