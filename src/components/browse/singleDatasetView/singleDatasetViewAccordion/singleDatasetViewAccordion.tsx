@@ -4,7 +4,7 @@ import {
   faSort,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Accordion, Button, Table } from "react-bootstrap";
 import { datasetEmbeddedModel, experimentEmbeddedModel, fileModel, sampleModel } from "../../../../models/dataset";
 import { parseBytes } from "../../../../utils/utils";
@@ -16,15 +16,15 @@ interface SingleDatasetViewAccordionProps {
 const SingleDatasetViewAccordion = (props: SingleDatasetViewAccordionProps) => {
   let fileSize = 0;
 
-  const [sortExp, setSortExp] = useState<{ key: String; order: number }>({
+  const [sortExp, setSortExp] = useState<{ key: string; order: number }>({
     key: "accession",
     order: 0,
   });
-  const [sortSamples, setSortSamples] = useState<{ key: String; order: number }>({
+  const [sortSamples, setSortSamples] = useState<{ key: string; order: number }>({
     key: "accession",
     order: 0,
   });
-  const [sortFiles, setSortFiles] = useState<{ key: String; order: number }>({
+  const [sortFiles, setSortFiles] = useState<{ key: string; order: number }>({
     key: "name",
     order: 0,
   });
@@ -34,148 +34,21 @@ const SingleDatasetViewAccordion = (props: SingleDatasetViewAccordionProps) => {
   const [sortedSamples, setSortedSamples] = useState<sampleModel[]>(Array.from(props.details.has_sample))
   const [sortedFiles, setSortedFiles] = useState<fileModel[]>(Array.from(props.details.has_file))
 
-  const SortExpTable = (key: String, order: number) => {
-    setSortExp({ "key": key, "order": order })
+  const SortTable = (setSortItem: any, sortedItem: any, setSortedItem: any, item: any, key: string, order: number) => {
+    setSortItem({ "key": key, "order": order })
     if (order !== 0) {
-      switch (key) {
-        case "accession":
-          sortedExp.sort((a, b) =>
-            a.ega_accession !== null && b.ega_accession !== null
-              ? a.ega_accession > b.ega_accession ? 1 : -1
-              : b.ega_accession !== null
-                ? a.accession > b.ega_accession ? 1 : -1
-                : a.ega_accession !== null
-                  ? a.ega_accession > b.accession ? 1 : -1
-                  : a.accession > b.accession ? 1 : -1
-          );
-          if (order === 2) {
-            sortedExp.reverse()
-          }
-          setSortedExp(sortedExp)
-          break;
-        case "description":
-          sortedExp.sort((a, b) =>
-            a.description > b.description ? 1 : -1
-          );
-          if (order === 2) {
-            sortedExp.reverse()
-          }
-          setSortedExp(sortedExp)
-          break;
+      sortedItem.sort((a: any, b: any) =>
+        a[key] > b[key] ? 1 : -1
+      );
+      if (order === 2) {
+        sortedItem.reverse()
       }
+      setSortedItem(sortedItem)
     }
     else {
-      setSortedExp(Array.from(props.details.has_experiment))
+      setSortedItem(item)
     }
   }
-
-  const SortSamplesTable = (key: String, order: number) => {
-    setSortSamples({ "key": key, "order": order })
-    if (order !== 0) {
-      switch (key) {
-        case "accession":
-          sortedSamples.sort((a, b) =>
-            a.ega_accession !== null && b.ega_accession !== null
-              ? a.ega_accession > b.ega_accession ? 1 : -1
-              : b.ega_accession !== null
-                ? a.accession > b.ega_accession ? 1 : -1
-                : a.ega_accession !== null
-                  ? a.ega_accession > b.accession ? 1 : -1
-                  : a.accession > b.accession ? 1 : -1
-          );
-          if (order === 2) {
-            sortedSamples.reverse()
-          }
-          setSortedSamples(sortedSamples)
-          break;
-        case "description":
-          sortedSamples.sort((a, b) =>
-            a.description > b.description ? 1 : -1
-          );
-          if (order === 2) {
-            sortedSamples.reverse()
-          }
-          setSortedSamples(sortedSamples)
-          break;
-        case "case_control_status":
-          sortedSamples.sort((a, b) =>
-            a.case_control_status > b.case_control_status ? 1 : -1
-          );
-          if (order === 2) {
-            sortedSamples.reverse()
-          }
-          setSortedSamples(sortedSamples)
-          break;
-        case "phenotype":
-          sortedSamples.sort((a, b) =>
-            a.has_individual.has_phenotypic_feature !== null && b.has_individual.has_phenotypic_feature !== null
-              ? a.has_individual.has_phenotypic_feature[0].concept_name > b.has_individual.has_phenotypic_feature[0].concept_name ? 1 : -1
-              : a.has_individual.has_phenotypic_feature > b.has_individual.has_phenotypic_feature ? 1 : -1
-          );
-          if (order === 2) {
-            sortedSamples.reverse()
-          }
-          setSortedSamples(sortedSamples)
-          break;
-        case "tissue":
-          sortedSamples.sort((a, b) =>
-            a.has_anatomical_entity !== null && b.has_anatomical_entity !== null
-              ? a.has_anatomical_entity[0].concept_name > b.has_anatomical_entity[0].concept_name ? 1 : -1
-              : a.has_anatomical_entity > b.has_anatomical_entity ? 1 : -1
-          );
-          if (order === 2) {
-            sortedSamples.reverse()
-          }
-          setSortedSamples(sortedSamples)
-          break;
-      }
-    }
-    else {
-      setSortedSamples(Array.from(props.details.has_sample))
-    }
-  }
-
-  const SortFilesTable = (key: String, order: number) => {
-    setSortFiles({ "key": key, "order": order })
-    if (order !== 0) {
-      switch (key) {
-        case "name":
-          sortedFiles.sort((a, b) =>
-            a.name > b.name ? 1 : -1
-          );
-          if (order === 2) {
-            sortedFiles.reverse()
-          }
-          setSortedFiles(sortedFiles)
-          break;
-        case "format":
-          sortedFiles.sort((a, b) =>
-            a.format > b.format ? 1 : -1
-          );
-          if (order === 2) {
-            sortedFiles.reverse()
-          }
-          setSortedFiles(sortedFiles)
-          break;
-        case "size":
-          sortedFiles.sort((a, b) =>
-            a.size > b.size ? 1 : -1
-          );
-          if (order === 2) {
-            sortedFiles.reverse()
-          }
-          setSortedFiles(sortedFiles)
-          break;
-      }
-    }
-    else {
-      setSortedFiles(Array.from(props.details.has_file))
-    }
-  }
-
-  useEffect(() => {
-
-  }, []);
 
   return (
     <Accordion>
@@ -199,17 +72,17 @@ const SingleDatasetViewAccordion = (props: SingleDatasetViewAccordionProps) => {
                   <Button
                     variant="outline-secondary"
                     className="p-0 px-1 me-1 border-0"
-                    onClick={() => { SortExpTable("accession", sortExp.key === "accession" ? (sortExp.order + 1) % 3 : 1) }}
+                    onClick={() => { SortTable(setSortExp, sortedExp, setSortedExp, Array.from(props.details.has_experiment), "ega_accession", sortExp.key === "ega_accession" ? (sortExp.order + 1) % 3 : 1) }}
                   >
-                    <FontAwesomeIcon icon={sortExp.key === "accession" ? iconsDef[sortExp.order] : iconsDef[0]} />
+                    <FontAwesomeIcon icon={sortExp.key === "ega_accession" ? iconsDef[sortExp.order] : iconsDef[0]} />
                   </Button>
                   &nbsp;Experiment ID
                 </th>
                 <th className="text-wrap text-break">
-                <Button
+                  <Button
                     variant="outline-secondary"
                     className="p-0 px-1 me-1 border-0"
-                    onClick={() => { SortExpTable("description", sortExp.key === "description" ? (sortExp.order + 1) % 3 : 1) }}
+                    onClick={() => { SortTable(setSortExp, sortedExp, setSortedExp, Array.from(props.details.has_experiment), "description", sortExp.key === "description" ? (sortExp.order + 1) % 3 : 1) }}
                   >
                     <FontAwesomeIcon icon={sortExp.key === "description" ? iconsDef[sortExp.order] : iconsDef[0]} />
                   </Button>
@@ -255,46 +128,46 @@ const SingleDatasetViewAccordion = (props: SingleDatasetViewAccordionProps) => {
                   <Button
                     variant="outline-secondary"
                     className="p-0 px-1 me-1 border-0"
-                    onClick={() => { SortSamplesTable("accession", sortSamples.key === "accession" ? (sortSamples.order + 1) % 3 : 1) }}
+                    onClick={() => { SortTable(setSortSamples, sortedSamples, setSortedSamples, Array.from(props.details.has_sample), "ega_accession", sortSamples.key === "ega_accession" ? (sortSamples.order + 1) % 3 : 1) }}
                   >
-                    <FontAwesomeIcon icon={sortSamples.key === "accession" ? iconsDef[sortSamples.order] : iconsDef[0]} />
+                    <FontAwesomeIcon icon={sortSamples.key === "ega_accession" ? iconsDef[sortSamples.order] : iconsDef[0]} />
                   </Button>
                   &nbsp;Sample ID
                 </th>
                 <th className="text-wrap text-break">
-                <Button
+                  <Button
                     variant="outline-secondary"
                     className="p-0 px-1 me-1 border-0"
-                    onClick={() => { SortSamplesTable("description", sortSamples.key === "description" ? (sortSamples.order + 1) % 3 : 1) }}
+                    onClick={() => { SortTable(setSortSamples, sortedSamples, setSortedSamples, Array.from(props.details.has_sample), "description", sortSamples.key === "description" ? (sortSamples.order + 1) % 3 : 1) }}
                   >
                     <FontAwesomeIcon icon={sortSamples.key === "description" ? iconsDef[sortSamples.order] : iconsDef[0]} />
                   </Button>
                   &nbsp;Description</th>
                 <th>
-                <Button
+                  <Button
                     variant="outline-secondary"
                     className="p-0 px-1 me-1 border-0"
-                    onClick={() => { SortSamplesTable("case_control_status", sortSamples.key === "case_control_status" ? (sortSamples.order + 1) % 3 : 1) }}
+                    onClick={() => { SortTable(setSortSamples, sortedSamples, setSortedSamples, Array.from(props.details.has_sample), "case_control_status", sortSamples.key === "case_control_status" ? (sortSamples.order + 1) % 3 : 1) }}
                   >
                     <FontAwesomeIcon icon={sortSamples.key === "case_control_status" ? iconsDef[sortSamples.order] : iconsDef[0]} />
                   </Button>
                   &nbsp;Status
                 </th>
                 <th>
-                <Button
+                  <Button
                     variant="outline-secondary"
                     className="p-0 px-1 me-1 border-0"
-                    onClick={() => { SortSamplesTable("phenotype", sortSamples.key === "phenotype" ? (sortSamples.order + 1) % 3 : 1) }}
+                    onClick={() => { SortTable(setSortSamples, sortedSamples, setSortedSamples, Array.from(props.details.has_sample), "has_individual.has_phenotypic_feature[0].concept_name", sortSamples.key === "phenotype" ? (sortSamples.order + 1) % 3 : 1) }}
                   >
                     <FontAwesomeIcon icon={sortSamples.key === "phenotype" ? iconsDef[sortSamples.order] : iconsDef[0]} />
                   </Button>
                   &nbsp;Phenotype
                 </th>
                 <th>
-                <Button
+                  <Button
                     variant="outline-secondary"
                     className="p-0 px-1 me-1 border-0"
-                    onClick={() => { SortSamplesTable("tissue", sortSamples.key === "tissue" ? (sortSamples.order + 1) % 3 : 1) }}
+                    onClick={() => { SortTable(setSortSamples, sortedSamples, setSortedSamples, Array.from(props.details.has_sample), "has_anatomical_entity[0].concept_name", sortSamples.key === "tissue" ? (sortSamples.order + 1) % 3 : 1) }}
                   >
                     <FontAwesomeIcon icon={sortSamples.key === "tissue" ? iconsDef[sortSamples.order] : iconsDef[0]} />
                   </Button>
@@ -350,22 +223,22 @@ const SingleDatasetViewAccordion = (props: SingleDatasetViewAccordionProps) => {
             <thead className="border-light-3 border-1">
               <tr>
                 <th className="text-break">
-                <Button
+                  <Button
                     variant="outline-secondary"
                     className="p-0 px-1 me-1 border-0"
-                    onClick={() => { SortFilesTable("name", sortFiles.key === "name" ? (sortFiles.order + 1) % 3 : 1) }}
+                    onClick={() => { SortTable(setSortFiles, sortedFiles, setSortedFiles, Array.from(props.details.has_file), "name", sortFiles.key === "name" ? (sortFiles.order + 1) % 3 : 1) }}
                   >
                     <FontAwesomeIcon icon={sortFiles.key === "name" ? iconsDef[sortFiles.order] : iconsDef[0]} />
                   </Button>
                   &nbsp;File name
                 </th>
                 <th>
-                <Button
+                  <Button
                     variant="outline-secondary"
                     className="p-0 px-1 me-1 border-0"
-                    onClick={() => { SortFilesTable("type", sortFiles.key === "type" ? (sortFiles.order + 1) % 3 : 1) }}
+                    onClick={() => { SortTable(setSortFiles, sortedFiles, setSortedFiles, Array.from(props.details.has_file), "format", sortFiles.key === "format" ? (sortFiles.order + 1) % 3 : 1) }}
                   >
-                    <FontAwesomeIcon icon={sortFiles.key === "type" ? iconsDef[sortFiles.order] : iconsDef[0]} />
+                    <FontAwesomeIcon icon={sortFiles.key === "format" ? iconsDef[sortFiles.order] : iconsDef[0]} />
                   </Button>
                   &nbsp;File type
                 </th>
@@ -373,7 +246,7 @@ const SingleDatasetViewAccordion = (props: SingleDatasetViewAccordionProps) => {
                   <Button
                     variant="outline-secondary"
                     className="p-0 px-1 me-1 border-0"
-                    onClick={() => { SortFilesTable("size", sortFiles.key === "size" ? (sortFiles.order + 1) % 3 : 1) }}
+                    onClick={() => { SortTable(setSortFiles, sortedFiles, setSortedFiles, Array.from(props.details.has_file), "size", sortFiles.key === "size" ? (sortFiles.order + 1) % 3 : 1) }}
                   >
                     <FontAwesomeIcon icon={sortFiles.key === "size" ? iconsDef[sortFiles.order] : iconsDef[0]} />
                   </Button>
