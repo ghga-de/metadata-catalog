@@ -162,7 +162,7 @@ const SingleDatasetViewAccordion = (props: SingleDatasetViewAccordionProps) => {
     {
       table: ExpTable,
       buttonText:
-        props.details.has_sample !== null
+        props.details.has_experiment !== null
           ? "Experiment Summary (" +
             props.details.has_experiment.length +
             " experiments)"
@@ -186,8 +186,8 @@ const SingleDatasetViewAccordion = (props: SingleDatasetViewAccordionProps) => {
     {
       table: FilesTable,
       buttonText:
-        props.details.has_sample !== null
-          ? "File Summary (" + parseBytes(fileSize) + ")"
+        props.details.has_file !== null
+          ? "File Summary (" + props.details.has_file.length + " files: " + parseBytes(fileSize) + ")"
           : "File Summary",
       sortItem: sortFiles,
       setSortItem: setSortFiles,
@@ -235,7 +235,7 @@ const SingleDatasetViewAccordion = (props: SingleDatasetViewAccordionProps) => {
               <thead className="border-light-3 border-1">
                 <tr>
                   {x.table.map((y: any, idy: number) => (
-                    <th className={y.className}>
+                    <th className={y.className} key={"table_sdsv_th_" + idy}>
                       <Button
                         variant="outline-secondary"
                         className="p-0 px-1 me-1 border-0"
@@ -279,7 +279,7 @@ const SingleDatasetViewAccordion = (props: SingleDatasetViewAccordionProps) => {
                           "cell_" + idz + "_row_" + idy + "_table_sdsv_" + idx
                         }
                       >
-                        {typeof(z) === "number" ? parseBytes(z) : z}
+                        {typeof(z) === "number" && x.buttonText.includes("File Summary") ? parseBytes(z) : z}
                       </td>
                     ))}
                   </tr>
