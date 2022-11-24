@@ -44,10 +44,10 @@ const Upload = () => {
                 As a research network, GHGA has multiple cooperations with national and
                 international partners. Some of our partners:
             </p>
-            <div className="d-flex justify-content-between w-100 flex-wrap mb-5">
+            <div className="d-flex justify-content-center align-items-center w-100 flex-wrap mb-5">
                 {listInstitutionImages.map((x: any) => (
-                    <div key={x}>
-                        <img src={x} alt="Institution" className="me-4 my-2" />
+                    <div key={x} className="text-center" style={{minWidth: "20rem"}}>
+                        <img src={x} alt="Institution" className="me-4 my-2" style={{maxHeight: "10rem"}}/>
                     </div>
                 ))}
             </div>
