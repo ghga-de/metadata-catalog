@@ -1,13 +1,13 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
 import { useSearchParams } from "react-router-dom";
-import { searchResponseModel, hitModel } from "../../models/dataset";
-import { facetFilterModel, facetModel } from "../../models/facets";
 import { querySearchService } from "../../api/browse";
+import { hitModel, searchResponseModel } from "../../models/dataset";
+import { facetFilterModel, facetModel } from "../../models/facets";
 import { getFilterParams } from "../../utils/utils";
-import Sidebar from "./sidebar/sidebar";
-import DatasetList from "./dataset/datasetList";
 import DatasetHeader from "./dataset/datasetHeader";
+import DatasetList from "./dataset/datasetList";
+import Sidebar from "./sidebar/sidebar";
 
 const Browse = () => {
   let [searchParams, setSearchParams] = useSearchParams();

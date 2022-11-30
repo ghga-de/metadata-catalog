@@ -2,6 +2,7 @@ import React from "react";
 import logo from "../../assets/GHGA_logo_clean.png";
 import { Navbar, Nav, Button } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
+import HeaderSearchbar from "./headerSearchbar";
 
 const HeaderNavbar = () => {
   const activePageStyle =
@@ -106,8 +107,8 @@ const HeaderNavbar = () => {
           </Nav>
         </Navbar.Collapse>
       </div>
-      <div className="w-25">
-        &nbsp;
+      <div className="w-25 justify-content-center d-flex">
+        <HeaderSearchbar />
       </div>
     </Navbar>
   );
