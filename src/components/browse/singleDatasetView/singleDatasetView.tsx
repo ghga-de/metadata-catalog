@@ -123,7 +123,7 @@ const SingleDatasetView = () => {
             />
           </Button>
           <Button
-            className="fs-8 float-end mb-3 ms-4 text-white shadow-md-dark"
+            className="fs-7 float-end mb-3 ms-4 text-white shadow-md-dark"
             variant="secondary"
             onClick={() => handleOpen()}
             style={{ width: "105px" }}
@@ -145,7 +145,7 @@ const SingleDatasetView = () => {
               }
               target="_blank"
               variant="white"
-              className="fs-8 mb-3 float-end text-secondary shadow-md-dark text-start border-secondary"
+              className="fs-7 mb-3 float-end text-secondary shadow-md-dark text-start border-secondary"
               style={{ width: "115px" }}
             >
               <Row className="p-0 m-0 align-items-center text-start">

@@ -4,12 +4,12 @@ import {
   faSort,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState } from "react";
 import { Accordion, Button, Table } from "react-bootstrap";
-import {
-  datasetEmbeddedModel,
-} from "../../../../models/dataset";
-import { parseBytes } from "../../../../utils/utils";
+import { datasetEmbeddedModel } from "../../../../models/dataset";
+import { parseBytes, TransposeTableForHTML } from "../../../../utils/utils";
+import { ExperimentsTable } from "./tables/ExperimentsTable";
+import { FilesTable } from "./tables/FilesTable";
+import { SamplesTable } from "./tables/SamplesTable";
 
 interface SingleDatasetViewAccordionProps {
   details: datasetEmbeddedModel;
@@ -21,135 +21,9 @@ const SingleDatasetViewAccordion = (props: SingleDatasetViewAccordionProps) => {
   props.details.has_file?.map((x) => {
     fileSize = fileSize + x.size;
     return null;
-  })
-
-  const [sortExp, setSortExp] = useState<{ key: number; order: number }>({
-    key: 0,
-    order: 0,
   });
 
-  const [sortSamples, setSortSamples] = useState<{
-    key: number;
-    order: number;
-  }>({
-    key: 0,
-    order: 0,
-  });
-
-  const [sortFiles, setSortFiles] = useState<{ key: number; order: number }>({
-    key: 0,
-    order: 0,
-  });
   let iconsDef = [faSort, faSortUp, faSortDown];
-
-  let ExpTable: {
-    header: string;
-    data: any;
-    cssClasses: String;
-  }[] = [
-    {
-      header: "Experiment ID",
-      data: props.details.has_experiment.map((x) =>
-        x.ega_accession !== null ? x.ega_accession : x.alias
-      ),
-      cssClasses: "w-25",
-    },
-    {
-      header: "Description",
-      data: props.details.has_experiment.map((x) => x.description),
-      cssClasses: "text-wrap text-break",
-    },
-  ];
-
-  let SamplesTable: { header: string; data: any; cssClasses: String }[] = [
-    {
-      header: "Sample ID",
-      data: props.details.has_sample.map((x) =>
-        x.ega_accession !== null ? x.ega_accession : x.alias
-      ),
-      cssClasses: "",
-    },
-    {
-      header: "Description",
-      data: props.details.has_sample.map((x) => x.description),
-      cssClasses: "text-wrap text-break",
-    },
-    {
-      header: "Status",
-      data: props.details.has_sample.map((x) => x.case_control_status),
-      cssClasses: "text-capitalize",
-    },
-    {
-      header: "Phenotype",
-      data: props.details.has_sample.map((x) =>
-        x.has_individual.has_phenotypic_feature !== null
-          ? x.has_individual.has_phenotypic_feature[0].concept_name
-          : "N/A"
-      ),
-      cssClasses: "",
-    },
-    {
-      header: "Tissue",
-      data: props.details.has_sample.map((x) =>
-        x.has_anatomical_entity !== null
-          ? x.has_anatomical_entity[0].concept_name
-          : "N/A"
-      ),
-      cssClasses: "text-capitalize",
-    },
-  ];
-
-  let FilesTable: {
-    header: string;
-    data: any;
-    cssClasses: String;
-  }[] = [
-    {
-      header: "File name",
-      data: props.details.has_file.map((x) => x.name),
-      cssClasses: "text-break",
-    },
-    {
-      header: "File Type",
-      data: props.details.has_file.map((x) => x.format.toUpperCase()),
-      cssClasses: "",
-    },
-    {
-      header: "Size",
-      data: props.details.has_file.map((x) => x.size),
-      cssClasses: "",
-    },
-    {
-      header: "Checksum",
-      data: props.details.has_file.map((x) => x.checksum_type + ": " + x.checksum),
-      cssClasses: "",
-    },
-  ];
-
-  const TransposeTableForHTML = (data: string[]) => {
-    const rows = data.length,
-      cols = data[0].length;
-    const grid = [];
-    for (let j = 0; j < cols; j++) {
-      grid[j] = Array(rows);
-    }
-    for (let i = 0; i < rows; i++) {
-      for (let j = 0; j < cols; j++) {
-        grid[j][i] = data[i][j];
-      }
-    }
-    return grid;
-  };
-
-  const [sortedExp, setSortedExp] = useState<any>(
-    TransposeTableForHTML(ExpTable.map((x) => x.data))
-  );
-  const [sortedSamples, setSortedSamples] = useState<any>(
-    TransposeTableForHTML(SamplesTable.map((x) => x.data))
-  );
-  const [sortedFiles, setSortedFiles] = useState<any>(
-    TransposeTableForHTML(FilesTable.map((x) => x.data))
-  );
 
   let Tables: {
     table: any;
@@ -158,43 +32,7 @@ const SingleDatasetViewAccordion = (props: SingleDatasetViewAccordionProps) => {
     setSortItem: any;
     sortedItem: any;
     setSortedItem: any;
-  }[] = [
-    {
-      table: ExpTable,
-      buttonText:
-        props.details.has_experiment !== null
-          ? "Experiment Summary (" +
-            props.details.has_experiment.length +
-            " experiments)"
-          : "Experiment Summary",
-      sortItem: sortExp,
-      setSortItem: setSortExp,
-      sortedItem: sortedExp,
-      setSortedItem: setSortedExp,
-    },
-    {
-      table: SamplesTable,
-      buttonText:
-        props.details.has_sample !== null
-          ? "Sample Summary (" + props.details.has_sample.length + " samples)"
-          : "Sample Summary",
-      sortItem: sortSamples,
-      setSortItem: setSortSamples,
-      sortedItem: sortedSamples,
-      setSortedItem: setSortedSamples,
-    },
-    {
-      table: FilesTable,
-      buttonText:
-        props.details.has_file !== null
-          ? "File Summary (" + props.details.has_file.length + " files: " + parseBytes(fileSize) + ")"
-          : "File Summary",
-      sortItem: sortFiles,
-      setSortItem: setSortFiles,
-      sortedItem: sortedFiles,
-      setSortedItem: setSortedFiles,
-    },
-  ];
+  }[] = [ExperimentsTable(props), SamplesTable(props), FilesTable(props, fileSize)];
 
   const SortTable = (
     setSortItem: any,
@@ -231,7 +69,7 @@ const SingleDatasetViewAccordion = (props: SingleDatasetViewAccordionProps) => {
             className="pt-4 overflow-auto"
             style={{ maxHeight: "425px" }}
           >
-            <Table hover className="fs-8" size="sm">
+            <Table hover className="fs-7" size="sm">
               <thead className="border-light-3 border-1">
                 <tr>
                   {x.table.map((y: any, idy: number) => (
@@ -279,7 +117,10 @@ const SingleDatasetViewAccordion = (props: SingleDatasetViewAccordionProps) => {
                           "cell_" + idz + "_row_" + idy + "_table_sdsv_" + idx
                         }
                       >
-                        {typeof(z) === "number" && x.buttonText.includes("File Summary") ? parseBytes(z) : z}
+                        {typeof z === "number" &&
+                        x.buttonText.includes("File Summary")
+                          ? parseBytes(z)
+                          : z}
                       </td>
                     ))}
                   </tr>

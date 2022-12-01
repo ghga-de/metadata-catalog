@@ -10,7 +10,7 @@ import { Container } from "react-bootstrap";
 const FooterIcons = () => {
   const year = new Date().getFullYear();
   return (
-    <Container className="mb-2 text-center fs-3">
+    <Container className="mb-2 text-center fs-2">
       <a
         target="_blank"
         data-testid="twitter"
@@ -36,7 +36,7 @@ const FooterIcons = () => {
       >
         <FontAwesomeIcon icon={faYoutube} />
       </a>
-      <p className="mt-2 fs-8 text-muted mb-4">
+      <p className="mt-2 fs-7 text-muted mb-4">
         &#169;{year} GHGA. All Rights Reserved.<br/>
         <a href="https://www.ghga.de/imprint" target="_blank" rel="noreferrer">Imprint</a>
       </p>

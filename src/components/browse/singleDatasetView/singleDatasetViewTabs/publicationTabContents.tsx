@@ -24,7 +24,7 @@ const PublicationTabContents = (props: PublicationTabContentsProps) => {
                       href={"https://doi.org/" + x.alias.slice(5)}
                       target="_blank"
                       variant="white"
-                      className="float-end fs-8 py-2 mb-2 ms-4 text-secondary shadow-md-dark border-secondary"
+                      className="float-end fs-7 py-2 mb-2 ms-4 text-secondary shadow-md-dark border-secondary"
                     >
                       <Row className="p-0 m-0 align-items-center text-start">
                         <Col className="p-0 m-0 col-3 ">

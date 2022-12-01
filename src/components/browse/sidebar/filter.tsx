@@ -33,7 +33,7 @@ const Filter = (props: filterProps) => {
   };
 
   return (
-    <Container className="col-11 mb-3 fs-7 mx-0 w-100 p-0">
+    <Container className="col-11 mb-3 mx-0 w-100 p-0">
       <Form>
         <Form.Label className="mt-0 mb-3 text-capitalize fs-5">
           <strong>{props.facet.name}</strong>
@@ -76,7 +76,7 @@ const Filter = (props: filterProps) => {
                       >
                         <Form.Label className="p-0 m-0 w-100" htmlFor={key}>
                           <Badge
-                            className="w-100 user-select-none px-0"
+                            className="w-100 fs-7 user-select-none px-0"
                             style={{ cursor: "pointer" }}
                           >
                             {option.count}

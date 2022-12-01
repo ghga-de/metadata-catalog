@@ -101,7 +101,7 @@ const DatasetHeader = (props: datasetHeaderProps) => {
             props.searchParams.get("q") !== null ? (
             <Badge
               key={props.searchParams.get("q")}
-              className="py-1 m-0 me-2 overflow-hidden fs-9 bg-white text-black border border-secondary fw-normal"
+              className="py-1 m-0 me-2 overflow-hidden fs-7 bg-white text-black border border-secondary fw-normal"
               style={{
                 maxWidth: "200px",
                 whiteSpace: "nowrap",
@@ -139,7 +139,7 @@ const DatasetHeader = (props: datasetHeaderProps) => {
           {getFilterParamsList().map((item, idx) => (
             <Badge
               key={item.split("|")[1]}
-              className="py-1 m-0 me-2 overflow-hidden text-black fs-9 border text-capitalize bg-white border-secondary fw-normal"
+              className="py-1 m-0 me-2 overflow-hidden text-black fs-7 border text-capitalize bg-white border-secondary fw-normal"
               style={{
                 maxWidth: "200px",
                 whiteSpace: "nowrap",

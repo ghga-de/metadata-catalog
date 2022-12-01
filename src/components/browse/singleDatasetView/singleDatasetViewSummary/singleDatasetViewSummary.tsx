@@ -73,10 +73,10 @@ const SingleDatasetViewSummary = (props: SingleDatasetViewSummaryProps) => {
         </Badge>*/}
         </Col>
       </Row>
-      <Row className="fs-8 my-2 border border-1 border-dark border-end-0 border-start-0 pt-2 pb-3">
+      <Row className="fs-7 my-2 border border-1 border-dark border-end-0 border-start-0 pt-2 pb-3">
         <Col>{props.details.description}</Col>
       </Row>
-      <Row className="fs-8 mb-4">
+      <Row className="fs-7 mb-4">
         <Col className="text-end">
           <FontAwesomeIcon
             icon={faCalendar}

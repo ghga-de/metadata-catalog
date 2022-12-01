@@ -62,7 +62,7 @@ const DatasetSamples = (props: dataSetSamplesProps) => {
                     return (
                       <Badge
                         key={x}
-                        className="bg-success text-capitalize fw-normal py-1 fs-9 mb-0 ms-4 mb-1"
+                        className="bg-success text-capitalize fw-normal py-1 fs-8 mb-0 ms-4 mb-1"
                       >
                         {<BoldenedSummaryDetails x={x} />}
                       </Badge>
@@ -81,7 +81,7 @@ const DatasetSamples = (props: dataSetSamplesProps) => {
                         return (
                           <Badge
                             key={x}
-                            className="bg-primary py-1 text-capitalize fw-normal fs-9 mb-0 ms-4 d-table mb-1 text-break text-wrap text-start"
+                            className="bg-primary py-1 text-capitalize fw-normal fs-8 mb-0 ms-4 d-table mb-1 text-break text-wrap text-start"
                           >
                             {<BoldenedSummaryDetails x={x} />}
                           </Badge>
@@ -99,7 +99,7 @@ const DatasetSamples = (props: dataSetSamplesProps) => {
                               return (
                                 <Badge
                                   key={x}
-                                  className="bg-primary py-1 text-capitalize fw-normal fs-9 mb-0 ms-4 d-table mb-1 text-break text-wrap text-start"
+                                  className="bg-primary py-1 text-capitalize fw-normal fs-8 mb-0 ms-4 d-table mb-1 text-break text-wrap text-start"
                                 >
                                   {<BoldenedSummaryDetails x={x} />}
                                 </Badge>
@@ -114,7 +114,7 @@ const DatasetSamples = (props: dataSetSamplesProps) => {
                         aria-controls="example-collapse-text"
                         aria-expanded={openPhenotypesList}
                         variant="link"
-                        className="p-0 fs-8 d-block"
+                        className="p-0 fs-7 d-block"
                       >
                         {openPhenotypesList ? (
                           <>See less ...</>
