@@ -160,7 +160,7 @@ export const getItemsForSummary = (
   return items;
 };
 
-export const TransposeTableForHTML = (data: string[]) => {
+export const transposeTableForHTML = (data: string[]) => {
   const rows = data.length,
     cols = data[0].length;
   const grid = [];

@@ -1,7 +1,7 @@
 import { Col, Row } from "react-bootstrap";
 import { importAllFilesFromFolder } from "../../../utils/utils";
 
-const InstitutionsCarousel = () => {
+const HomeInstitutions = () => {
   const listInstitutionImages: any = importAllFilesFromFolder(
     require.context("../../../assets/upload/institutions/", false, /\.png$/)
   );
@@ -22,4 +22,4 @@ const InstitutionsCarousel = () => {
   );
 };
 
-export default InstitutionsCarousel;
+export default HomeInstitutions;

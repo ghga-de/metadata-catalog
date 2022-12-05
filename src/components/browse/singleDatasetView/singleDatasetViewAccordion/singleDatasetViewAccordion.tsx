@@ -6,7 +6,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Accordion, Button, Table } from "react-bootstrap";
 import { datasetEmbeddedModel } from "../../../../models/dataset";
-import { parseBytes, TransposeTableForHTML } from "../../../../utils/utils";
+import { parseBytes, transposeTableForHTML } from "../../../../utils/utils";
 import { ExperimentsTable } from "./tables/ExperimentsTable";
 import { FilesTable } from "./tables/FilesTable";
 import { SamplesTable } from "./tables/SamplesTable";
@@ -83,7 +83,7 @@ const SingleDatasetViewAccordion = (props: SingleDatasetViewAccordionProps) => {
                             x.sortedItem,
                             x.setSortedItem,
                             Array.from(
-                              TransposeTableForHTML(
+                              transposeTableForHTML(
                                 x.table.map((y: any) => y.data)
                               )
                             ),

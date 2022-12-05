@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { datasetEmbeddedModel } from "../../../../../models/dataset";
-import { parseBytes, TransposeTableForHTML } from "../../../../../utils/utils";
+import { parseBytes, transposeTableForHTML } from "../../../../../utils/utils";
 
 interface ExperimentsTableProps {
   details: datasetEmbeddedModel;
@@ -42,7 +42,7 @@ export const FilesTable = (props: ExperimentsTableProps, fileSize: number) => {
   ];
 
   const [sortedFiles, setSortedFiles] = useState<any>(
-    TransposeTableForHTML(filesTable.map((x) => x.data))
+    transposeTableForHTML(filesTable.map((x) => x.data))
   );
 
   const filesTableDef: {

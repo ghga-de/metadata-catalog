@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { datasetEmbeddedModel } from "../../../../../models/dataset";
-import { TransposeTableForHTML } from "../../../../../utils/utils";
+import { transposeTableForHTML } from "../../../../../utils/utils";
 
 interface SamplesTableProps {
   details: datasetEmbeddedModel;
@@ -54,7 +54,7 @@ export const SamplesTable = (props: SamplesTableProps) => {
   ];
 
   const [sortedSamples, setSortedSamples] = useState<any>(
-    TransposeTableForHTML(samplesTable.map((x) => x.data))
+    transposeTableForHTML(samplesTable.map((x) => x.data))
   );
 
   const samplesTableDef: {

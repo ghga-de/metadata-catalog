@@ -1,7 +1,7 @@
 import HomeMidSection from "./homeMidSection/homeMidSection";
 import HomeBottomSection from "./homeBottomSection/homeBottomSection";
 import HomeTopSection from "./homeTopSection/homeTopSection";
-import InstitutionsCarousel from "./institutionsCarousel/institutionsCarousel";
+import HomeInstitutions from "./homeInstitutions/homeInstitutions";
 
 const Home = () => {
   return (
@@ -12,7 +12,7 @@ const Home = () => {
       <HomeTopSection />
       <HomeMidSection />
       <HomeBottomSection />
-      <InstitutionsCarousel />
+      <HomeInstitutions />
     </div>
   );
 };

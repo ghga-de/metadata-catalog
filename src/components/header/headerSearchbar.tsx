@@ -2,10 +2,8 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { Form, Button, InputGroup } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
 
 const HeaderSearchbar = () => {
-    let navigate = useNavigate();
 
     const [searchKeyword, setSearchKeyword] = React.useState<string>("");
 
@@ -16,7 +14,6 @@ const HeaderSearchbar = () => {
             queryString = "&q=" + searchKeyword.trim();
         }
         window.location.href = "/browse?p=1" + queryString;
-        // navigate("/browse?p=1" + queryString);
     };
 
     return (
