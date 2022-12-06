@@ -7,7 +7,7 @@ interface ExperimentsTableProps {
 }
 
 export const ExperimentsTable = (props: ExperimentsTableProps) => {
-  const [sortExp, setSortExp] = useState<{ key: number; order: number }>({
+  const [sortDefinition, setSortDefinition] = useState<{ key: number; order: number }>({
     key: 0,
     order: 0,
   });
@@ -31,17 +31,17 @@ export const ExperimentsTable = (props: ExperimentsTableProps) => {
     },
   ];
 
-  const [sortedExp, setSortedExp] = useState<any>(
+  const [sortedData, setSortedData] = useState<any>(
     transposeTableForHTML(experimentsTable.map((x) => x.data))
   );
 
   const experimentsTableDef: {
     table: any;
     buttonText: String;
-    sortItem: { key: number; order: number };
-    setSortItem: any;
-    sortedItem: any;
-    setSortedItem: any;
+    sortDefinition: { key: number; order: number };
+    setSortDefinition: any;
+    sortedData: any;
+    setSortedData: any;
   } = {
     table: experimentsTable,
     buttonText:
@@ -50,10 +50,10 @@ export const ExperimentsTable = (props: ExperimentsTableProps) => {
           props.details.has_experiment.length +
           " experiments)"
         : "Experiment Summary",
-    sortItem: sortExp,
-    setSortItem: setSortExp,
-    sortedItem: sortedExp,
-    setSortedItem: setSortedExp,
+    sortDefinition: sortDefinition,
+    setSortDefinition: setSortDefinition,
+    sortedData: sortedData,
+    setSortedData: setSortedData,
   };
 
   return experimentsTableDef;

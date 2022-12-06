@@ -7,7 +7,7 @@ interface ExperimentsTableProps {
 }
 
 export const FilesTable = (props: ExperimentsTableProps, fileSize: number) => {
-  const [sortFiles, setSortFiles] = useState<{ key: number; order: number }>({
+  const [sortDefinition, setSortDefinition] = useState<{ key: number; order: number }>({
     key: 0,
     order: 0,
   });
@@ -41,17 +41,17 @@ export const FilesTable = (props: ExperimentsTableProps, fileSize: number) => {
     },
   ];
 
-  const [sortedFiles, setSortedFiles] = useState<any>(
+  const [sortedData, setSortedData] = useState<any>(
     transposeTableForHTML(filesTable.map((x) => x.data))
   );
 
   const filesTableDef: {
     table: any;
     buttonText: String;
-    sortItem: { key: number; order: number };
-    setSortItem: any;
-    sortedItem: any;
-    setSortedItem: any;
+    sortDefinition: { key: number; order: number };
+    setSortDefinition: any;
+    sortedData: any;
+    setSortedData: any;
   } = {
     table: filesTable,
     buttonText:
@@ -62,10 +62,10 @@ export const FilesTable = (props: ExperimentsTableProps, fileSize: number) => {
           parseBytes(fileSize) +
           ")"
         : "File Summary",
-    sortItem: sortFiles,
-    setSortItem: setSortFiles,
-    sortedItem: sortedFiles,
-    setSortedItem: setSortedFiles,
+    sortDefinition: sortDefinition,
+    setSortDefinition: setSortDefinition,
+    sortedData: sortedData,
+    setSortedData: setSortedData,
   };
 
   return filesTableDef;

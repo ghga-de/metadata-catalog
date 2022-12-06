@@ -7,7 +7,7 @@ interface SamplesTableProps {
 }
 
 export const SamplesTable = (props: SamplesTableProps) => {
-  const [sortSamples, setSortSamples] = useState<{
+  const [sortDefinition, setSortDefinition] = useState<{
     key: number;
     order: number;
   }>({
@@ -53,27 +53,27 @@ export const SamplesTable = (props: SamplesTableProps) => {
     },
   ];
 
-  const [sortedSamples, setSortedSamples] = useState<any>(
+  const [sortedData, setSortedData] = useState<any>(
     transposeTableForHTML(samplesTable.map((x) => x.data))
   );
 
   const samplesTableDef: {
     table: any;
     buttonText: String;
-    sortItem: { key: number; order: number };
-    setSortItem: any;
-    sortedItem: any;
-    setSortedItem: any;
+    sortDefinition: { key: number; order: number };
+    setSortDefinition: any;
+    sortedData: any;
+    setSortedData: any;
   } = {
     table: samplesTable,
     buttonText:
       props.details.has_sample !== null
         ? "Sample Summary (" + props.details.has_sample.length + " samples)"
         : "Sample Summary",
-    sortItem: sortSamples,
-    setSortItem: setSortSamples,
-    sortedItem: sortedSamples,
-    setSortedItem: setSortedSamples,
+    sortDefinition: sortDefinition,
+    setSortDefinition: setSortDefinition,
+    sortedData: sortedData,
+    setSortedData: setSortedData,
   };
 
   return samplesTableDef;

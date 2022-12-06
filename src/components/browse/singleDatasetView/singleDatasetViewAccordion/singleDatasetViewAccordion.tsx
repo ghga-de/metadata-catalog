@@ -7,9 +7,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Accordion, Button, Table } from "react-bootstrap";
 import { datasetEmbeddedModel } from "../../../../models/dataset";
 import { parseBytes, transposeTableForHTML } from "../../../../utils/utils";
-import { ExperimentsTable } from "./tables/ExperimentsTable";
-import { FilesTable } from "./tables/FilesTable";
-import { SamplesTable } from "./tables/SamplesTable";
+import { ExperimentsTable } from "./tables/experimentsTable";
+import { FilesTable } from "./tables/filesTable";
+import { SamplesTable } from "./tables/samplesTable";
 
 interface SingleDatasetViewAccordionProps {
   details: datasetEmbeddedModel;
@@ -28,10 +28,10 @@ const SingleDatasetViewAccordion = (props: SingleDatasetViewAccordionProps) => {
   let Tables: {
     table: any;
     buttonText: String;
-    sortItem: { key: number; order: number };
-    setSortItem: any;
-    sortedItem: any;
-    setSortedItem: any;
+    sortDefinition: { key: number; order: number };
+    setSortDefinition: any;
+    sortedData: any;
+    setSortedData: any;
   }[] = [ExperimentsTable(props), SamplesTable(props), FilesTable(props, fileSize)];
 
   const SortTable = (
@@ -79,25 +79,25 @@ const SingleDatasetViewAccordion = (props: SingleDatasetViewAccordionProps) => {
                         className="p-0 px-1 me-1 border-0"
                         onClick={() => {
                           SortTable(
-                            x.setSortItem,
-                            x.sortedItem,
-                            x.setSortedItem,
+                            x.setSortDefinition,
+                            x.sortedData,
+                            x.setSortedData,
                             Array.from(
                               transposeTableForHTML(
                                 x.table.map((y: any) => y.data)
                               )
                             ),
                             idy,
-                            x.sortItem.key === idy
-                              ? (x.sortItem.order + 1) % 3
+                            x.sortDefinition.key === idy
+                              ? (x.sortDefinition.order + 1) % 3
                               : 1
                           );
                         }}
                       >
                         <FontAwesomeIcon
                           icon={
-                            x.sortItem.key === idy
-                              ? iconsDef[x.sortItem.order]
+                            x.sortDefinition.key === idy
+                              ? iconsDef[x.sortDefinition.order]
                               : iconsDef[0]
                           }
                         />
@@ -108,7 +108,7 @@ const SingleDatasetViewAccordion = (props: SingleDatasetViewAccordionProps) => {
                 </tr>
               </thead>
               <tbody>
-                {x.sortedItem.map((y: any, idy: number) => (
+                {x.sortedData.map((y: any, idy: number) => (
                   <tr key={"row_" + idy + "_table_sdsv_" + idx}>
                     {y.map((z: any, idz: any) => (
                       <td
