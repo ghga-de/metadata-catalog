@@ -2,6 +2,7 @@ import React from "react";
 import logo from "../../assets/GHGA_logo_clean.png";
 import { Navbar, Nav, Button } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
+import HeaderSearchbar from "./headerSearchbar";
 
 const HeaderNavbar = () => {
   const activePageStyle =
@@ -49,10 +50,9 @@ const HeaderNavbar = () => {
           aria-controls="basic-navbar-nav"
           className="border-2 text-white"
         />
-        <Navbar.Collapse id="responsive-navbar-nav">
-          <Navbar.Brand className="p-0 col-2"></Navbar.Brand>
+        <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-center">
           <Nav
-            className="justify-content-center col-8"
+            className="justify-content-center"
             style={{ height: "36px" }}
           >
             <NavLink
@@ -107,8 +107,8 @@ const HeaderNavbar = () => {
           </Nav>
         </Navbar.Collapse>
       </div>
-      <div className="w-25">
-        &nbsp;
+      <div className="w-25 justify-content-center d-flex">
+        <HeaderSearchbar />
       </div>
     </Navbar>
   );

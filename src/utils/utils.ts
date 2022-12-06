@@ -159,3 +159,18 @@ export const getItemsForSummary = (
   }
   return items;
 };
+
+export const transposeTableForHTML = (data: string[]) => {
+  const rows = data.length,
+    cols = data[0].length;
+  const grid = [];
+  for (let j = 0; j < cols; j++) {
+    grid[j] = Array(rows);
+  }
+  for (let i = 0; i < rows; i++) {
+    for (let j = 0; j < cols; j++) {
+      grid[j][i] = data[i][j];
+    }
+  }
+  return grid;
+};

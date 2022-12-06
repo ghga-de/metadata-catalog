@@ -51,7 +51,7 @@ const DatasetList = (props: dataSetProps) => {
 
   const Columns = () => {
     return (
-      <Row className="fs-7 mt-3 mb-3 ms-0 me-3 py-1 ps-2 bg-primary text-white">
+      <Row className="mt-3 mb-3 ms-0 me-3 py-1 ps-2 bg-primary text-white">
         <Col lg={3} md={3} sm={3} xl={3} xs={3} xxl={3}>
           Dataset ID
         </Col>
