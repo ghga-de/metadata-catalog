@@ -28,7 +28,7 @@ const DapTabContents = (props: DapTabContentsProps) => {
                     <FontAwesomeIcon icon={faLink} />
                   </Col>
                   <Col className="p-0 m-0 lh-1">
-                    <strong>Visit EGA Study</strong>
+                    <strong>HIPO DACO Info Form</strong>
                   </Col>
                 </Row>
               </Button>
