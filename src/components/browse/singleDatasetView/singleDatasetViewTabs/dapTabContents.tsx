@@ -16,9 +16,9 @@ const DapTabContents = (props: DapTabContentsProps) => {
       {props.details.has_data_access_policy !== null ? (
         <div className="text-break overflow-auto h-100">
           <PerfectScrollbar>
-            {props.details.has_data_access_policy.url !== null ? (
+            {props.details.has_data_access_policy.policy_url !== null ? (
               <Button
-                href={props.details.has_data_access_policy.url}
+                href={props.details.has_data_access_policy.policy_url}
                 target="_blank"
                 variant="white"
                 className="float-end fs-7 py-2 mb-2 ms-4 text-secondary shadow-md-dark border-secondary"
