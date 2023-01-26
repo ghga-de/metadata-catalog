@@ -136,7 +136,7 @@ export interface dataAccessPolicyModel {
   has_data_access_committee: dataAccessCommitteeModel;
   data_request_form: string;
   policy_text: string;
-  url: string;
+  policy_url: string;
 }
 
 export interface dataAccessCommitteeModel {
