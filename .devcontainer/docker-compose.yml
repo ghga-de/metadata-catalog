@@ -43,6 +43,19 @@ services:
     depends_on:
       - metadata_db
 
+  # metadata population
+
+  metadata_pop:
+    image: ghga/metadata-populate-job:main
+    environment:
+       CATALOG_DB_NAME: metadata-catalog
+       CATALOG_DB_URL: mongodb://metadata_db:27017
+    entrypoint: [ "bash", "-c", "./clean-catalog.sh && ./populate-catalog.sh" ]
+    env_file:
+     - local.env
+    depends_on:
+      - metadata_db 
+
   #metadata repo
 
   metadata_rep:
@@ -58,33 +71,8 @@ services:
       METADATA_REPOSITORY_SERVICE_DB_URL: mongodb://metadata_db:27017
       METADATA_REPOSITORY_SERVICE_DB_NAME: metadata-catalog
 
-    entrypoint: ["sh", "-c"]
-    command: |
-      '''
-      set -x
-      if [ "$${METADATA_REPOSITORY_SERVICE_DATA_LOAD_URL}" != "" ]; then
-        # Obtain the data to be imported
-        curl -Lo /tmp/metadata-catalog.zip "$${METADATA_REPOSITORY_SERVICE_DATA_LOAD_URL}"
-        mkdir /tmp/metadata-catalog /tmp/metadata-catalog
-        cd /tmp/metadata-catalog
-        unzip /tmp/metadata-catalog.zip
-        find /tmp/metadata-catalog
-        pip install typer
+    entrypoint: ["metadata-repository-service"]
 
-        # Clear the database
-        /service/scripts/delete_all_metadata_records.py \
-          --db-url "$${METADATA_REPOSITORY_SERVICE_DB_URL}" \
-          --db-name "$${METADATA_REPOSITORY_SERVICE_DB_NAME}"
-
-        # Populate the database
-        /service/scripts/populate_metadata_store.py --example-dir /tmp/metadata-catalog \
-          --db-url "$${METADATA_REPOSITORY_SERVICE_DB_URL}" \
-          --db-name "$${METADATA_REPOSITORY_SERVICE_DB_NAME}"
-      fi
-
-      # Run the service
-      metadata-repository-service
-      '''
     ports:
       - 8002:8080
     depends_on:
