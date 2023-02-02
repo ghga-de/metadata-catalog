@@ -11,12 +11,23 @@ interface DapTabContentsProps {
 }
 
 const DapTabContents = (props: DapTabContentsProps) => {
+  
+  function isValidHttpUrl(str: string) {
+    let url;
+    try {
+      url = new URL(str);
+    } catch (_) {
+      return false;
+    }
+    return url.protocol === "http:" || url.protocol === "https:";
+  }
+  
   return (
     <Tab.Pane eventKey="3" className="h-100">
       {props.details.has_data_access_policy !== null ? (
         <div className="text-break overflow-auto h-100">
           <PerfectScrollbar>
-            {props.details.has_data_access_policy.policy_url !== null ? (
+            {props.details.has_data_access_policy.policy_url !== null && isValidHttpUrl(props.details.has_data_access_policy.policy_url) ? (
               <Button
                 href={props.details.has_data_access_policy.policy_url}
                 target="_blank"
