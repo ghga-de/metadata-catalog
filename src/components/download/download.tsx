@@ -1,9 +1,9 @@
 import { faClockFour, faCloudArrowDown, faEnvelope, faKey, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import downloadImg from "../../assets/download/download-1.png";
-import browseImg from "../../assets/download/browse.png";
-import requestImg from "../../assets/download/request-access.png";
-import emailImg from "../../assets/download/email.png";
+import browseImg from "../../assets/download/browse-new.png";
+import requestImg from "../../assets/download/request-access-new.png";
+import emailImg from "../../assets/download/email-new.png";
 import { Link } from "react-router-dom";
 
 const Download = () => {
@@ -117,7 +117,7 @@ const Download = () => {
                     If your email client doesn't open, you can copy the e-mail, subject, and text to send the e-mail manually.
                 </p>
                 <div className="text-center mb-5">
-                    <img src={emailImg} alt="Dataset details" className="float-middle" />
+                    <img src={emailImg} alt="Dataset details" className="float-middle" width="60%" />
                 </div>
             </div>
             <div>
