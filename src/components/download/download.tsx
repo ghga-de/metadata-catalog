@@ -117,7 +117,7 @@ const Download = () => {
                     If your email client doesn't open, you can copy the e-mail, subject, and text to send the e-mail manually.
                 </p>
                 <div className="text-center mb-5">
-                    <img src={emailImg} alt="Dataset details" className="float-middle" />
+                    <img src={emailImg} alt="Dataset details" className="float-middle" width="60%" />
                 </div>
             </div>
             <div>
