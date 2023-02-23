@@ -1,5 +1,4 @@
 import { Col, Row } from "react-bootstrap";
-import banner1 from "../../assets/aboutUs/about-banner.png";
 import banner2 from "../../assets/aboutUs/about-banner2.png";
 import { Link } from "react-router-dom";
 
@@ -8,11 +7,6 @@ const AboutUs = () => {
     <div className="mx-auto px-5 mt-4">
       <Row
         className="bg-primary m-0 mb-4 py-4 px-3"
-        style={{
-          backgroundImage: `url(${banner1})`,
-          backgroundRepeat: "no-repeat no-repeat",
-          backgroundSize: "100% auto",
-        }}
       >
         <Col className="fw-bold text-white col-11">
           <p className="fs-5 mb-2">About GHGA Beta</p>
