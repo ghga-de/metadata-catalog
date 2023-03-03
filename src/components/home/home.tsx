@@ -1,7 +1,6 @@
 import HomeMidSection from "./homeMidSection/homeMidSection";
-import HomeBottomSection from "./homeBottomSection/homeBottomSection";
 import HomeTopSection from "./homeTopSection/homeTopSection";
-import HomeInstitutions from "./homeInstitutions/homeInstitutions";
+import InstitutionsCarousel from "./homeInstitutions/homeInstitutionsCarousel";
 
 const Home = () => {
   return (
@@ -11,8 +10,7 @@ const Home = () => {
       <hr className="mx-3 border-tertiary mb-3 opacity-100" />
       <HomeTopSection />
       <HomeMidSection />
-      <HomeBottomSection />
-      <HomeInstitutions />
+      <InstitutionsCarousel />
     </div>
   );
 };

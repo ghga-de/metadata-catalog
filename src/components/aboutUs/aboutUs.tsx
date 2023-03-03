@@ -1,79 +1,58 @@
 import { Col, Row } from "react-bootstrap";
-import banner2 from "../../assets/aboutUs/about-banner2.png";
 import { Link } from "react-router-dom";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faCircleQuestion} from "@fortawesome/free-solid-svg-icons";
 
 const AboutUs = () => {
   return (
     <div className="mx-auto px-5 mt-4">
       <Row
-        className="bg-primary m-0 mb-4 py-4 px-3"
+        className="bg-tertiary m-0 mb-4 py-4 px-3"
       >
-        <Col className="fw-bold text-white col-11">
-          <p className="fs-5 mb-2">About GHGA Beta</p>
-          <div
-            className="border border-1 border-white mb-2"
-            style={{ width: "60px" }}
-          ></div>
-          <p className="ps-3 mb-3">
-            The German Human Genome-Phenome Archive is a research consortium, building a national federated data infrastructure to store and share human omics data, providing a robust ethical and legal framework for FAIR data use. As part of the&nbsp;
-            <a href="https://www.nfdi.de/?lang=en" className="text-white" target="_blank" rel="noreferrer">
-              National Research Data Infrastructure
-            </a>, GHGA is funded by the DFG and tightly embedded within national and international infrastructures.
-
-            <br />Please visit&nbsp;
-            <a href="https://www.ghga.de/" className="text-white" target="_blank" rel="noreferrer">
-              GHGA website
-            </a>
-            &nbsp;for more information.
-          </p>
-        </Col>
-      </Row>
-      <Row className="m-0 align-items-center mb-4 px-3 py-4">
         <Col className="col-11">
-          <p className="fs-5 fw-bold mb-2">About GHGA Metadata Catalog</p>
+          <p className="fs-5 mb-2 text-secondary">About GHGA</p>
           <div
-            className="border border-1 border-white mb-2"
+            className="border border-1 border-primary mb-2"
             style={{ width: "60px" }}
           ></div>
-          <p className="ps-3 mb-3">
-            GHGA Catalog is the first phase of the GHGA project and the GHGA Metadata Catalog is a product of this phase. The aim is to facilitate the findability of research data from German research institutions, and allow researchers to browse and identify suitable datasets. Researchers can then apply to access the datasets. Research data described in the GHGA Metadata Catalog can either be published studies (e.g. those for which the research data has already been deposited at EGA) or unpublished research data that has yet to be published via other infrastructures that are potentially subject to active change and further development.
-            During this Catalog phase, GHGA will only store non-personal metadata, while the management of the associated personal research data (i.e. the sequencing data) will be the responsibility of the data controller.
-          </p>
-        </Col>
-      </Row>
-      <Row
-        className="bg-primary m-0 mb-4 py-4 px-3"
-        style={{
-          backgroundImage: `url(${banner2})`,
-          backgroundRepeat: "no-repeat no-repeat",
-          backgroundSize: "100% auto",
-          backgroundBlendMode: "multiply",
-        }}
-      >
-        <Col className="fw-bold text-white col-11">
-          <p className="fs-5 mb-2">
-            Within the project plan of GHGA, the GHGA Catalog phase fulfils the role of an early demonstrator to:
-          </p>
-          <div
-            className="border border-1 border-white mb-2"
-            style={{ width: "60px" }}
-          ></div>
-          <p className="ps-3 mb-3">
-            1) Provide the first public-facing service (“the GHGA Metadata Catalog”) to make human omics datasets from Germany findable to researchers, <br />
-            2) Provide a testbed for the delivery of core GHGA functionalities and the interplay between software architecture, metadata, legal processes, and data stewardship, and <br />
-            3) Demonstrate to data producers the value of depositing their research data with GHGA in the future. <br /> <br />
-
-            In the next phase of GHGA, entitled GHGA Archive, GHGA will archive personal research data on behalf of the data controllers and will make those data findable via the GHGA Metadata Catalog.
-          </p>
+          <ul className="text-primary">
+            <li>GHGA is a research consortium developing a national infrastructure to enable the FAIR
+              sharing of genetic and other human omics data.
+            </li>
+            <li>This is embedded into European activities such as the federated European Genome-Phenome
+              Archive (fEGA) and the European Genomic Data Infrastructure (GDI).
+            </li>
+            <li>Further Information on the GHGA Project can be found at&nbsp;
+              <a href="https://www.ghga.de/" className="text-primary" target="_blank" rel="noreferrer">
+                www.ghga.de
+              </a>
+            </li>
+          </ul>
         </Col>
       </Row>
       <Row className="m-0 ps-4">
         <Col>
-          <Row className="mb-4">
-            <p className="fs-5 mb-2 fw-bold">FAQ</p>
+          <Row className="my-4">
+            <div className="mx-auto">
+              <h5 className="d-flex align-items-center text-secondary fw-bold">
+                <FontAwesomeIcon
+                    icon={faCircleQuestion}
+                    pull="left"
+                    style={{
+                      width: "30px",
+                      height: "30px",
+                      backgroundColor: "rgba(214,95,48,0.2)",
+                      padding: "8px",
+                    }}
+                    className="me-3 fs-4 rounded"
+                />
+                Frequently Asked Question (FAQ)
+              </h5>
+              <hr className="border-secondary mb-4" />
+            </div>
           </Row>
           <Row className="mb-4">
-            <p className="fw-bold">What are the functions of the GHGA Metadata Catalog?</p>
+            <p className="fw-bold">&bull;&nbsp;What are the functions of the GHGA Metadata Catalog?</p>
             <p>
               The GHGA Metadata Catalog allows users to browse, search, and filter omics datasets submitted to the GHGA. It uses the GHGA Metadata Model and conforms with the&nbsp;
               <a href="https://ega-archive.org/submission/programmatic_submissions/submitting-metadata" target="_blank" rel="noreferrer">
@@ -82,7 +61,7 @@ const AboutUs = () => {
             </p>
           </Row>
           <Row className="mb-4">
-            <p className="fw-bold">What data can be found on GHGA Metadata Catalog?</p>
+            <p className="fw-bold">&bull;&nbsp;What data can be found on GHGA Metadata Catalog?</p>
             <p>
               Please visit the GHGA Metadata Catalog&nbsp;
               <Link to="/browse" target="_blank" rel="noreferrer">
@@ -99,7 +78,7 @@ const AboutUs = () => {
           </Row>
           <Row className="mb-4">
             <p className="fw-bold">
-              What metadata will be/can be displayed about the datasets of
+              &bull;&nbsp;What metadata will be/can be displayed about the datasets of
               interest?
             </p>
             <p>
@@ -110,7 +89,7 @@ const AboutUs = () => {
             </p>
           </Row>
           <Row className="mb-4">
-            <p className="fw-bold">How to request access to datasets?</p>
+            <p className="fw-bold">&bull;&nbsp;How to request access to datasets?</p>
             <p>
               Identify your dataset of interest using the browse and filter functions of the GHGA Metadata Catalog.
               Navigate to the dataset of interest and then click on the "Request access" button.
@@ -120,7 +99,7 @@ const AboutUs = () => {
             </p>
           </Row>
           <Row className="mb-4">
-            <p className="fw-bold">How to upload your data to GHGA Metadata Catalog?</p>
+            <p className="fw-bold">&bull;&nbsp;How to upload your data to GHGA Metadata Catalog?</p>
             <p>
               During this initial phase of operation, GHGA is only accepting metadata from partner institutions.
               For more information, please visit the&nbsp;
@@ -131,32 +110,22 @@ const AboutUs = () => {
               </Link>
             </p>
           </Row>
-          <Row>
-            <p className="fw-bold">Data Download Page</p>
+          <Row className="mb-4">
+            <p className="fw-bold">&bull;&nbsp;How to get data access?</p>
             <p>
-              The GHGA Data Portal is currently being developed to allow data download requests over the portal in the near future.
-              During this early phase of the project, called GHGA Metadata Catalog, we are listing non-personal metadata and acting as a gateway to data submitters who will serve the research data upon approval of the request.
-              Visit your dataset of interest and then click on the "Request access" button.
-              This will prompt your email client to open with an email template to the data access committee for the dataset.
-              Fill in the necessary information and send the email to the data access committee email listed on the dataset.
-              Please note that GHGA is not involved in the further process of negotiating the data access.
-              For more information, please visit the&nbsp;
+              The GHGA Data Portal is currently being developed to allow data download requests over the
+              portal in the near future. During this early phase of the project,  we are listing non-personal
+              metadata and acting as a gateway to data submitters who will serve the research data upon approval
+              of the request. Visit your dataset of interest and then click on the "Request access" button. This
+              will prompt your email client to open with an email template to the data access committee for the
+              dataset. Fill in the necessary information and send the email to the data access committee email
+              listed on the dataset. Please note that GHGA is not involved in the further process of negotiating
+              the data access. For more information, please visit the&nbsp;
               <Link
                 to="/download"
               >
                 Data Download page
               </Link>
-            </p>
-          </Row>
-          <Row>
-            <p className="fw-bold">Data Upload Page</p>
-            <p>
-              The GHGA Data Portal is currently being developed to allow data upload requests over the portal in the near future.
-              During this early phase of the project, called GHGA Metadata Catalog, metadata on datasets is only collected from our partner institutions.
-              If you are located at a GHGA partner institute and would like to upload your metadata to GHGA Metadata Catalog, please contact the GHGA Helpdesk at ghga-office@dkfz-heidelberg.de
-            </p>
-            <p>
-              We are collecting the anonymous dataset metadata following the GHGA Metadata Model, and keep it interoperable with the EGA Metadata Model.
             </p>
           </Row>
         </Col >
