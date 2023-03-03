@@ -9,7 +9,7 @@ const Upload = () => {
     );
 
     return (
-        <div className="mt-4 mx-auto px-5">
+        <div className="mx-auto px-5 my-5">
             <h5 className="d-flex align-items-center text-secondary fw-bold">
                 <FontAwesomeIcon
                     icon={faCloudArrowUp}
@@ -30,7 +30,7 @@ const Upload = () => {
                 upload request over the portal in the future. Currently we are running a
                 pilot project named GHGA Metadata Catalog, working with partner
                 institutions to collect dataset. If you are located at a GHGA Partner
-                Institute and would like to upload your metadata to GHGA Metadata
+                Institute and would like to upload your metadata to the GHGA Metadata
                 Catalog, please contact the GHGA Helpdesk at <strong>ghga-office[at]dkfz-heidelberg[dot]de</strong>.
             </p>
             <p>

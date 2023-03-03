@@ -38,7 +38,7 @@ const FooterNavbar = () => {
                 size="4x"
                 className="text-white mt-3 mb-3"
               />
-              <p className="text-white text-decoration-none">How to download data<br />&nbsp;</p>
+              <p className="text-white text-decoration-none">How to Get Data Access<br />&nbsp;</p>
             </Button>
           </NavLink>
           <NavLink to="/upload" end={true} className="text-white text-decoration-none col border-1 border-end p-0 m-0 flex-shrink-0 ">
@@ -50,7 +50,7 @@ const FooterNavbar = () => {
                 size="4x"
                 className="text-white mt-3 mb-3"
               />
-              <p className="text-white text-decoration-none">Submit data to GHGA<br />&nbsp;</p>
+              <p className="text-white text-decoration-none">How to Submit Data<br />&nbsp;</p>
             </Button>
           </NavLink>
           <NavLink to="/metadata-model" end={true} className="text-white text-decoration-none col border-1 border-end p-0 m-0 flex-shrink-0 ">
@@ -65,7 +65,7 @@ const FooterNavbar = () => {
               <p className="text-white text-decoration-none">About the GHGA<br />Metadata Model</p>
             </Button>
           </NavLink>
-          <NavLink to="/about-us" end={true} className="text-white text-decoration-none col border-1 border-end p-0 m-0 flex-shrink-0 ">
+          <NavLink to="/faq" end={true} className="text-white text-decoration-none col border-1 border-end p-0 m-0 flex-shrink-0 ">
             <Button
               className="w-100 h-100 rounded-0 py-0 px-3 m-0 border-0"
             >
@@ -74,7 +74,7 @@ const FooterNavbar = () => {
                 size="4x"
                 className="text-white mt-3 mb-3"
               />
-              <p className="text-white text-decoration-none">About / FAQ<br />&nbsp;</p>
+              <p className="text-white text-decoration-none">FAQ<br />&nbsp;</p>
             </Button>
           </NavLink>
         </Row>

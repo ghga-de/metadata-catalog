@@ -45,7 +45,7 @@ const HeaderNavbar = () => {
           </div>
         </Button>
       </NavLink>
-      <div className="container px-5 mx-auto w-50 d-flex">
+      <div className="container px-2 mx-auto w-50 d-flex">
         <Navbar.Toggle
           aria-controls="basic-navbar-nav"
           className="border-2 text-white"
@@ -53,7 +53,7 @@ const HeaderNavbar = () => {
         <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-center">
           <Nav
             className="justify-content-center"
-            style={{ height: "36px" }}
+            style={{ height: "36px", whiteSpace: "nowrap"}}
           >
             <NavLink
               to="/"
@@ -70,15 +70,7 @@ const HeaderNavbar = () => {
                 isActive ? activePageStyle : inactivePageStyle
               }
             >
-              Browse
-            </NavLink>
-            <NavLink
-              to="/about-us"
-              className={({ isActive }) =>
-                isActive ? activePageStyle : inactivePageStyle
-              }
-            >
-              About
+              Browse Data
             </NavLink>
             <NavLink
               to="/download"
@@ -86,7 +78,7 @@ const HeaderNavbar = () => {
                 isActive ? activePageStyle : inactivePageStyle
               }
             >
-              Download
+              Access Data
             </NavLink>
             <NavLink
               to="/upload"
@@ -94,7 +86,7 @@ const HeaderNavbar = () => {
                 isActive ? activePageStyle : inactivePageStyle
               }
             >
-              Upload
+              Submit Data
             </NavLink>
             <NavLink
               to="/metadata-model"
@@ -103,6 +95,14 @@ const HeaderNavbar = () => {
               }
             >
               Metadata Model
+            </NavLink>
+            <NavLink
+                to="/faq"
+                className={({ isActive }) =>
+                    isActive ? activePageStyle : inactivePageStyle
+                }
+            >
+              FAQ
             </NavLink>
           </Nav>
         </Navbar.Collapse>

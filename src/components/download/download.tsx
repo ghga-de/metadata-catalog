@@ -9,11 +9,7 @@ import { Link } from "react-router-dom";
 const Download = () => {
     return (
 
-        <div className="mx-auto px-5 my-4">
-            <div
-                className="mb-5 p-3"
-                style={{ borderRadius: "20px" }}
-            >
+        <div className="mx-auto px-5 my-5">
                 <h5 className="d-flex align-items-center text-secondary fw-bold">
                     <FontAwesomeIcon
                         icon={faCloudArrowDown}
@@ -26,13 +22,13 @@ const Download = () => {
                         }}
                         className="me-3 fs-4 rounded"
                     />
-                    How to Download Data
-                </h5>
+                    How to Access Data
+            </h5>
                 <hr className="border-secondary mb-4" />
                 <div className="overflow-auto">
                     <p className="fw-bold">
                         The GHGA Data Portal is currently being developed and will allow data download request over the portal in the future.
-                        Currently we are running an early phase project called GHGA Metadata Catalog, listing anonymous metadata and
+                        During this early phase of the project, we are listing non-personal metadata and
                         acting as a gateway to data submitters who will serve the research data upon approval of the request.
                     </p>
                     <p className="fw-bold">
@@ -41,7 +37,6 @@ const Download = () => {
                         Fill in the necessary information and send the email to  data access committee email listed on the dataset.
                     </p>
                 </div>
-            </div>
             <div className="text-center mb-4">
                 <img src={downloadImg} alt="Explore dataset - Request access - Send e-mail - Data owner interaction" width="80%" />
             </div>

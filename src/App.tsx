@@ -5,7 +5,7 @@ import PageNotFound from "./components/pageNotFound/pageNotFound";
 import "./App.scss";
 import { Routes, BrowserRouter, Route } from "react-router-dom";
 import Home from "./components/home/home";
-import AboutUs from "./components/aboutUs/aboutUs";
+import FAQ from "./components/faq/faq";
 import SingleDatasetView from "./components/browse/singleDatasetView/singleDatasetView";
 import Download from "./components/download/download"
 import Upload from "./components/upload/upload"
@@ -19,8 +19,8 @@ function App() {
         <Route path="/">
           <Route index element={<Home />} />
         </Route>
-        <Route path="/about-us">
-          <Route index element={<AboutUs />} />
+        <Route path="/faq">
+          <Route index element={<FAQ />} />
         </Route>
         <Route path="/browse">
           <Route index element={<Browse />} />
