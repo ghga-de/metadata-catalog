@@ -97,7 +97,7 @@ const HeaderNavbar = () => {
               Metadata Model
             </NavLink>
             <NavLink
-                to="/about-us"
+                to="/faq"
                 className={({ isActive }) =>
                     isActive ? activePageStyle : inactivePageStyle
                 }
