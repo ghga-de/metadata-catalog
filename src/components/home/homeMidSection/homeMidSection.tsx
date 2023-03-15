@@ -2,7 +2,7 @@ import { faCircle, faUser } from "@fortawesome/free-regular-svg-icons";
 import {
   faChartColumn,
   faDna,
-  IconDefinition
+  IconDefinition,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
@@ -34,7 +34,9 @@ const HomeMidSection = () => {
       <>
         <Row
           style={{ fontSize: "36px" }}
-          className={"p-0 col-auto mb-2 " + (darkBadge ? "" : " text-secondary")}
+          className={
+            "p-0 col-auto mb-2 " + (darkBadge ? "" : " text-secondary")
+          }
         >
           <span className="fa-layers fa-fw fa-lg">
             <FontAwesomeIcon icon={faCircle} />
@@ -42,7 +44,11 @@ const HomeMidSection = () => {
           </span>
         </Row>
         <Row className="w-bold fs-5 ps-0">
-          <span className={"text-center " + (darkBadge ? "" : "text-secondary")}>{titleString}</span>
+          <span
+            className={"text-center " + (darkBadge ? "" : "text-secondary")}
+          >
+            {titleString}
+          </span>
         </Row>
       </>
     );
@@ -94,23 +100,23 @@ const HomeMidSection = () => {
       ),
       bodyRowClasses: "mt-4 pt-3 fs-7 align-items-center",
       bodyColClasses: "text-center",
-      badgeDark: true
+      badgeDark: true,
     });
 
     Badges.push({
       badgeTitle: BadgeTitleGen(
         faDna,
         "Platforms: " +
-          Object.keys(
-            summary.protocol_summary.stats.protocol
-          ).length.toString()
+          Object.keys(summary.protocol_summary.stats.protocol).length.toString()
       ),
       badgeBody: getItemsForSummary(
         summary.protocol_summary.stats.protocol
       ).map((x) => (
         <Row key={x} className="text-capitalize ms-0 ps-0 mb-2 w-100">
           <Col className="ms-0 ps-0">{x.split(": ")[0]}:</Col>
-          <Col className="col-auto text-end fw-bold pe-0">{x.split(": ")[1]}</Col>
+          <Col className="col-auto text-end fw-bold pe-0">
+            {x.split(": ")[1]}
+          </Col>
         </Row>
       )),
       bodyRowClasses: "pt-3 fs-7",
@@ -146,7 +152,7 @@ const HomeMidSection = () => {
           </Row>
         </div>
       ),
-      badgeDark: true
+      badgeDark: true,
     });
 
     Badges.push({
@@ -179,18 +185,25 @@ const HomeMidSection = () => {
 
   return (
     <Col className="px-2">
-      <Row className="rounded bg-primary w-100 mx-0 mb-3 pb-5 pe-4 justify-content-evenly">
-        <h4 className="fw-bold fs-2 text-white p-4 pb-4 ms-4">Statistics</h4>
+      <Row className="rounded bg-primary w-100 mx-0 mb-3 px-sm-3 px-xl-5 pb-lg-5 justify-content-evenly">
+        <h4 className="fw-bold fs-2 text-white p-4 pb-4 mx-4">Statistics</h4>
         {Badges.map((x, idx) => (
-          <HomeMidSectionBadge
-            badgeTitle={x.badgeTitle}
-            badgeBody={x.badgeBody}
-            bodyRowClasses={x.bodyRowClasses}
-            bodyColClasses={x.bodyColClasses}
-            badgeClasses={x.badgeClasses}
-            badgeDark={x.badgeDark}
+          <Col
+            xs={12}
+            sm={6}
+            lg={3}
+            className="mb-4 mb-lg-0 px-xl-4 px-xxl-5"
             key={"home_page_badge_" + idx}
-          />
+          >
+            <HomeMidSectionBadge
+              badgeTitle={x.badgeTitle}
+              badgeBody={x.badgeBody}
+              bodyRowClasses={x.bodyRowClasses}
+              bodyColClasses={x.bodyColClasses}
+              badgeClasses={x.badgeClasses}
+              badgeDark={x.badgeDark}
+            />
+          </Col>
         ))}
       </Row>
     </Col>

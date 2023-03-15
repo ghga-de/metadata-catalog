@@ -4,11 +4,15 @@
 @import "~bootstrap/scss/variables";
 @import "~bootstrap/scss/mixins";
 @import "~bootstrap/scss/maps.scss";
+
 @import "./assets/scss/customBg.scss";
 
 @import "~bootstrap/scss/utilities";
 
 @import "./assets/scss/customFonts.scss";
 @import "./assets/scss/customShadows.scss";
+@import "./assets/scss/responsiveBorders.scss";
+
+@import "~bootstrap/scss/utilities/api";
 
 @import "~bootstrap/scss/bootstrap";

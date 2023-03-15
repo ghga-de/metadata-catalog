@@ -4,8 +4,8 @@ import { importAllFilesFromFolder } from "../../utils/utils";
 import uploadImg from "../../assets/upload/upload.png"
 
 const Upload = () => {
-    const listInstitutionImages: any = importAllFilesFromFolder(
-        require.context("../../assets/upload/institutions/", false, /\.png$/)
+    const listPartnersImages: any = importAllFilesFromFolder(
+        require.context("../../assets/upload/partners/", false, /\.png$/)
     );
 
     return (
@@ -45,7 +45,7 @@ const Upload = () => {
                 international partners. Some of our partners:
             </p>
             <div className="d-flex justify-content-center align-items-center w-100 flex-wrap mb-5">
-                {listInstitutionImages.map((x: any) => (
+                {listPartnersImages.map((x: any) => (
                     <div key={x} className="text-center" style={{minWidth: "20rem"}}>
                         <img src={x} alt="Institution" className="me-4 my-2" style={{maxHeight: "10rem"}}/>
                     </div>
