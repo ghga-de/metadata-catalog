@@ -1,12 +1,12 @@
-import { facetFilterModel } from "../models/facets";
-import { querySearchService } from "../api/browse";
 import { Dispatch, SetStateAction } from "react";
+import { querySearchService } from "../api/browse";
 import {
   dataAccessCommitteeModel,
   dataAccessPolicyModel,
   datasetEmbeddedModel,
   searchResponseModel,
 } from "../models/dataset";
+import { facetFilterModel } from "../models/facets";
 
 export const getFilterString = (filterDict: facetFilterModel[]) => {
   let filterString = "";
@@ -174,3 +174,7 @@ export const transposeTableForHTML = (data: string[]) => {
   }
   return grid;
 };
+
+export const static_page_main_div_classes = "mx-auto px-2 px-md-5 my-5";
+export const static_page_img_row_classes = "text-center w-100 mx-0 px-0 mb-4 mb-sm-5 justify-content-center"
+export const static_page_img_col_classes = "mx-0 px-0 col-md-11 col-lg-10 col-xl-8 col-xxl-6"

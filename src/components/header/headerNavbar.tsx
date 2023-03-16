@@ -54,7 +54,7 @@ const HeaderNavbar = () => {
           </Navbar.Brand>
         </Col>
         <Col
-          className="px-2 d-flex justify-content-end"
+          className="px-0 px-md-2 d-flex justify-content-end"
           xs={12}
           sm={2}
           lg={9}
