@@ -34,7 +34,7 @@ const Download = () => {
                     <p className="fw-bold">
                         Visit your dataset of interest and then click on the "Request access" button.
                         This will prompt your email client to open with an email template to the data access committee for the dataset.
-                        Fill in the necessary information and send the email to  data access committee email listed on the dataset.
+                        Fill in the necessary information and send the email to the data access committee email listed on the dataset.
                     </p>
                 </div>
             <div className="text-center mb-4">
@@ -59,7 +59,7 @@ const Download = () => {
                     To explore a dataset, please find the dataset of interest on the&nbsp;
                     <Link to="/browse" target="_blank" rel="noreferrer">
                         browse page
-                    </Link> &nbsp;using search function
+                    </Link>&nbsp;using the search function.
                 </p>
                 <div className="text-center mb-5">
                     <img src={browseImg} alt="Browse view" width="80%" />
@@ -85,7 +85,7 @@ const Download = () => {
                     <Link to="/browse" target="_blank" rel="noreferrer">
                         browse page
                     </Link>,
-                    expand the dataset by clicking the arrow at the right corner of the dataset box, and click "Request Access" button.
+                    expand the dataset by clicking the arrow at the right corner of the dataset box, and click the "Request Access" button.
                 </p>
                 <div className="text-center mb-5">
                     <img src={requestImg} alt="Dataset details" className="float-middle" width="70%" />
@@ -132,7 +132,7 @@ const Download = () => {
                 </h5>
                 <p className="mb-5">
                     After communicating with the data owner, you will get permission for the desired datasets.<br />
-                    <strong>Note: The GHGA Metadata Catalog is not resposible for data accesion</strong>
+                    <strong>Note: The GHGA Metadata Catalog is not responsible for data accession</strong>
                 </p>
             </div>
             <div>
@@ -144,8 +144,8 @@ const Download = () => {
                 </p>
                 <ul>
                     <li>If you want to request all datasets from a study, you can send a request for the whole study with a single email.</li>
-                    <li>If you are interested in multiple datasets under the same use case, you can send us a single email, and list the datasets IDs you want to access, and answer questions once.</li>
-                    <li>If you are interested in multiple dataset for different use cases, please send separate emails for each use case.</li>
+                    <li>If you are interested in multiple datasets under the same use case, you can send us a single email, list the dataset IDs you want to access, and answer questions once.</li>
+                    <li>If you are interested in multiple datasets for different use cases, please send separate emails for each use case.</li>
                 </ul>
             </div >
         </div >
