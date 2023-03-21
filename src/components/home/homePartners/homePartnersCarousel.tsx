@@ -20,16 +20,16 @@ const HomePartnersCarousel = () => {
 
   const carouselHeight = "100px";
   return (
-    <Row className="w-100 py-lg-3">
+    <Row className="w-100 py-lg-3 mx-0">
       <Col>
         <h4 className="fw-bold fs-3 p-3 pb-1">Our Partners</h4>
         <hr className="mx-3 border-tertiary mb-4 opacity-100" />
-        <Row className="justify-content-center flex-nowrap">
-          <Col xs="auto" className="d-flex align-items-center">
+        <Row className="justify-content-center flex-nowrap px-0">
+          <Col xs={"auto"} className="d-flex align-items-center">
             <div ref={(node) => setPrevEl(node)}>
               <FontAwesomeIcon
                 icon={faChevronLeft}
-                className="text-quaternary"
+                className="text-quaternary m-0"
                 pull="left"
                 style={{
                   height: "30px",
@@ -37,7 +37,7 @@ const HomePartnersCarousel = () => {
               />
             </div>
           </Col>
-          <Col xs={10}>
+          <Col xs={8} md={10} xxl={11}>
             <a href="https://www.ghga.de/mission/partners-1">
               <Swiper
                 breakpoints={{
@@ -110,7 +110,7 @@ const HomePartnersCarousel = () => {
             <div className="mx-auto" ref={(node) => setNextEl(node)}>
               <FontAwesomeIcon
                 icon={faChevronRight}
-                className="text-quaternary"
+                className="text-quaternary m-0"
                 pull="right"
                 style={{
                   height: "30px",
