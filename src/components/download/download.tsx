@@ -48,7 +48,7 @@ const Download = () => {
           Visit your dataset of interest and then click on the "Request access"
           button. This will prompt your email client to open with an email
           template to the data access committee for the dataset. Fill in the
-          necessary information and send the email to data access committee
+          necessary information and send the email to the data access committee
           email listed on the dataset.
         </p>
       </div>
@@ -80,8 +80,8 @@ const Download = () => {
           To explore a dataset, please find the dataset of interest on the&nbsp;
           <Link to="/browse" target="_blank" rel="noreferrer">
             browse page
-          </Link>{" "}
-          using the search function
+          </Link>
+          &nbsp;using the search function.
         </p>
         <Row className={static_page_img_row_classes}>
           <Col className={static_page_img_col_classes}>
@@ -110,12 +110,11 @@ const Download = () => {
             browse page
           </Link>
           , expand the dataset by clicking the arrow at the right corner of the
-          dataset box, and click "Request Access" button.
+          dataset box, and click the "Request Access" button.
         </p>
-
         <Row className={static_page_img_row_classes}>
           <Col className={static_page_img_col_classes}>
-            <img src={requestImg} alt="Dataset details" className="w-100" />
+            <img src={emailImg} alt="Dataset details" className="w-100" />
           </Col>
         </Row>
       </div>
@@ -141,7 +140,6 @@ const Download = () => {
           contact e-mail. If your email client doesn't open, you can copy the
           e-mail, subject, and text to send the e-mail manually.
         </p>
-
         <Row className={static_page_img_row_classes}>
           <Col className={static_page_img_col_classes}>
             <img src={emailImg} alt="Dataset details" className="w-100" />
@@ -168,7 +166,8 @@ const Download = () => {
           the desired datasets.
           <br />
           <strong>
-            Note: The GHGA Metadata Catalog is not resposible for data accesion
+            Note: The GHGA Metadata Catalog is not responsible for data
+            accession
           </strong>
         </p>
       </div>
@@ -182,11 +181,11 @@ const Download = () => {
           </li>
           <li>
             If you are interested in multiple datasets under the same use case,
-            you can send us a single email, and list the datasets IDs you want
-            to access, and answer questions once.
+            you can send us a single email, list the dataset IDs you want to
+            access, and answer questions once.
           </li>
           <li>
-            If you are interested in multiple dataset for different use cases,
+            If you are interested in multiple datasets for different use cases,
             please send separate emails for each use case.
           </li>
         </ul>
