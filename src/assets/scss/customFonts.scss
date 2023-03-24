@@ -28,3 +28,22 @@ $utilities: map-merge(
       ),
   )
 );
+
+$utilities: map-merge(
+  $utilities,
+  (
+    "text-align":
+      map-merge(
+        map-get($utilities, "text-align"),
+        (
+          values:
+            map-merge(
+              map-get(map-get($utilities, "text-align"), "values"),
+              (
+                justify: justify,
+              )
+            ),
+        )
+      ),
+  )
+);
