@@ -17,7 +17,7 @@ const HeaderSearchbar = () => {
     };
 
     return (
-        <Form onSubmit={(event) => searchDatasets(event)}>
+        <Form onSubmit={(event) => searchDatasets(event)} className="w-100">
             <InputGroup>
                 <Form.Control
                     id="searchInput"
