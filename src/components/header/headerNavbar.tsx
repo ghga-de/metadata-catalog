@@ -6,13 +6,13 @@ import { useState } from "react";
 
 const HeaderNavbar = () => {
   const navLinkClasses =
-    "h-100 m-0 mx-sm-1 mx-xl-2 py-2 pt-sm-1 pb-sm-0 px-sm-0 px-xl-2 w-100 w-sm-auto text-white btn";
+    "h-100 m-0 mx-lg-1 mx-xl-2 py-2 pt-lg-1 pb-lg-0 px-lg-0 px-xl-2 w-100 w-lg-auto text-white btn";
 
   const activePageStyle = navLinkClasses + " btn-secondary ";
   const inactivePageStyle = navLinkClasses + " btn-primary";
 
   const navColsSpanXS = "auto";
-  const navColsClasses = "text-center mb-2 mb-sm-0";
+  const navColsClasses = "text-center mb-2 mb-lg-0";
 
   const [showOffCanvas, setShowOffCanvas] = useState(false);
   const handleCloseOffCanvas = () => setShowOffCanvas(false);
@@ -21,7 +21,7 @@ const HeaderNavbar = () => {
   return (
     <Navbar expand="lg" bg="primary" variant="dark" className="p-0">
       <Row className="w-100 mx-0 justify-content-between">
-        <Col xs={12} sm={6} lg={3} className="text-center text-sm-start px-0">
+        <Col xs={12} sm={10} lg={3} className="text-center text-md-start px-0">
           <Navbar.Brand className="ps-xxl-5 me-0">
             <NavLink to="/" end>
               <Button className="p-1 m-0 ps-xl-3">
@@ -55,16 +55,10 @@ const HeaderNavbar = () => {
             </NavLink>
           </Navbar.Brand>
         </Col>
-        <Col
-          className="px-0 d-flex justify-content-end"
-          xs={12}
-          sm={2}
-          lg={9}
-          xl={9}
-        >
+        <Col className="px-0 d-flex justify-content-end" xs={12} sm={2} lg={9}>
           <Navbar.Toggle
             aria-controls="basic-navbar-nav"
-            className="border border-2 border-tertiary text-white mb-1 w-100 w-sm-auto"
+            className="border border-2 border-tertiary text-white mb-1 w-100 w-md-auto"
             onClick={() => handleShowOffCanvas()}
           />
           <Navbar.Offcanvas
@@ -83,13 +77,20 @@ const HeaderNavbar = () => {
             </Offcanvas.Header>
             <Offcanvas.Body>
               <Row className="justify-content-between w-100 mx-0">
-                <Col xs={12} lg={9} className="mb-2 mb-sm-0 px-0">
+                <Col
+                  xs={12}
+                  lg={showOffCanvas ? 12 : 9}
+                  className="mb-2 mb-lg-0 px-0"
+                >
                   <Nav
-                    className="justify-content-center h-100 h-sm-auto"
-                    style={{ height: "36px", whiteSpace: "nowrap" }} 
+                    className="justify-content-center h-100 h-lg-auto"
+                    style={{ height: "36px", whiteSpace: "nowrap" }}
                   >
-                    <Col xs={navColsSpanXS} className={navColsClasses}
-                    onClick={() => handleCloseOffCanvas()}>
+                    <Col
+                      xs={navColsSpanXS}
+                      className={navColsClasses}
+                      onClick={() => handleCloseOffCanvas()}
+                    >
                       <NavLink
                         to="/"
                         end={true}
@@ -100,8 +101,11 @@ const HeaderNavbar = () => {
                         Home
                       </NavLink>
                     </Col>
-                    <Col xs={navColsSpanXS} className={navColsClasses}
-                    onClick={() => handleCloseOffCanvas()}>
+                    <Col
+                      xs={navColsSpanXS}
+                      className={navColsClasses}
+                      onClick={() => handleCloseOffCanvas()}
+                    >
                       <NavLink
                         to="/browse"
                         className={({ isActive }) =>
@@ -111,8 +115,11 @@ const HeaderNavbar = () => {
                         Browse Data
                       </NavLink>
                     </Col>
-                    <Col xs={navColsSpanXS} className={navColsClasses}
-                    onClick={() => handleCloseOffCanvas()}>
+                    <Col
+                      xs={navColsSpanXS}
+                      className={navColsClasses}
+                      onClick={() => handleCloseOffCanvas()}
+                    >
                       <NavLink
                         to="/download"
                         className={({ isActive }) =>
@@ -122,8 +129,11 @@ const HeaderNavbar = () => {
                         Access Data
                       </NavLink>
                     </Col>
-                    <Col xs={navColsSpanXS} className={navColsClasses}
-                    onClick={() => handleCloseOffCanvas()}>
+                    <Col
+                      xs={navColsSpanXS}
+                      className={navColsClasses}
+                      onClick={() => handleCloseOffCanvas()}
+                    >
                       <NavLink
                         to="/upload"
                         className={({ isActive }) =>
@@ -133,8 +143,11 @@ const HeaderNavbar = () => {
                         Submit Data
                       </NavLink>
                     </Col>
-                    <Col xs={navColsSpanXS} className={navColsClasses}
-                    onClick={() => handleCloseOffCanvas()}>
+                    <Col
+                      xs={navColsSpanXS}
+                      className={navColsClasses}
+                      onClick={() => handleCloseOffCanvas()}
+                    >
                       <NavLink
                         to="/metadata-model"
                         className={({ isActive }) =>
@@ -144,8 +157,11 @@ const HeaderNavbar = () => {
                         Metadata Model
                       </NavLink>
                     </Col>
-                    <Col xs={navColsSpanXS} className={navColsClasses}
-                    onClick={() => handleCloseOffCanvas()}>
+                    <Col
+                      xs={navColsSpanXS}
+                      className={navColsClasses}
+                      onClick={() => handleCloseOffCanvas()}
+                    >
                       <NavLink
                         to="/faq"
                         className={({ isActive }) =>
@@ -158,10 +174,12 @@ const HeaderNavbar = () => {
                   </Nav>
                 </Col>
                 <Col
-                  className="justify-content-center d-flex px-0 pe-xl-2 pe-xxl-5"
+                  className={
+                    "justify-content-center d-flex px-0" +
+                    (showOffCanvas ? " pt-sm-3" : " pe-xl-2 pe-xxl-5")
+                  }
                   xs={12}
-                  lg={3}
-                  xl={3}
+                  lg={showOffCanvas ? 12 : 3}
                 >
                   <HeaderSearchbar />
                 </Col>
