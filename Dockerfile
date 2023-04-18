@@ -41,8 +41,7 @@ COPY . /service
 RUN apk update && apk upgrade
 RUN apk add --no-cache gcc
 RUN apk add --update alpine-sdk
-# Security patch toss busybox
-RUN apk upgrade busybox --repository=http://dl-cdn.alpinelinux.org/alpine/edge/main
+RUN apk add --update busybox
 
 # RUN pip install .
 
