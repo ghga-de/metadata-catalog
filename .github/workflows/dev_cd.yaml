@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - "main"
-      - feature/GIM-64-multi-platform-builds
+      - GIM-64-multi-platform-builds
       # you may add other branches to
       # activate deployment for them, too.
 
