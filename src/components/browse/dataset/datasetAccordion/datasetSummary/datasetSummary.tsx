@@ -39,7 +39,7 @@ const DatasetSummary = (props: dataSetDetailsProps) => {
 
   return (
     <div className="fs-7">
-      <div className="ms-auto float-end ps-4">
+      <div className="ms-auto float-end ps-0 ps-md-4">
         {props.summary !== null && props.summary !== undefined ? (
           <>
             <Button
@@ -123,7 +123,7 @@ const DatasetSummary = (props: dataSetDetailsProps) => {
         )}
       </div>
       <Row>
-        <Row className="pe-0">
+        <Row className="pe-0 px-0 px-md-2">
           <div className="pe-0 d-block">
             <p>
               <span className="fw-bold">Dataset ID:&nbsp;</span>

@@ -6,13 +6,13 @@ import { useState } from "react";
 
 const HeaderNavbar = () => {
   const navLinkClasses =
-    "h-100 m-0 mx-lg-1 mx-xl-2 py-2 pt-lg-1 pb-lg-0 px-lg-0 px-xl-2 w-100 w-lg-auto text-white btn";
+    "h-100 m-0 py-2 pt-lg-1 pb-lg-1 px-lg-0 px-xl-2 w-100 w-lg-auto text-white btn";
 
   const activePageStyle = navLinkClasses + " btn-secondary ";
   const inactivePageStyle = navLinkClasses + " btn-primary";
 
   const navColsSpanXS = "auto";
-  const navColsClasses = "text-center mb-2 mb-lg-0";
+  const navColsClasses = "text-center mb-2 mb-lg-0 mx-lg-1 mx-xl-2 ";
 
   const [showOffCanvas, setShowOffCanvas] = useState(false);
   const handleCloseOffCanvas = () => setShowOffCanvas(false);
@@ -57,7 +57,7 @@ const HeaderNavbar = () => {
         </Col>
         <Col className="px-0 d-flex justify-content-end" xs={12} sm={2} lg={9}>
           <Navbar.Toggle
-            aria-controls="basic-navbar-nav"
+            aria-controls="responsive-navbar-nav"
             className="border border-2 border-tertiary text-white mb-1 w-100 w-md-auto"
             onClick={() => handleShowOffCanvas()}
           />

@@ -1,7 +1,10 @@
 import React, { useState } from "react";
-import { Accordion, Col } from "react-bootstrap";
+import { Accordion, Col, Row } from "react-bootstrap";
 import { getDatasetSummary } from "../../../../api/browse";
-import { datasetDetailsSummaryModel, hitModel } from "../../../../models/dataset";
+import {
+  datasetDetailsSummaryModel,
+  hitModel,
+} from "../../../../models/dataset";
 import DatasetSummary from "./datasetSummary/datasetSummary";
 
 interface dataSetListProps {
@@ -9,23 +12,33 @@ interface dataSetListProps {
 }
 
 const DatasetAccordion = (props: dataSetListProps) => {
-  const [summary, setSummary] = useState<datasetDetailsSummaryModel | null | undefined>(null)
-  const [summaryMap, setSummaryMap] = useState<Map<string, datasetDetailsSummaryModel | null | undefined>>(
-    new Map<string, datasetDetailsSummaryModel | null>())
+  const [summary, setSummary] = useState<
+    datasetDetailsSummaryModel | null | undefined
+  >(null);
+  const [summaryMap, setSummaryMap] = useState<
+    Map<string, datasetDetailsSummaryModel | null | undefined>
+  >(new Map<string, datasetDetailsSummaryModel | null>());
   const getDetails = (datasetId: string) => {
     if (summaryMap.get(datasetId) === undefined) {
       getDatasetSummary(datasetId, setSummary);
-      setSummaryMap(summaryMap.set(datasetId, null))
+      setSummaryMap(summaryMap.set(datasetId, null));
     }
   };
 
-  if (summary !== null && summary !== undefined && summaryMap.get(summary.id) === null) {
-    setSummaryMap(summaryMap.set(summary.id, summary))
+  if (
+    summary !== null &&
+    summary !== undefined &&
+    summaryMap.get(summary.id) === null
+  ) {
+    setSummaryMap(summaryMap.set(summary.id, summary));
   }
 
   return (
-    <div>
-      <Accordion alwaysOpen className="mt-1 me-3">
+    <Row>
+      <Accordion
+        alwaysOpen
+        className="mt-1 me-lg-3 px-0 ps-lg-2 pe-lg-3 ms-lg-1"
+      >
         {props.dsList.map((hit, index) => (
           <Accordion.Item
             key={index}
@@ -34,11 +47,13 @@ const DatasetAccordion = (props: dataSetListProps) => {
             title={hit.content.title}
           >
             <Accordion.Button
-              className="bg-light align-items-start text-break py-2 text-black"
+              className="bg-light align-items-start text-break py-2 px-1 px-lg-2 text-black"
               onClick={() => getDetails(hit.id)}
             >
-              <Col lg={3} md={3} sm={3} xl={3} xs={3} xxl={3}>
-                {hit.content.ega_accession !== null ? hit.content.ega_accession : hit.content.accession}
+              <Col xs={5} sm={3}>
+                {hit.content.ega_accession !== null
+                  ? hit.content.ega_accession
+                  : hit.content.accession}
               </Col>
               <Col className="pe-2" style={{ height: "42px" }}>
                 <div
@@ -55,13 +70,13 @@ const DatasetAccordion = (props: dataSetListProps) => {
                 </div>
               </Col>
             </Accordion.Button>
-            <Accordion.Body>
+            <Accordion.Body className="p-2">
               <DatasetSummary hit={hit} summary={summaryMap.get(hit.id)} />
             </Accordion.Body>
           </Accordion.Item>
         ))}
       </Accordion>
-    </div>
+    </Row>
   );
 };
 

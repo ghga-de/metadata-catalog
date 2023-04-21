@@ -18,7 +18,7 @@ export const getFilterString = (filterDict: facetFilterModel[]) => {
 
 export const scrollUp = () => {
   window.scrollTo({
-    top: 60,
+    top: 0,
     behavior: "smooth",
   });
 };

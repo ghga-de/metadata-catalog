@@ -40,12 +40,12 @@ const DatasetPagination = (props: dataSetPaginationProps) => {
   };
 
   return (
-    <div className="p-1" onClick={scrollUp}>
+    <div className="p-0 p-md-1" onClick={scrollUp}>
       <ReactPaginate
         previousLabel={"<"}
         nextLabel={">"}
         pageCount={pageCount}
-        marginPagesDisplayed={3}
+        marginPagesDisplayed={2}
         pageRangeDisplayed={2}
         onPageChange={handlePageClick}
         containerClassName={"pagination justify-content-left my-0"}

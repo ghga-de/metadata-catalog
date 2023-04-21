@@ -116,11 +116,11 @@ const DataRequestModal = (props: DataRequestModalProps) => {
             />
           </Col>
           <Col>
-            To request access, you will need to first download the HIPO DACO Info form
+            To request access, you will need to first download the Data Access Info form
             from the DAP tab in the dataset details. Once this form is filled please
             contact the indicated Data Access Committee (DAC) which is responsible for approving
             applications for this dataset. Please copy the message below, attach the filled copy
-            of HIPO DACO Info form and send it via email to <strong>{props.copyEmail}</strong>.
+            of Data Access Info form and send it via email to <strong>{props.copyEmail}</strong>.
             <br />
             If configured, you can click on ‘Open Mail Client’ to open the
             message in your preferred email client. Please add any additional

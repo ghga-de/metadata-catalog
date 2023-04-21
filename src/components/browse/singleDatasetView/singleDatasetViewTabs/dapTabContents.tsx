@@ -39,7 +39,7 @@ const DapTabContents = (props: DapTabContentsProps) => {
                     <FontAwesomeIcon icon={faLink} />
                   </Col>
                   <Col className="p-0 m-0 lh-1">
-                    <strong>HIPO DACO Info Form</strong>
+                    <strong>Data Access Info Form</strong>
                   </Col>
                 </Row>
               </Button>
