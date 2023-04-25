@@ -50,7 +50,7 @@ const DatasetAccordion = (props: dataSetListProps) => {
               className="bg-light align-items-start text-break py-2 px-1 px-lg-2 text-black"
               onClick={() => getDetails(hit.id)}
             >
-              <Col xs={5} sm={3}>
+              <Col xs={5} sm={4} xl={3}>
                 {hit.content.ega_accession !== null
                   ? hit.content.ega_accession
                   : hit.content.accession}

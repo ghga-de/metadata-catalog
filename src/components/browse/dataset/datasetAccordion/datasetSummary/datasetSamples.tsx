@@ -26,7 +26,6 @@ const DatasetSamples = (props: dataSetSamplesProps) => {
         <Row>
           <p className="mb-0">
             <strong>Sample info</strong>
-            <br />
           </p>
           {props.samples !== null ? (
             <div>
@@ -50,7 +49,6 @@ const DatasetSamples = (props: dataSetSamplesProps) => {
                   <FontAwesomeIcon icon={faGenderless} />
                 </span>{" "}
                 )
-                <br />
                 <div className="my-0">
                   <p className="mb-0">
                     <strong>

@@ -20,11 +20,9 @@ const DatasetExperiments = (props: dataSetExperimentsProps) => {
           <p className="mb-0">
             <strong>Experiment info</strong>
           </p>
-          <br />
           <p className="mb-0">
             Experiments: <strong>{props.experiments?.count}</strong>{" "}
           </p>
-          <br />
           <div className="mb-0">
             Platforms:&nbsp;
             {props.experiments?.stats.protocol ? (
