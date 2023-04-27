@@ -1,5 +1,5 @@
-import React from "react";
-import { Col, Row } from "react-bootstrap";
+import React, { useState } from "react";
+import { Col, Navbar, Row } from "react-bootstrap";
 import { useSearchParams } from "react-router-dom";
 import { querySearchService } from "../../api/browse";
 import { hitModel, searchResponseModel } from "../../models/dataset";
@@ -8,6 +8,8 @@ import { getFilterParams } from "../../utils/utils";
 import DatasetHeader from "./dataset/datasetHeader";
 import DatasetList from "./dataset/datasetList";
 import Sidebar from "./sidebar/sidebar";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFilter, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
 const Browse = () => {
   let [searchParams, setSearchParams] = useSearchParams();
@@ -71,6 +73,8 @@ const Browse = () => {
     }
   }
 
+  const [openFilter, setOpenFilter] = useState(false);
+
   return (
     <div className="mt-4 mx-auto px-5">
       <Row>
@@ -92,26 +96,40 @@ const Browse = () => {
         />
       </Row>
       <Row>
-        <Col className="col-3">
-          <Sidebar
-            searchKeyword={searchKeyword}
-            setSearchKeyword={setSearchKeyword}
-            facetList={facetList}
-            setSearchResults={setSearchResults}
-            setFilterDict={setFilterDict}
-            filterDict={filterDict}
-            limit={limit}
-            searchParams={searchParams}
-            setSearchParams={setSearchParams}
-            page={page}
-            setPage={setPage}
-            setAppliedFilterDict={setAppliedFilterDict}
-            appliedFilterDict={appliedFilterDict}
-            setCheck={setCheck}
-            check={check}
-          />
+        <Col xs={12} lg={4} xl={3}>
+          <Navbar expand="lg" expanded={openFilter}>
+            <Navbar.Toggle
+              className="col-12 mt-3 p-2"
+              aria-controls="filter-datasets-nav"
+              onClick={() => setOpenFilter(!openFilter)}
+            >
+              <FontAwesomeIcon icon={faMagnifyingGlass} />
+              <FontAwesomeIcon icon={faFilter} />
+              {" "}Search&nbsp;and filter results
+            </Navbar.Toggle>
+            <Navbar.Collapse id="filter-datasets-nav">
+              <Sidebar
+                searchKeyword={searchKeyword}
+                setSearchKeyword={setSearchKeyword}
+                facetList={facetList}
+                setSearchResults={setSearchResults}
+                setFilterDict={setFilterDict}
+                filterDict={filterDict}
+                limit={limit}
+                searchParams={searchParams}
+                setSearchParams={setSearchParams}
+                page={page}
+                setPage={setPage}
+                setAppliedFilterDict={setAppliedFilterDict}
+                appliedFilterDict={appliedFilterDict}
+                setCheck={setCheck}
+                check={check}
+                setOpenFilter={setOpenFilter}
+              />
+            </Navbar.Collapse>
+          </Navbar>
         </Col>
-        <Col>
+        <Col className="px-0 px-lg-2">
           <DatasetList
             searchKeyword={searchKeyword}
             setSearchResults={setSearchResults}

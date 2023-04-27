@@ -1,13 +1,14 @@
 import React, { Dispatch, SetStateAction } from "react";
-import Search from "./searchbar";
-import Filter from "./filter";
-import { Row, Col, Button } from "react-bootstrap";
-import { facetModel, facetFilterModel } from "../../../models/facets";
-import { searchResponseModel } from "../../../models/dataset";
-import { querySearchService } from "../../../api/browse";
-import { handleFilterAndSearch } from "../../../utils/utils";
+import { Button, Col, Row } from "react-bootstrap";
 import { URLSearchParamsInit, useNavigate } from "react-router-dom";
-import { scrollUp } from "../../../utils/utils";
+import { querySearchService } from "../../../api/browse";
+import { searchResponseModel } from "../../../models/dataset";
+import { facetFilterModel, facetModel } from "../../../models/facets";
+import { handleFilterAndSearch, scrollUp } from "../../../utils/utils";
+import Filter from "./filter";
+import Searchbar from "./searchbar";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 
 interface sidebarProps {
   facetList: facetModel[] | null;
@@ -28,6 +29,7 @@ interface sidebarProps {
   appliedFilterDict: facetFilterModel[];
   setCheck: Dispatch<SetStateAction<Map<string, boolean>>>;
   check: Map<string, boolean>;
+  setOpenFilter: any;
 }
 
 const Sidebar = (props: sidebarProps) => {
@@ -68,7 +70,7 @@ const Sidebar = (props: sidebarProps) => {
   return (
     <div className="border rounded border-light p-2 mt-3 shadow">
       <Row>
-        <Search
+        <Searchbar
           searchKeyword={props.searchKeyword}
           setSearchKeyword={props.setSearchKeyword}
           setSearchResults={props.setSearchResults}
@@ -96,12 +98,13 @@ const Sidebar = (props: sidebarProps) => {
             ))}
         </Row>
       )}
-      <Row className="mb-2 mt-3 justify-content-end">
+      <Row className="mb-2 mt-lg-3 justify-content-end">
         <Col>
           <Button
             className="w-100 rounded border-2 shadow-md-dark"
             variant="outline-secondary"
             onClick={() => {
+              props.setOpenFilter(false);
               handleClear();
               scrollUp();
             }}
@@ -114,6 +117,7 @@ const Sidebar = (props: sidebarProps) => {
             variant="secondary"
             className="w-100 rounded text-white border-2 shadow-md-dark"
             onClick={() => {
+              props.setOpenFilter(false);
               navigate(
                 handleFilterAndSearch(
                   props.setSearchResults,
@@ -131,6 +135,18 @@ const Sidebar = (props: sidebarProps) => {
             }}
           >
             Filter
+          </Button>
+        </Col>
+        <Col xs={12} className="d-flex d-lg-none">
+          <Button
+            variant="outline-gray"
+            className="w-100 rounded mt-3"
+            onClick={() => {
+              props.setOpenFilter(false);
+              scrollUp();
+            }}
+          >
+            <FontAwesomeIcon icon={faBars} />&nbsp;Close Filters
           </Button>
         </Col>
       </Row>

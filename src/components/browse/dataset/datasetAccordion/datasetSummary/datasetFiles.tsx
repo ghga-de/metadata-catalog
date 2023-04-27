@@ -21,7 +21,6 @@ const DatasetFiles = (props: dataSetFilesProps) => {
         <Row>
           <p className="mb-0">
             <strong>File summary</strong>
-            <br />
           </p>
           {props.files !== null ? (
             <div>

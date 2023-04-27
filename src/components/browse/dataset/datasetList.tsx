@@ -51,11 +51,9 @@ const DatasetList = (props: dataSetProps) => {
 
   const Columns = () => {
     return (
-      <Row className="mt-3 mb-3 ms-0 me-3 py-1 ps-2 bg-primary text-white">
-        <Col lg={3} md={3} sm={3} xl={3} xs={3} xxl={3}>
-          Dataset ID
-        </Col>
-        <Col className="pe-2 ps-0">Title</Col>
+      <Row className="mt-3 mb-3 ms-lg-0 me-lg-0 py-1 ps-lg-2 bg-primary text-white">
+        <Col xs={5} md={4} xl={3}>Dataset ID</Col>
+        <Col className="pe-lg-2 ps-0">Title</Col>
       </Row>
     );
   };
@@ -66,7 +64,7 @@ const DatasetList = (props: dataSetProps) => {
   };
 
   return (
-    <div className="bg-white p-2 ps-3 h-100 pt-0">
+    <div className="p-lg-2 ps-lg-3 h-100 pt-0">
       {props.dsList === null ? (
         <div className="p-2 fs-4 my-3 fw-bold">
           <FontAwesomeIcon icon={faCircleInfo} className="text-info" />
@@ -88,19 +86,11 @@ const DatasetList = (props: dataSetProps) => {
             <Columns />
             <DatasetAccordion dsList={props.dsList} />
           </div>
-          <Row className="mb-2 mt-5 w-100 pe-0 me-0">
-            <Col>
+          <Row className="mb-2 mt-5 w-100 px-0 mx-0">
+            <Col xs={12} md={10} className="mb-3 mb-md-0 px-0">
               <PaginatedDataset />
             </Col>
-            <Col
-              lg={2}
-              md={2}
-              sm={2}
-              xl={2}
-              xs={2}
-              xxl={2}
-              className="ps-4 pe-0"
-            >
+            <Col xs={4} md={2} className="ps-0 ps-lg-4 pe-0">
               {(props.page - 1) * 50 <= props.dsCount ? (
                 <Form.Select
                   value={props.limit}
