@@ -4,7 +4,7 @@ import {
   faSort,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Accordion, Button, Table } from "react-bootstrap";
+import { Accordion, Button, Col, Row, Table } from "react-bootstrap";
 import { datasetEmbeddedModel } from "../../../../models/dataset";
 import { parseBytes, transposeTableForHTML } from "../../../../utils/utils";
 import { ExperimentsTable } from "./tables/experimentsTable";
@@ -32,7 +32,11 @@ const SingleDatasetViewAccordion = (props: SingleDatasetViewAccordionProps) => {
     setSortDefinition: any;
     sortedData: any;
     setSortedData: any;
-  }[] = [ExperimentsTable(props), SamplesTable(props), FilesTable(props, fileSize)];
+  }[] = [
+    ExperimentsTable(props),
+    SamplesTable(props),
+    FilesTable(props, fileSize),
+  ];
 
   const SortTable = (
     setSortItem: any,
@@ -66,43 +70,58 @@ const SingleDatasetViewAccordion = (props: SingleDatasetViewAccordionProps) => {
             {x.buttonText}
           </Accordion.Button>
           <Accordion.Body
-            className="pt-4 overflow-auto"
+            className="py-0 px-1 px-sm-2 px-lg-4 overflow-auto bg-white"
             style={{ maxHeight: "425px" }}
           >
-            <Table hover className="fs-7" size="sm">
-              <thead className="border-light-3 border-1">
+            <Table
+              hover
+              className="my-1 my-sm-2 fs-8 fs-sm-7"
+              size="sm"
+              style={{ minWidth: "800px" }}
+            >
+              <thead className="border-light-3 border-1 bg-white">
                 <tr>
                   {x.table.map((y: any, idy: number) => (
-                    <th className={y.className} key={"table_sdsv_th_" + idy}>
-                      <Button
-                        variant="outline-secondary"
-                        className="p-0 px-1 me-1 border-0"
-                        onClick={() => {
-                          SortTable(
-                            x.setSortDefinition,
-                            x.sortedData,
-                            x.setSortedData,
-                            Array.from(
-                              transposeTableForHTML(
-                                x.table.map((y: any) => y.data)
-                              )
-                            ),
-                            idy,
-                            x.sortDefinition.key === idy
-                              ? (x.sortDefinition.order + 1) % 3
-                              : 1
-                          );
-                        }}
-                      >
-                        <FontAwesomeIcon
-                          icon={
-                            x.sortDefinition.key === idy
-                              ? iconsDef[x.sortDefinition.order]
-                              : iconsDef[0]
-                          }
-                        />
-                      </Button>
-                      {y.header}
+                    <th
+                      className={
+                        y.className + " align-middle bg-white pt-3 lh-1"
+                      }
+                      key={"table_sdsv_th_" + idy}
+                      style={{ position: "sticky", top: "0px" }}
+                    >
+                      <Row className="flex-nowrap align-items-center">
+                        <Col xs={"auto"} className="pe-0 ps-2">
+                          <Button
+                            variant="outline-secondary"
+                            className="p-0 fs-8 fs-sm-7 px-1 me-1 border-0"
+                            onClick={() => {
+                              SortTable(
+                                x.setSortDefinition,
+                                x.sortedData,
+                                x.setSortedData,
+                                Array.from(
+                                  transposeTableForHTML(
+                                    x.table.map((y: any) => y.data)
+                                  )
+                                ),
+                                idy,
+                                x.sortDefinition.key === idy
+                                  ? (x.sortDefinition.order + 1) % 3
+                                  : 1
+                              );
+                            }}
+                          >
+                            <FontAwesomeIcon
+                              icon={
+                                x.sortDefinition.key === idy
+                                  ? iconsDef[x.sortDefinition.order]
+                                  : iconsDef[0]
+                              }
+                            />
+                          </Button>
+                        </Col>
+                        <Col className="ps-0">{y.header}</Col>
+                      </Row>
                     </th>
                   ))}
                 </tr>

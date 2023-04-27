@@ -17,39 +17,47 @@ const StudyTabContents = (props: StudyTabContentsProps) => {
           return (
             <div key={x.id} className="text-break overflow-auto h-100">
               <PerfectScrollbar>
-                {x.ega_accession !== null ? (
-                  <Button
-                    href={"https://ega-archive.org/studies/" + x.ega_accession}
-                    target="_blank"
-                    variant="white"
-                    className="float-end fs-7 py-2 mb-2 ms-4 text-secondary shadow-md-dark border-secondary"
-                  >
-                    <Row className="p-0 m-0 align-items-center text-start">
-                      <Col className="p-0 m-0 col-3 ">
-                        <FontAwesomeIcon icon={faLink} />
-                      </Col>
-                      <Col className="p-0 m-0 lh-1">
-                        <strong>Visit EGA Study</strong>
-                      </Col>
-                    </Row>
-                  </Button>
-                ) : (
-                  <></>
-                )}
-                <h5 className="mb-4 d-flex align-items-center">
-                  <FontAwesomeIcon
-                    icon={faBook}
-                    pull="left"
-                    style={{
-                      width: "30px",
-                      height: "30px",
-                      backgroundColor: "rgba(214,95,48,0.2)",
-                      padding: "8px",
-                    }}
-                    className="text-secondary me-3 fs-4 rounded"
-                  />
-                  <strong>Study</strong>
-                </h5>
+                <Row className="flex-row-reverse">
+                  {x.ega_accession !== null ? (
+                    <Col xs={12} sm={"auto"} className="mb-2 mb-sm-0">
+                      <Button
+                        href={
+                          "https://ega-archive.org/studies/" + x.ega_accession
+                        }
+                        target="_blank"
+                        variant="white"
+                        className="fs-7 py-2 mb-2 text-secondary shadow-md-dark border-secondary"
+                      >
+                        <Row className="p-0 m-0 align-items-center text-start">
+                          <Col className="p-0 m-0" xs={3}>
+                            <FontAwesomeIcon icon={faLink} />
+                          </Col>
+                          <Col className="p-0 m-0 lh-1">
+                            <strong>Visit EGA Study</strong>
+                          </Col>
+                        </Row>
+                      </Button>
+                    </Col>
+                  ) : (
+                    <></>
+                  )}
+                  <Col className="pe-0">
+                    <h5 className="mb-4 d-flex align-items-center clear-end">
+                      <FontAwesomeIcon
+                        icon={faBook}
+                        pull="left"
+                        style={{
+                          width: "30px",
+                          height: "30px",
+                          backgroundColor: "rgba(214,95,48,0.2)",
+                          padding: "8px",
+                        }}
+                        className="text-secondary me-3 fs-4 rounded"
+                      />
+                      <strong>Study</strong>
+                    </h5>
+                  </Col>
+                </Row>
                 <p className="mb-4">
                   <strong>ID: </strong>
                   {x.ega_accession !== null ? x.ega_accession : x.accession}

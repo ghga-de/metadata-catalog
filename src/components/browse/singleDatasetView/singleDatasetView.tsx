@@ -7,18 +7,17 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
 import { Button, Col, Row, Spinner } from "react-bootstrap";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { getDatasetDetails, querySearchService } from "../../../api/browse";
 import {
   datasetEmbeddedModel,
   searchResponseModel,
 } from "../../../models/dataset";
+import { getDACEmailId } from "../../../utils/utils";
+import DataRequestModal from "../dataset/datasetAccordion/datasetSummary/dataRequestModal/dataRequestModal";
 import SingleDatasetViewAccordion from "./singleDatasetViewAccordion/singleDatasetViewAccordion";
 import SingleDatasetViewSummary from "./singleDatasetViewSummary/singleDatasetViewSummary";
 import SingleDatasetViewTabs from "./singleDatasetViewTabs/singleDatasetViewTabs";
-import { useNavigate } from "react-router-dom";
-import DataRequestModal from "../dataset/datasetAccordion/datasetSummary/dataRequestModal/dataRequestModal";
-import { getDACEmailId } from "../../../utils/utils";
 
 const SingleDatasetView = () => {
   let accessionId: string | null | undefined = null;
@@ -85,7 +84,7 @@ const SingleDatasetView = () => {
   };
 
   return (
-    <div className="py-4 mx-auto px-5">
+    <div className="py-2 py-sm-4 mx-auto px-2 px-sm-5">
       {searchResults === null ? (
         <div className="fs-5">
           <Spinner animation="border" variant="primary" size="sm" />
@@ -110,58 +109,67 @@ const SingleDatasetView = () => {
         </div>
       ) : (
         <>
-          <Button
-            onClick={() =>
-              navigate.length <= 2 ? navigate("/browse") : navigate(-1)
-            }
-            variant="white"
-            className="text-secondary mb-3"
-          >
-            <FontAwesomeIcon
-              icon={faArrowTurnUp}
-              transform="rotate-270 grow-10 flip-v"
-            />
-          </Button>
-          <Button
-            className="fs-7 float-end mb-3 ms-4 text-white shadow-md-dark"
-            variant="secondary"
-            onClick={() => handleOpen()}
-            style={{ width: "105px" }}
-          >
-            <Row className="p-0 m-0 align-items-center text-start">
-              <Col className="p-0 m-0 col-3 ">
-                <FontAwesomeIcon icon={faKey} />
-              </Col>
-              <Col className="p-0 m-0 lh-1">
-                <strong>Request Access</strong>
-              </Col>
-            </Row>
-          </Button>
-          {details.ega_accession !== null ? (
-            <Button
-              href={
-                "https://ega-archive.org/datasets/" +
-                details.ega_accession
-              }
-              target="_blank"
-              variant="white"
-              className="fs-7 mb-3 float-end text-secondary shadow-md-dark text-start border-secondary"
-              style={{ width: "115px" }}
-            >
-              <Row className="p-0 m-0 align-items-center text-start">
-                <Col className="p-0 m-0 col-3 ">
-                  <FontAwesomeIcon icon={faLink} />
-                </Col>
-                <Col className="p-0 m-0 lh-1">
-                  <strong>Visit EGA Website</strong>
-                </Col>
-              </Row>
-            </Button>
-          ) : (
-            <div />
-          )}
+          <Row className="justify-content-between w-100">
+            <Col className="pe-0" xs={"auto"}>
+              <Button
+                onClick={() =>
+                  navigate.length <= 2 ? navigate("/browse") : navigate(-1)
+                }
+                variant="white"
+                className="text-secondary mb-3"
+              >
+                <FontAwesomeIcon
+                  icon={faArrowTurnUp}
+                  transform="rotate-270 grow-10 flip-v"
+                />
+              </Button>
+            </Col>
+            <Col className="px-0">
+              <Button
+                className="fs-7 float-end mb-3 ms-2 ms-sm-4 text-white shadow-md-dark"
+                variant="secondary"
+                onClick={() => handleOpen()}
+                style={{ width: "105px" }}
+              >
+                <Row className="p-0 m-0 align-items-center text-start">
+                  <Col className="p-0 m-0 col-3 ">
+                    <FontAwesomeIcon icon={faKey} />
+                  </Col>
+                  <Col className="p-0 m-0 lh-1">
+                    <strong>Request Access</strong>
+                  </Col>
+                </Row>
+              </Button>
+              {details.ega_accession !== null ? (
+                <Button
+                  href={
+                    "https://ega-archive.org/datasets/" + details.ega_accession
+                  }
+                  target="_blank"
+                  variant="white"
+                  className="fs-7 mb-3 float-end text-secondary shadow-md-dark text-start border-secondary"
+                  style={{ width: "115px" }}
+                >
+                  <Row className="p-0 m-0 align-items-center text-start">
+                    <Col className="p-0 m-0 col-3 ">
+                      <FontAwesomeIcon icon={faLink} />
+                    </Col>
+                    <Col className="p-0 m-0 lh-1">
+                      <strong>Visit EGA Website</strong>
+                    </Col>
+                  </Row>
+                </Button>
+              ) : (
+                <div />
+              )}
+            </Col>
+          </Row>
           <DataRequestModal
-            accession={details.ega_accession !== null ? details.ega_accession : details.accession}
+            accession={
+              details.ega_accession !== null
+                ? details.ega_accession
+                : details.accession
+            }
             copyEmail={copyEmail}
             show={show}
             handleClose={handleClose}

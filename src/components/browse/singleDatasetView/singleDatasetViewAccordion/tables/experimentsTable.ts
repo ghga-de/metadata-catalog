@@ -22,7 +22,7 @@ export const ExperimentsTable = (props: ExperimentsTableProps) => {
       data: props.details.has_experiment.map((x) =>
         x.ega_accession !== null ? x.ega_accession : x.alias
       ),
-      cssClasses: "w-25",
+      cssClasses: "w-25 text-wrap text-break",
     },
     {
       header: "Description",

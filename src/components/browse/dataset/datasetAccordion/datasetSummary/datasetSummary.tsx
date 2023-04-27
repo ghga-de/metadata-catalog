@@ -44,7 +44,7 @@ const DatasetSummary = (props: dataSetDetailsProps) => {
 
   return (
     <div className="fs-7">
-      <div className="pe-0 px-0 px-md-2">
+      <div className="pe-0 px-0 px-md-2 pt-md-1">
         <div className="float-end ps-0 ps-md-4 ms-1">
           {props.summary !== null && props.summary !== undefined ? (
             <>
