@@ -35,7 +35,7 @@ export const FilesTable = (props: ExperimentsTableProps, fileSize: number) => {
     {
       header: "Checksum",
       data: props.details.has_file.map(
-        (x) => x.checksum_type + ": " + x.checksum
+        (x) => x.checksum_type + ":" + x.checksum
       ),
       cssClasses: "",
     },
