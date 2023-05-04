@@ -114,7 +114,7 @@ const Download = () => {
         </p>
         <Row className={static_page_img_row_classes}>
           <Col className={static_page_img_col_classes}>
-            <img src={emailImg} alt="Dataset details" className="w-100" />
+            <img src={requestImg} alt="Dataset details" className="w-100" />
           </Col>
         </Row>
       </div>
