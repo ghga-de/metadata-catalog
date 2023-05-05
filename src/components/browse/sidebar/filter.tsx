@@ -61,7 +61,7 @@ const Filter = (props: filterProps) => {
                   >
                     <Row>
                       <Col lg={10} md={10} sm={10} xl={10} xs={10} xxl={10}>
-                        <p className="ps-2 my-0 text-capitalize">
+                        <p className="ps-2 my-0 text-capitalize text-break">
                           {option.option}
                         </p>
                       </Col>

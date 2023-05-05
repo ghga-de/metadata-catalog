@@ -76,7 +76,7 @@ const Browse = () => {
   const [openFilter, setOpenFilter] = useState(false);
 
   return (
-    <div className="mt-4 mx-auto px-5">
+    <div className="mt-4 mx-auto px-2 px-md-5">
       <Row>
         <DatasetHeader
           dsCount={dsCount}
@@ -129,7 +129,7 @@ const Browse = () => {
             </Navbar.Collapse>
           </Navbar>
         </Col>
-        <Col className="px-0 px-lg-2">
+        <Col className="px-4 px-lg-2">
           <DatasetList
             searchKeyword={searchKeyword}
             setSearchResults={setSearchResults}
