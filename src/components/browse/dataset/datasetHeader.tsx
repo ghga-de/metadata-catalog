@@ -95,7 +95,7 @@ const DatasetHeader = (props: datasetHeaderProps) => {
 
   return (
     <Row className="mt-1 mx-0">
-      <Col xs={7} className="ps-3 offset-0 offset-md-3">
+      <Col xs={12} lg={6} xl={7} className="ps-3 offset-0 offset-lg-4 offset-xl-3">
         <div className="ps-3 pe-0">
           {props.searchParams.get("q") !== undefined &&
             props.searchParams.get("q") !== null ? (
@@ -158,7 +158,7 @@ const DatasetHeader = (props: datasetHeaderProps) => {
           ))}
         </div>
       </Col>
-      <Col xs={5} md={2} className="text-end pe-0 pe-lg-4">
+      <Col xs={12} lg={2} className="text-end pe-0 pe-lg-4">
         <Badge className="py-2 px-2 bg-primary me-1">
           {props.searchParams.get("f") !== undefined &&
             props.searchParams.get("f") !== null
