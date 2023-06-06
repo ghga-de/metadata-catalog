@@ -33,7 +33,7 @@ const Upload = () => {
         institutions to collect dataset. If you are located at a GHGA Partner
         Institute and would like to upload your metadata to the GHGA Metadata
         Catalog, please contact the GHGA Helpdesk at{" "}
-        <strong>ghga-office[at]dkfz-heidelberg[dot]de</strong>.
+        <strong>helpdesk[at]ghga[dot]de</strong>.
       </p>
       <p>
         We are collecting the anonymous dataset metadata following the GHGA
